@@ -619,5 +619,30 @@ class Test_001_Login:
             self.driver.close()
             self.logger.info("********************Test  LEGAL_ACTIONS2021 Ended********************************")
 
+    def Dashboard(self,setup):
+        self.logger.info("********************verifying Dashboard Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(5)
+        self.driver.maximize_window()
+        self.hp = Homepage_Billing(self.driver)
+        time.sleep(3)
+        self.hp.Dashboard()
+        selectyear = self.driver.find_element_by_id("")
+        if selectyear.is_selected():
+            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Dashboard.png")
+            self.driver.close()
+            self.logger.info(
+                "********************Test  Dashboard Ended Due to selected Year********************************")
+            assert False
+        else:
+            assert True
+            self.driver.close()
+            self.logger.info("********************Test  Dashboard Ended********************************")
+
 
 

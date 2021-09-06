@@ -17,3 +17,8 @@ class Homepage_Billing:
         self.data = Locator_Path()
         Year = Select(self.driver.find_element_by_id(self.data.SelectYear))
         return Year
+
+    def Dashboard(self):
+        self.data = Locator_Path()
+        self.driver.find_element_by_id(self.data.Dashboard).click()
+

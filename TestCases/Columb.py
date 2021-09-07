@@ -22,13 +22,15 @@ class Test_001_Login:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.hp = Homepage_Billing(self.driver)
+        self.CH = ColumbHosptal(self.driver)
         time.sleep(3)
+        self.CH.ColumbHomepage()
         a = self.driver.current_url
-        if a == "https://pds-billing-info.tibilprojects.com/dashboard":
+        if a == "https://pds-billing-info.tibilprojects.com/dashboard/COLUMB":
             assert True
-            self.logger.info("********************Test  Homepage Ended********************************")
+            self.logger.info("********************Test  ColumbHomepage Passed********************************")
         else:
-            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_HomepagePage.png")
-            self.logger.info("********************Login Test passed********************************")
+            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_ColumbHomepage.png")
+            self.logger.info("********************ColumbHomepage Test ended********************************")
             assert False
+            

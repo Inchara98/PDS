@@ -24,3 +24,4 @@ class Locator_Path():
     Logout_Billing = ""
     SelectYear = ""
     Dashboard = ""
+    ColumbBargraph = ""

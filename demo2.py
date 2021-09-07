@@ -21,5 +21,3 @@ with zipfile.ZipFile(latest_driver_zip, 'r') as zip_ref:
     #delete the zip file downloaded above
 os.remove("/home/inchara/PycharmProjects/PDS/driver/chromedriver")
 
-
-def test_SelectYear2019

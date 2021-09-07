@@ -5,14 +5,14 @@ from Logs.Log import log_Details
 from Utilities.readProperties import ReadConfig
 
 
-class Test_001_Login:
+class Test_PutnamHospital:
     baseUrl = ReadConfig.getApplicationUrl()
     username = ReadConfig.getUserID()
     password = ReadConfig.getPassword()
 
     logger =log_Details.logen()
 
-    def test_ColumbHomepage(self,setup):
+    def test_PutnamHomepage(self,setup):
         self.logger.info("********************verifying Homepage Test********************************")
         self.driver = setup
         self.driver.get(self.baseUrl)
@@ -26,12 +26,12 @@ class Test_001_Login:
         time.sleep(3)
         self.CH.ColumbHomepage()
         a = self.driver.current_url
-        if a == "https://pds-billing-info.tibilprojects.com/dashboard/COMMUNITY":
+        if a == "https://pds-billing-info.tibilprojects.com/dashboard/PUTNAM":
             assert True
-            self.logger.info("********************Test  ColumbHomepage Passed********************************")
+            self.logger.info("********************Test PutnamHomepage Passed********************************")
         else:
-            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_ColumbHomepage.png")
-            self.logger.info("********************ColumbHomepage Test ended********************************")
+            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_PutnamHomepage.png")
+            self.logger.info("********************PutnamHomepage Test ended********************************")
             assert False
 
     def test_SelectYear2018(self,setup):

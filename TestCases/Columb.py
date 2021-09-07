@@ -89,7 +89,7 @@ class Test_001_Login:
             assert False
 
 
-    def test_SelectYear(self,setup):
+    def test_SelectYear2019(self,setup):
         self.logger.info("********************verifying Login Test********************************")
         self.driver = setup
         self.driver.get(self.baseUrl)

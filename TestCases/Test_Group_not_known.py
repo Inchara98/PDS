@@ -12,7 +12,7 @@ class Test_001_Login:
 
     logger =log_Details.logen()
 
-    def test_DeaconessHomepage(self,setup):
+    def test_Group_not_knownHomepage(self,setup):
         self.logger.info("********************verifying Homepage Test********************************")
         self.driver = setup
         self.driver.get(self.baseUrl)
@@ -26,12 +26,12 @@ class Test_001_Login:
         time.sleep(3)
         self.CH.ColumbHomepage()
         a = self.driver.current_url
-        if a == "https://pds-billing-info.tibilprojects.com/dashboard/DEACONESS":
+        if a == "https://pds-billing-info.tibilprojects.com/dashboard/GROUP_NOT_KNOWN":
             assert True
-            self.logger.info("********************Test DeaconessHomepage Passed********************************")
+            self.logger.info("********************Test Group_not_knownHomepage Passed********************************")
         else:
-            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_DeaconessHomepage.png")
-            self.logger.info("********************DeaconessHomepage Test ended********************************")
+            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Group_not_knownHomepage.png")
+            self.logger.info("********************Group_not_knownHomepage Test ended********************************")
             assert False
 
     def test_SelectYear2018(self,setup):

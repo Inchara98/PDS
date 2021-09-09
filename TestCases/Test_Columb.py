@@ -46,6 +46,7 @@ class Test_001_Login:
         self.driver.maximize_window()
         self.CH = ColumbHosptal(self.driver)
         time.sleep(3)
+        self.CH.ColumbHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
         a = self.driver.find_element_by_id("").text
@@ -73,11 +74,12 @@ class Test_001_Login:
         self.driver.maximize_window()
         self.CH = ColumbHosptal(self.driver)
         time.sleep(3)
+        self.CH.ColumbHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(2)
         a = self.driver.find_element_by_id("").text
         time.sleep(3)
-        if a == "Overall Revenue v/s Transactions-2018":
+        if a == "Overall Revenue v/s Transactions-2019":
             assert True
             self.driver.close()
             self.logger.info("********************Test  SelectYear Ended********************************")
@@ -101,11 +103,12 @@ class Test_001_Login:
         self.driver.maximize_window()
         self.CH = ColumbHosptal(self.driver)
         time.sleep(3)
+        self.CH.ColumbHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(3)
         a = self.driver.find_element_by_id("").text
         time.sleep(3)
-        if a == "Overall Revenue v/s Transactions-2018":
+        if a == "Overall Revenue v/s Transactions-2020":
             assert True
             self.driver.close()
             self.logger.info("********************Test  SelectYear Ended********************************")
@@ -129,11 +132,12 @@ class Test_001_Login:
         self.driver.maximize_window()
         self.CH = ColumbHosptal(self.driver)
         time.sleep(3)
+        self.CH.ColumbHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(4)
         a = self.driver.find_element_by_id("").text
         time.sleep(3)
-        if a == "Overall Revenue v/s Transactions-2018":
+        if a == "Overall Revenue v/s Transactions-2021":
             assert True
             self.driver.close()
             self.logger.info("********************Test  SelectYear2021 Ended********************************")
@@ -144,4 +148,481 @@ class Test_001_Login:
                 "********************Test  SelectYear2021 Ended Due to difference in the txt********************************")
             assert False
 
-            
+    def test_Revenue2018(self,setup):
+        self.logger.info("********************verifying Revenue2018 Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(5)
+        self.driver.maximize_window()
+        self.CH = ColumbHosptal(self.driver)
+        time.sleep(3)
+        self.CH.ColumbHomepage()
+        SelectYear = self.CH.SelectYear()
+        SelectYear.select_by_index(1)
+        c = self.driver.find_element_by_id("").text
+        time.sleep(3)
+        if c >= 0:
+            assert True
+            self.driver.close()
+            self.logger.info("********************Test  LEGAL_ACTIONS2018 Ended********************************")
+        else:
+            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_LEGAL_ACTIONS2018.png")
+            self.driver.close()
+            self.logger.info(
+                "********************Test  LEGAL_ACTIONS2018 Ended Due to difference in the txt********************************")
+            assert False
+
+
+    def test_TOTALTRANSACTIONS2018(self,setup):
+        self.logger.info("********************verifying TOTAL_TRANSACTIONS2018 Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(5)
+        self.driver.maximize_window()
+        self.CH = ColumbHosptal(self.driver)
+        time.sleep(3)
+        self.CH.ColumbHomepage()
+        SelectYear = self.CH.SelectYear()
+        SelectYear.select_by_index(1)
+        c = self.driver.find_element_by_id("").text
+        time.sleep(3)
+        if c >= 0:
+            else:
+            assert True
+            self.driver.close()
+            self.logger.info("********************Test  TOTAL_TRANSACTIONS2018 Ended********************************")
+        else:
+            self.driver.save_screenshot(
+                "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_TRANSACTIONS2018.png")
+            self.driver.close()
+            self.logger.info(
+                "********************Test  TOTAL_TRANSACTIONS2018 Ended Due to difference in the txt********************************")
+            assert False
+
+
+
+    def test_TOTALPAYMENTS2018(self,setup):
+        self.logger.info("********************verifying TOTAL_PAYMENTS2018 Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(5)
+        self.driver.maximize_window()
+        self.CH = ColumbHosptal(self.driver)
+        time.sleep(3)
+        self.CH.ColumbHomepage()
+        SelectYear = self.CH.SelectYear()
+        SelectYear.select_by_index(1)
+        c = self.driver.find_element_by_id("").text
+        time.sleep(3)
+        if c >= 0:
+            assert True
+            self.driver.close()
+            self.logger.info("********************Test  TOTAL_PAYMENTS2018 Ended********************************")
+        else:
+            self.driver.save_screenshot(
+                "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_PAYMENTS2018.png")
+            self.driver.close()
+            self.logger.info(
+                "********************Test  TOTAL_PAYMENTS2018 Ended Due to difference in the txt********************************")
+            assert False
+
+
+    def test_LEGAL_ACTIONS2018(self,setup):
+        self.logger.info("********************verifying LEGAL_ACTIONS2018 Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(5)
+        self.driver.maximize_window()
+        self.CH = ColumbHosptal(self.driver)
+        time.sleep(3)
+        self.CH.ColumbHomepage()
+        SelectYear = self.CH.SelectYear()
+        SelectYear.select_by_index(1)
+        c = self.driver.find_element_by_id("").text
+        time.sleep(3)
+        if c >= 0:
+            assert True
+            self.driver.close()
+            self.logger.info("********************Test  LEGAL_ACTIONS2018 Ended********************************")
+        else:
+            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_LEGAL_ACTIONS2018.png")
+            self.driver.close()
+            self.logger.info(
+                "********************Test  LEGAL_ACTIONS2018 Ended Due to difference in the txt********************************")
+            assert False
+
+
+    def test_Revenue2019(self,setup):
+        self.logger.info("********************verifying Revenue2019 Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(5)
+        self.driver.maximize_window()
+        self.CH = ColumbHosptal(self.driver)
+        time.sleep(3)
+        self.CH.ColumbHomepage()
+        SelectYear = self.CH.SelectYear()
+        SelectYear.select_by_index(1)
+        c = self.driver.find_element_by_id("").text
+        time.sleep(3)
+        if c >= 0:
+            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2019.png")
+            self.driver.close()
+            self.logger.info(
+                "********************Test  Revenue2019 Ended Due to difference in the txt********************************")
+            assert False
+        else:
+            assert True
+            self.driver.close()
+            self.logger.info("********************Test  Revenue2019 Ended********************************")
+
+
+    def test_TOTALTRANSACTIONS2019(self,setup):
+        self.logger.info("********************verifying TOTAL_TRANSACTIONS2019 Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(5)
+        self.driver.maximize_window()
+        self.CH = ColumbHosptal(self.driver)
+        time.sleep(3)
+        self.CH.ColumbHomepage()
+        SelectYear = self.CH.SelectYear()
+        SelectYear.select_by_index(1)
+        c = self.driver.find_element_by_id("").text
+        time.sleep(3)
+        if c >= 0:
+            assert True
+            self.driver.close()
+            self.logger.info("********************Test  TOTAL_TRANSACTIONS2019 Ended********************************")
+        else:
+            self.driver.save_screenshot(
+                "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_TRANSACTIONS2019.png")
+            self.driver.close()
+            self.logger.info(
+                "********************Test  TOTAL_TRANSACTIONS2019 Ended Due to difference in the txt********************************")
+            assert False
+
+
+    def test_TOTALPAYMENTS2019(self,setup):
+        self.logger.info("********************verifying TOTAL_PAYMENTS2019 Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(5)
+        self.driver.maximize_window()
+        self.CH = ColumbHosptal(self.driver)
+        time.sleep(3)
+        self.CH.ColumbHomepage()
+        SelectYear = self.CH.SelectYear()
+        SelectYear.select_by_index(1)
+        c = self.driver.find_element_by_id("").text
+        time.sleep(3)
+        if c >= 0:
+            assert True
+            self.driver.close()
+            self.logger.info("********************Test  TOTAL_PAYMENTS2019 Ended********************************")
+        else:
+            self.driver.save_screenshot(
+                "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_PAYMENTS2019.png")
+            self.driver.close()
+            self.logger.info(
+                "********************Test  TOTAL_PAYMENTS2019 Ended Due to difference in the txt********************************")
+            assert False
+
+
+    def test_LEGAL_ACTIONS2019(self,setup):
+        self.logger.info("********************verifying LEGALACTIONS2019 Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(5)
+        self.driver.maximize_window()
+        self.CH = ColumbHosptal(self.driver)
+        time.sleep(3)
+        self.CH.ColumbHomepage()
+        SelectYear = self.CH.SelectYear()
+        SelectYear.select_by_index(1)
+        c = self.driver.find_element_by_id("").text
+        time.sleep(3)
+        if c == 0:
+            assert True
+            self.driver.close()
+            self.logger.info("********************Test  LEGAL_ACTIONS2019 Ended********************************")
+        else:
+            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_LEGAL_ACTIONS2019.png")
+            self.driver.close()
+            self.logger.info(
+                "********************Test  LEGAL_ACTIONS2019 Ended Due to difference in the txt********************************")
+            assert False
+
+
+
+    def test_Revenue2020(self,setup):
+        self.logger.info("********************verifying REVENUE2020 Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(5)
+        self.driver.maximize_window()
+        self.CH = ColumbHosptal(self.driver)
+        time.sleep(3)
+        self.CH.ColumbHomepage()
+        SelectYear = self.CH.SelectYear()
+        SelectYear.select_by_index(1)
+        c = self.driver.find_element_by_id("").text
+        time.sleep(3)
+        if c >= 0:
+            assert True
+            self.driver.close()
+            self.logger.info("********************Test  Revenue2020 Ended********************************")
+            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2020.png")
+            self.driver.close()
+            self.logger.info(
+                "********************Test  Revenue2020 Ended Due to difference in the txt********************************")
+            assert False
+        else:
+            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2020.png")
+            self.driver.close()
+            self.logger.info(
+                "********************Test  Revenue2020 Ended Due to difference in the txt********************************")
+            assert False
+
+
+    def test_TOTALTRANSACTIONS2020(self,setup):
+        self.logger.info("********************verifying TOTALTRANSACTIONS2020 Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(5)
+        self.driver.maximize_window()
+        self.CH = ColumbHosptal(self.driver)
+        time.sleep(3)
+        self.CH.ColumbHomepage()
+        SelectYear = self.CH.SelectYear()
+        SelectYear.select_by_index(1)
+        c = self.driver.find_element_by_id("").text
+        time.sleep(3)
+        if c >= 0:
+            assert True
+            self.driver.close()
+            self.logger.info("********************Test  TOTAL_TRANSACTIONS Ended********************************")
+        else:
+            self.driver.save_screenshot(
+                "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_TRANSACTIONS2020.png")
+            self.driver.close()
+            self.logger.info(
+                "********************Test  TOTAL_TRANSACTIONS2020 Ended Due to difference in the txt********************************")
+            assert False
+
+
+    def test_TOTALPAYMENTS2020(self,setup):
+        self.logger.info("********************verifying TOTALPAYMENTS2020 Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(5)
+        self.driver.maximize_window()
+        self.CH = ColumbHosptal(self.driver)
+        time.sleep(3)
+        self.CH.ColumbHomepage()
+        SelectYear = self.CH.SelectYear()
+        SelectYear.select_by_index(1)
+        c = self.driver.find_element_by_id("").text
+        time.sleep(3)
+        if c < 0:
+            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_PAYMENTS2020.png")
+            self.driver.close()
+            self.logger.info(
+                "********************Test  TOTAL_PAYMENTS2020 Ended Due to difference in the txt********************************")
+            assert False
+        else:
+            assert True
+            self.driver.close()
+            self.logger.info("********************Test  TOTAL_PAYMENTS2020 Ended********************************")
+
+    def test_LEGAL_ACTIONS2020(self,setup):
+        self.logger.info("********************verifying LEGALACTIONS2020 Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(5)
+        self.driver.maximize_window()
+        self.CH = ColumbHosptal(self.driver)
+        time.sleep(3)
+        self.CH.ColumbHomepage()
+        SelectYear = self.hp.SelectYear()
+        SelectYear.select_by_index(1)
+        c = self.driver.find_element_by_id("").text
+        time.sleep(3)
+        if c < 0:
+            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_LEGAL_ACTIONS2020.png")
+            self.driver.close()
+            self.logger.info(
+                "********************Test  LEGAL_ACTIONS2020 Ended Due to difference in the txt********************************")
+            assert False
+        else:
+            assert True
+            self.driver.close()
+            self.logger.info("********************Test  LEGAL_ACTIONS2020 Ended********************************")
+
+
+    def test_Revenue2021(self,setup):
+        self.logger.info("********************verifying Revenue2021 Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(5)
+        self.driver.maximize_window()
+        self.CH = ColumbHosptal(self.driver)
+        time.sleep(3)
+        self.CH.ColumbHomepage()
+        SelectYear = self.hp.SelectYear()
+        SelectYear.select_by_index(1)
+        c = self.driver.find_element_by_id("").text
+        time.sleep(3)
+        if c < 0:
+            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2021.png")
+            self.driver.close()
+            self.logger.info(
+                "********************Test  Revenue2021 Ended Due to difference in the txt********************************")
+            assert False
+        else:
+            assert True
+            self.driver.close()
+            self.logger.info("********************Test  Revenue2021 Ended********************************")
+
+
+    def test_TOTALTRANSACTIONS2021(self,setup):
+        self.logger.info("********************verifying TOTALTRANSACTION2021 Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(5)
+        self.driver.maximize_window()
+        self.CH = ColumbHosptal(self.driver)
+        time.sleep(3)
+        self.CH.ColumbHomepage()
+        SelectYear = self.hp.SelectYear()
+        SelectYear.select_by_index(1)
+        c = self.driver.find_element_by_id("").text
+        time.sleep(3)
+        if c < 0:
+            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_TRANSACTIONS2021.png")
+            self.driver.close()
+            self.logger.info(
+                "********************Test  TOTAL_TRANSACTIONS2021 Ended Due to difference in the txt********************************")
+            assert False
+        else:
+            assert True
+            self.driver.close()
+            self.logger.info("********************Test  TOTAL_TRANSACTIONS2021 Ended********************************")
+
+
+    def test_TOTALPAYMENTS2021(self,setup):
+        self.logger.info("********************verifying TOTALPAYMENTS2021 Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(5)
+        self.driver.maximize_window()
+        self.CH = ColumbHosptal(self.driver)
+        time.sleep(3)
+        self.CH.ColumbHomepage()
+        SelectYear = self.hp.SelectYear()
+        SelectYear.select_by_index(1)
+        c = self.driver.find_element_by_id("").text
+        time.sleep(3)
+        if c < 0:
+            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_PAYMENTS2021.png")
+            self.driver.close()
+            self.logger.info(
+                "********************Test  TOTAL_PAYMENTS2021 Ended Due to difference in the txt********************************")
+            assert False
+        else:
+            assert True
+            self.driver.close()
+            self.logger.info("********************Test  TOTAL_PAYMENTS Ended********************************")
+
+    def test_LEGAL_ACTIONS2021(self,setup):
+        self.logger.info("********************verifying LEGALACTIONs2021 Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(5)
+        self.driver.maximize_window()
+        self.CH = ColumbHosptal(self.driver)
+        time.sleep(3)
+        self.CH.ColumbHomepage()
+        SelectYear = self.hp.SelectYear()
+        SelectYear.select_by_index(1)
+        c = self.driver.find_element_by_id("").text
+        time.sleep(3)
+        if c < 0:
+            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_LEGAL_ACTIONS2021.png")
+            self.driver.close()
+            self.logger.info(
+                "********************Test  LEGAL_ACTIONS2021 Ended Due to difference in the txt********************************")
+            assert False
+        else:
+            assert True
+            self.driver.close()
+            self.logger.info("********************Test  LEGAL_ACTIONS2021 Ended********************************")
+
+
+
+
+

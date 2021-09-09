@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c3c91386-3774-4342-8e61-a32660a60ff7" name="Changes" comment="changes">
-      <change afterPath="$PROJECT_DIR$/PageObjects/ColumbHospital.py" afterDir="false" />
+    <list default="true" id="c3c91386-3774-4342-8e61-a32660a60ff7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/PageObjects/CommunityHospital.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Locators/Locators.py" beforeDir="false" afterPath="$PROJECT_DIR$/Locators/Locators.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/Columb.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/Columb.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/Test_Columb.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/Test_Columb.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/Test_Community.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/Test_Community.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/Test_Deaconess.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/Test_Deaconess.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/Test_Floyd.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/Test_Floyd.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/Test_Goshen.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/Test_Goshen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/Test_Group_not_known.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/Test_Group_not_known.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/Test_Harris.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/Test_Harris.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/Test_Hchphy.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/Test_Hchphy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/Test_Jasper.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/Test_Jasper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/Test_Jennie.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/Test_Jennie.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/Test_Kings.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/Test_Kings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/Test_Logan1.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/Test_Logan1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/Test_Lvngst.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/Test_Lvngst.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +71,7 @@
       <recent name="$PROJECT_DIR$/Logs" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python tests.pytest for Test_Homepage_AT.Test_001_Homepage.test_login">
     <configuration name="Demo" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PDS" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -196,21 +207,6 @@
       <option name="presentableId" value="Default" />
       <updated>1628240136014</updated>
     </task>
-    <task id="LOCAL-00001" summary="changes">
-      <created>1630991100805</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1630991100805</updated>
-    </task>
-    <task id="LOCAL-00002" summary="changes">
-      <created>1630991290733</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1630991290733</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -224,10 +220,6 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

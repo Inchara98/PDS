@@ -608,7 +608,7 @@ class Test_001_Login:
         time.sleep(3)
         self.CH.ColumbHomepage()
         SelectYear = self.hp.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(4)
         c = self.driver.find_element_by_id("").text
         time.sleep(3)
         if c < 0:
@@ -622,7 +622,103 @@ class Test_001_Login:
             self.driver.close()
             self.logger.info("********************Test  LEGAL_ACTIONS2021 Ended********************************")
 
+    def test_Data2018(self,setup):
+        self.logger.info("********************verifying LEGALACTIONs2021 Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(5)
+        self.driver.maximize_window()
+        self.CH = ColumbHospital(self.driver)
+        time.sleep(3)
+        self.CH.ColumbHomepage()
+        SelectYear = self.hp.SelectYear()
+        SelectYear.select_by_index(1)
+        hospital = Select(self.driver.find_element_by_id(""))
+        for i in range(1,len(hospital.options)):
+            hospital.select_by_index(i)
+            if "No Data Found for this hospital" in self.page_source:
+                print(hospital.options[i].text,"No Data")
+            else:
+                if hospital == name:
+                    print("Selected hospital records are related")
 
 
+    def test_Data2019(self, setup):
+        self.logger.info("********************verifying LEGALACTIONs2021 Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(5)
+        self.driver.maximize_window()
+        self.CH = ColumbHospital(self.driver)
+        time.sleep(3)
+        self.CH.ColumbHomepage()
+        SelectYear = self.hp.SelectYear()
+        SelectYear.select_by_index(2)
+        hospital = Select(self.driver.find_element_by_id(""))
+        for i in range(1, len(hospital.options)):
+            hospital.select_by_index(i)
+            if "No Data Found for this hospital" in self.page_source:
+                print(hospital.options[i].text, "No Data")
+            else:
+                if hospital == name:
+                    print("Selected hospital records are related")
+
+
+
+    def test_Data2020(self,setup):
+        self.logger.info("********************verifying LEGALACTIONs2021 Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(5)
+        self.driver.maximize_window()
+        self.CH = ColumbHospital(self.driver)
+        time.sleep(3)
+        self.CH.ColumbHomepage()
+        SelectYear = self.hp.SelectYear()
+        SelectYear.select_by_index(3)
+        hospital = Select(self.driver.find_element_by_id(""))
+        for i in range(1,len(hospital.options)):
+            hospital.select_by_index(2)
+            if "No Data Found for this hospital" in self.page_source:
+                print(hospital.options[i].text,"No Data")
+            else:
+                if hospital == name:
+                    print("Selected hospital records are related")
+
+    def test_Data2021(self,setup):
+        self.logger.info("********************verifying LEGALACTIONs2021 Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(5)
+        self.driver.maximize_window()
+        self.CH = ColumbHospital(self.driver)
+        time.sleep(3)
+        self.CH.ColumbHomepage()
+        SelectYear = self.hp.SelectYear()
+        SelectYear.select_by_index(4)
+        hospital = Select(self.driver.find_element_by_id(""))
+        for i in range(1,len(hospital.options)):
+            hospital.select_by_index(i)
+            if "No Data Found for this hospital" in self.page_source:
+                print(hospital.options[i].text,"No Data")
+            else:
+                if hospital == name:
+                    print("Selected hospital records are related")
 
 

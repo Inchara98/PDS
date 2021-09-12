@@ -24,7 +24,7 @@ class Test_001_Login:
         self.driver.maximize_window()
         self.CH = HarrisHospital(self.driver)
         time.sleep(3)
-        self.CH.ColumbHomepage()
+        self.CH.HarrisHomepage()
         a = self.driver.current_url
         if a == "https://pds-billing-info.tibilprojects.com/dashboard/HARRIS":
             assert True
@@ -156,7 +156,7 @@ class Test_001_Login:
         self.driver.maximize_window()
         self.CH = HarrisHospital(self.driver)
         time.sleep(3)
-        self.CH.ColumbHomepage()
+        self.CH.HarrisHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
@@ -185,7 +185,7 @@ class Test_001_Login:
         self.driver.maximize_window()
         self.CH = HarrisHospital(self.driver)
         time.sleep(3)
-        self.CH.ColumbHomepage()
+        self.CH.HarrisHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
@@ -217,7 +217,7 @@ class Test_001_Login:
         self.driver.maximize_window()
         self.CH = HarrisHospital(self.driver)
         time.sleep(3)
-        self.CH.ColumbHomepage()
+        self.CH.HarrisHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
@@ -247,7 +247,7 @@ class Test_001_Login:
         self.driver.maximize_window()
         self.CH = HarrisHospital(self.driver)
         time.sleep(3)
-        self.CH.ColumbHomepage()
+        self.CH.HarrisHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
@@ -276,7 +276,7 @@ class Test_001_Login:
         self.driver.maximize_window()
         self.CH = HarrisHospital(self.driver)
         time.sleep(3)
-        self.CH.ColumbHomepage()
+        self.CH.HarrisHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
@@ -305,7 +305,7 @@ class Test_001_Login:
         self.driver.maximize_window()
         self.CH = HarrisHospital(self.driver)
         time.sleep(3)
-        self.CH.ColumbHomepage()
+        self.CH.HarrisHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
@@ -335,7 +335,7 @@ class Test_001_Login:
         self.driver.maximize_window()
         self.CH = HarrisHospital(self.driver)
         time.sleep(3)
-        self.CH.ColumbHomepage()
+        self.CH.HarrisHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
@@ -365,7 +365,7 @@ class Test_001_Login:
         self.driver.maximize_window()
         self.CH = HarrisHospital(self.driver)
         time.sleep(3)
-        self.CH.ColumbHomepage()
+        self.CH.HarrisHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
@@ -395,7 +395,7 @@ class Test_001_Login:
         self.driver.maximize_window()
         self.CH = HarrisHospital(self.driver)
         time.sleep(3)
-        self.CH.ColumbHomepage()
+        self.CH.HarrisHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
@@ -429,7 +429,7 @@ class Test_001_Login:
         self.driver.maximize_window()
         self.CH = HarrisHospital(self.driver)
         time.sleep(3)
-        self.CH.ColumbHomepage()
+        self.CH.HarrisHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
@@ -459,7 +459,7 @@ class Test_001_Login:
         self.driver.maximize_window()
         self.CH = HarrisHospital(self.driver)
         time.sleep(3)
-        self.CH.ColumbHomepage()
+        self.CH.HarrisHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
@@ -487,7 +487,7 @@ class Test_001_Login:
         self.driver.maximize_window()
         self.CH = HarrisHospital(self.driver)
         time.sleep(3)
-        self.CH.ColumbHomepage()
+        self.CH.HarrisHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
@@ -516,7 +516,7 @@ class Test_001_Login:
         self.driver.maximize_window()
         self.CH = HarrisHospital(self.driver)
         time.sleep(3)
-        self.CH.ColumbHomepage()
+        self.CH.HarrisHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
@@ -545,7 +545,7 @@ class Test_001_Login:
         self.driver.maximize_window()
         self.CH = HarrisHospital(self.driver)
         time.sleep(3)
-        self.CH.ColumbHomepage()
+        self.CH.HarrisHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text

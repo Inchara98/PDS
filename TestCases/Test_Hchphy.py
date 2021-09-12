@@ -12,7 +12,7 @@ class Test_001_Login:
 
     logger =log_Details.logen()
 
-    def test_HchphyHomepage(self,setup):
+    def test_HcCHhyHomepage(self,setup):
         self.logger.info("********************verifying Homepage Test********************************")
         self.driver = setup
         self.driver.get(self.baseUrl)
@@ -22,9 +22,9 @@ class Test_001_Login:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = JasperHospital(self.driver)
+        self.CH = HchphyHomepage(self.driver)
         time.sleep(3)
-        self.CH.JasperHomepage()
+        self.CH.HchphyHomepage()
         a = self.driver.current_url
         if a == "https://pds-billing-info.tibilprojects.com/dashboard/HCHPHY":
             assert True
@@ -44,7 +44,7 @@ class Test_001_Login:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = JasperHospital(self.driver)
+        self.CH = HchphyHomepage(self.driver)
         time.sleep(3)
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
@@ -71,7 +71,7 @@ class Test_001_Login:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = JasperHospital(self.driver)
+        self.CH = HchphyHomepage(self.driver)
         time.sleep(3)
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(2)
@@ -99,7 +99,7 @@ class Test_001_Login:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = JasperHospital(self.driver)
+        self.CH = HchphyHomepage(self.driver)
         time.sleep(3)
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(3)
@@ -127,7 +127,7 @@ class Test_001_Login:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = JasperHospital(self.driver)
+        self.CH = HchphyHomepage(self.driver)
         time.sleep(3)
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(4)
@@ -154,9 +154,9 @@ class Test_001_Login:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = JasperHospital(self.driver)
+        self.CH = HchphyHomepage(self.driver)
         time.sleep(3)
-        self.CH.JasperHomepage()
+        self.CH.HchphyHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
@@ -183,9 +183,9 @@ class Test_001_Login:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = JasperHospital(self.driver)
+        self.CH = HchphyHomepage(self.driver)
         time.sleep(3)
-        self.CH.JasperHomepage()
+        self.CH.HchphyHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
@@ -215,9 +215,9 @@ class Test_001_Login:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = JasperHospital(self.driver)
+        self.CH = HchphyHomepage(self.driver)
         time.sleep(3)
-        self.CH.JasperHomepage()
+        self.CH.HchphyHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
@@ -245,9 +245,9 @@ class Test_001_Login:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = JasperHospital(self.driver)
+        self.CH = HchphyHomepage(self.driver)
         time.sleep(3)
-        self.CH.JasperHomepage()
+        self.CH.HchphyHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
@@ -274,9 +274,9 @@ class Test_001_Login:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = JasperHospital(self.driver)
+        self.CH = HchphyHomepage(self.driver)
         time.sleep(3)
-        self.CH.JasperHomepage()
+        self.CH.HchphyHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
@@ -303,9 +303,9 @@ class Test_001_Login:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = JasperHospital(self.driver)
+        self.CH = HchphyHomepage(self.driver)
         time.sleep(3)
-        self.CH.JasperHomepage()
+        self.CH.HchphyHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
@@ -333,9 +333,9 @@ class Test_001_Login:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = JasperHospital(self.driver)
+        self.CH = HchphyHomepage(self.driver)
         time.sleep(3)
-        self.CH.JasperHomepage()
+        self.CH.HchphyHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
@@ -363,9 +363,9 @@ class Test_001_Login:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = JasperHospital(self.driver)
+        self.CH = HchphyHomepage(self.driver)
         time.sleep(3)
-        self.CH.JasperHomepage()
+        self.CH.HchphyHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
@@ -393,9 +393,9 @@ class Test_001_Login:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = JasperHospital(self.driver)
+        self.CH = HchphyHomepage(self.driver)
         time.sleep(3)
-        self.CH.JasperHomepage()
+        self.CH.HchphyHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
@@ -427,9 +427,9 @@ class Test_001_Login:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = JasperHospital(self.driver)
+        self.CH = HchphyHomepage(self.driver)
         time.sleep(3)
-        self.CH.JasperHomepage()
+        self.CH.HchphyHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
@@ -457,9 +457,9 @@ class Test_001_Login:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = JasperHospital(self.driver)
+        self.CH = HchphyHomepage(self.driver)
         time.sleep(3)
-        self.CH.JasperHomepage()
+        self.CH.HchphyHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
@@ -485,10 +485,10 @@ class Test_001_Login:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = JasperHospital(self.driver)
+        self.CH = HchphyHomepage(self.driver)
         time.sleep(3)
-        self.CH.JasperHomepage()
-        SelectYear = self.hp.SelectYear()
+        self.CH.HchphyHomepage()
+        SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
         time.sleep(3)
@@ -514,10 +514,10 @@ class Test_001_Login:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = JasperHospital(self.driver)
+        self.CH = HchphyHomepage(self.driver)
         time.sleep(3)
-        self.CH.JasperHomepage()
-        SelectYear = self.hp.SelectYear()
+        self.CH.HchphyHomepage()
+        SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
         time.sleep(3)
@@ -543,10 +543,10 @@ class Test_001_Login:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = JasperHospital(self.driver)
+        self.CH = HchphyHomepage(self.driver)
         time.sleep(3)
-        self.CH.JasperHomepage()
-        SelectYear = self.hp.SelectYear()
+        self.CH.HchphyHomepage()
+        SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
         time.sleep(3)
@@ -572,10 +572,10 @@ class Test_001_Login:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = JasperHospital(self.driver)
+        self.CH = HchphyHomepage(self.driver)
         time.sleep(3)
-        self.CH.JasperHomepage()
-        SelectYear = self.hp.SelectYear()
+        self.CH.HchphyHomepage()
+        SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
         time.sleep(3)
@@ -600,13 +600,13 @@ class Test_001_Login:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = JasperHospital(self.driver)
+        self.CH = HchphyHomepage(self.driver)
         time.sleep(3)
-        self.CH.JasperHomepage()
-        SelectYear = self.hp.SelectYear()
+        self.CH.HchphyHomepage()
+        SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
-        time.sleep(3)JasperHospital
+        time.sleep(3)HchphyHomepage
         if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_LEGAL_ACTIONS2021.png")
             self.driver.close()
@@ -617,3 +617,99 @@ class Test_001_Login:
             assert True
             self.driver.close()
             self.logger.info("********************Test  LEGAL_ACTIONS2021 Ended********************************")
+
+    def test_Data2018(self, setup):
+        self.logger.info("********************verifying LEGALACTIONs2021 Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(5)
+        self.driver.maximize_window()
+        self.CH = HchphyHospital(self.driver)
+        time.sleep(3)
+        self.CH.HchphyHomepage()
+        SelectYear = self.CH.SelectYear()
+        SelectYear.select_by_index(1)
+        hospital = Select(self.driver.find_element_by_id(""))
+        for i in range(1, len(hospital.options)):
+            hospital.select_by_index(i)
+            if "No Data Found for this hospital" in self.page_source:
+                print(hospital.options[i].text, "No Data")
+            else:
+                if hospital == name:
+                    print("Selected hospital records are related")
+
+    def test_Data2019(self, setup):
+        self.logger.info("********************verifying LEGALACTIONs2021 Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(5)
+        self.driver.maximize_window()
+        self.CH = HchphyHospital(self.driver)
+        time.sleep(3)
+        self.CH.HchphyHomepage()
+        SelectYear = self.CH.SelectYear()
+        SelectYear.select_by_index(2)
+        hospital = Select(self.driver.find_element_by_id(""))
+        for i in range(1, len(hospital.options)):
+            hospital.select_by_index(i)
+            if "No Data Found for this hospital" in self.page_source:
+                print(hospital.options[i].text, "No Data")
+            else:
+                if hospital == name:
+                    print("Selected hospital records are related")
+
+    def test_Data2020(self, setup):
+        self.logger.info("********************verifying LEGALACTIONs2021 Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(5)
+        self.driver.maximize_window()
+        self.CH = HchphyHospital(self.driver)
+        time.sleep(3)
+        self.CH.HchphyHomepage()
+        SelectYear = self.CH.SelectYear()
+        SelectYear.select_by_index(3)
+        hospital = Select(self.driver.find_element_by_id(""))
+        for i in range(1, len(hospital.options)):
+            hospital.select_by_index(2)
+            if "No Data Found for this hospital" in self.page_source:
+                print(hospital.options[i].text, "No Data")
+            else:
+                if hospital == name:
+                    print("Selected hospital records are related")
+
+    def test_Data2021(self, setup):
+        self.logger.info("********************verifying LEGALACTIONs2021 Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(5)
+        self.driver.maximize_window()
+        self.CH = HchphyHospital(self.driver)
+        time.sleep(3)
+        self.CH.HchphyHomepage()
+        SelectYear = self.CH.SelectYear()
+        SelectYear.select_by_index(4)
+        hospital = Select(self.driver.find_element_by_id(""))
+        for i in range(1, len(hospital.options)):
+            hospital.select_by_index(i)
+            if "No Data Found for this hospital" in self.page_source:
+                print(hospital.options[i].text, "No Data")
+            else:
+                if hospital == name:
+                    print("Selected hospital records are related")

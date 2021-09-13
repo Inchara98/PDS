@@ -707,7 +707,7 @@ class Test_WomensHospital:
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(4)
         hospital = Select(self.driver.find_element_by_id(""))
-        for i in range(1, len(hospital.options)):
+        for i in range(1,len(hospital.options)):
             hospital.select_by_index(i)
             if "No Data Found for this hospital" in self.page_source:
                 print(hospital.options[i].text, "No Data")

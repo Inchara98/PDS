@@ -637,7 +637,7 @@ class Test_ThehrtHospital:
         hospital = Select(self.driver.find_element_by_id(""))
         for i in range(1, len(hospital.options)):
             hospital.select_by_index(i)
-            if "No Data Found for this hospital" in self.page_source:
+            if "No Data Found For This Hospital" in self.page_source:
                 print(hospital.options[i].text, "No Data")
             else:
                 if hospital == name:
@@ -661,7 +661,7 @@ class Test_ThehrtHospital:
         hospital = Select(self.driver.find_element_by_id(""))
         for i in range(1, len(hospital.options)):
             hospital.select_by_index(i)
-            if "No Data Found for this hospital" in self.page_source:
+            if "No Data Found For This Hospital" in self.page_source:
                 print(hospital.options[i].text, "No Data")
             else:
                 if hospital == name:
@@ -685,7 +685,7 @@ class Test_ThehrtHospital:
         hospital = Select(self.driver.find_element_by_id(""))
         for i in range(1, len(hospital.options)):
             hospital.select_by_index(2)
-            if "No Data Found for this hospital" in self.page_source:
+            if "No Data Found For This Hospital" in self.page_source:
                 print(hospital.options[i].text, "No Data")
             else:
                 if hospital == name:
@@ -709,7 +709,7 @@ class Test_ThehrtHospital:
         hospital = Select(self.driver.find_element_by_id(""))
         for i in range(1, len(hospital.options)):
             hospital.select_by_index(i)
-            if "No Data Found for this hospital" in self.page_source:
+            if "No Data Found For This Hospital" in self.page_source:
                 print(hospital.options[i].text, "No Data")
             else:
                 if hospital == name:

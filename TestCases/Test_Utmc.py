@@ -640,7 +640,7 @@ class Test_UTMC_Hospital:
                 print(hospital.options[i].text, "No Data")
             else:
                 if hospital == name:
-                    print("Selected hospital records are related")
+                    print("Selected hospital records are present")
 
     def test_Data2019(self, setup):
         self.logger.info("********************verifying Data2019 Test********************************")
@@ -664,7 +664,7 @@ class Test_UTMC_Hospital:
                 print(hospital.options[i].text, "No Data")
             else:
                 if hospital == name:
-                    print("Selected hospital records are related")
+                    print("Selected hospital records are present")
 
     def test_Data2020(self, setup):
         self.logger.info("********************verifying Data2020 Test********************************")
@@ -682,13 +682,13 @@ class Test_UTMC_Hospital:
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(3)
         hospital = Select(self.driver.find_element_by_id(""))
-        for i in range(1, len(hospital.options)):
+        for i in range(1,len(hospital.options)):
             hospital.select_by_index(2)
             if "No Data Found for this hospital" in self.page_source:
                 print(hospital.options[i].text, "No Data")
             else:
                 if hospital == name:
-                    print("Selected hospital records are related")
+                    print("Selected hospital records are present")
 
     def test_Data2021(self, setup):
         self.logger.info("********************verifying Data2021 Test********************************")
@@ -712,4 +712,4 @@ class Test_UTMC_Hospital:
                 print(hospital.options[i].text, "No Data")
             else:
                 if hospital == name:
-                    print("Selected hospital records are related")
+                    print("Selected hospital records are present")

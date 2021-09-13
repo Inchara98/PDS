@@ -644,7 +644,7 @@ class Test_001_Login:
                 print(hospital.options[i].text,"No Data")
             else:
                 if hospital == name:
-                    print("Selected hospital records are related")
+                    print("Selected hospital records are present")
 
 
     def test_Data2019(self, setup):
@@ -669,7 +669,7 @@ class Test_001_Login:
                 print(hospital.options[i].text, "No Data")
             else:
                 if hospital == name:
-                    print("Selected hospital records are related")
+                    print("Selected hospital records are present")
 
 
 
@@ -695,7 +695,7 @@ class Test_001_Login:
                 print(hospital.options[i].text,"No Data")
             else:
                 if hospital == name:
-                    print("Selected hospital records are related")
+                    print("Selected hospital records are present")
 
     def test_Data2021(self,setup):
         self.logger.info("********************verifying Data2021 Test********************************")
@@ -719,6 +719,6 @@ class Test_001_Login:
                 print(hospital.options[i].text,"No Data")
             else:
                 if hospital == name:
-                    print("Selected hospital records are related")
+                    print("Selected hospital records are present")
 
 

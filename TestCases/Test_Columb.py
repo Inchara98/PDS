@@ -623,7 +623,7 @@ class Test_001_Login:
             self.logger.info("********************Test  LEGAL_ACTIONS2021 Ended********************************")
 
     def test_Data2018(self,setup):
-        self.logger.info("********************verifying LEGALACTIONs2021 Test********************************")
+        self.logger.info("********************verifying Data2018 Test********************************")
         self.driver = setup
         self.driver.get(self.baseUrl)
         self.lp = LoginPage(self.driver)
@@ -648,7 +648,7 @@ class Test_001_Login:
 
 
     def test_Data2019(self, setup):
-        self.logger.info("********************verifying LEGALACTIONs2021 Test********************************")
+        self.logger.info("********************verifying Data2019 Test********************************")
         self.driver = setup
         self.driver.get(self.baseUrl)
         self.lp = LoginPage(self.driver)
@@ -674,7 +674,7 @@ class Test_001_Login:
 
 
     def test_Data2020(self,setup):
-        self.logger.info("********************verifying LEGALACTIONs2021 Test********************************")
+        self.logger.info("********************verifying Data2020 Test********************************")
         self.driver = setup
         self.driver.get(self.baseUrl)
         self.lp = LoginPage(self.driver)
@@ -698,7 +698,7 @@ class Test_001_Login:
                     print("Selected hospital records are related")
 
     def test_Data2021(self,setup):
-        self.logger.info("********************verifying LEGALACTIONs2021 Test********************************")
+        self.logger.info("********************verifying Data2021 Test********************************")
         self.driver = setup
         self.driver.get(self.baseUrl)
         self.lp = LoginPage(self.driver)

@@ -683,7 +683,7 @@ class Test_001_Login:
         SelectYear.select_by_index(3)
         hospital = Select(self.driver.find_element_by_id(""))
         for i in range(1, len(hospital.options)):
-            hospital.select_by_index(2)
+            hospital.select_by_index(i)
             if "No Data Found For This Hospital" in self.page_source:
                 print(hospital.options[i].text, "No Data")
             else:

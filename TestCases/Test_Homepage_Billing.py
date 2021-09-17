@@ -192,7 +192,7 @@ class Test_001_Login:
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
         time.sleep(3)
-        if c == 0:
+        if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2018.png")
             self.driver.close()
             self.logger.info(
@@ -220,7 +220,7 @@ class Test_001_Login:
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
         time.sleep(3)
-        if c == 0:
+        if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_TRANSACTIONS2018.png")
             self.driver.close()
             self.logger.info(
@@ -248,7 +248,7 @@ class Test_001_Login:
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
         time.sleep(3)
-        if c == 0:
+        if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_PAYMENTS2018.png")
             self.driver.close()
             self.logger.info(
@@ -275,7 +275,7 @@ class Test_001_Login:
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
         time.sleep(3)
-        if c == 0:
+        if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_LEGAL_ACTIONS2018.png")
             self.driver.close()
             self.logger.info(
@@ -303,7 +303,7 @@ class Test_001_Login:
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
         time.sleep(3)
-        if c == 0:
+        if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2019.png")
             self.driver.close()
             self.logger.info(
@@ -331,7 +331,7 @@ class Test_001_Login:
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
         time.sleep(3)
-        if c == 0:
+        if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_TRANSACTIONS2019.png")
             self.driver.close()
             self.logger.info(
@@ -359,7 +359,7 @@ class Test_001_Login:
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
         time.sleep(3)
-        if c == 0:
+        if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_PAYMENTS2019.png")
             self.driver.close()
             self.logger.info(
@@ -386,7 +386,7 @@ class Test_001_Login:
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
         time.sleep(3)
-        if c == 0:
+        if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_LEGAL_ACTIONS2019.png")
             self.driver.close()
             self.logger.info(
@@ -414,7 +414,7 @@ class Test_001_Login:
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
         time.sleep(3)
-        if c == 0:
+        if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2020.png")
             self.driver.close()
             self.logger.info(
@@ -442,7 +442,7 @@ class Test_001_Login:
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
         time.sleep(3)
-        if c == 0:
+        if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_TRANSACTIONS2020.png")
             self.driver.close()
             self.logger.info(
@@ -470,7 +470,7 @@ class Test_001_Login:
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
         time.sleep(3)
-        if c == 0:
+        if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_PAYMENTS2020.png")
             self.driver.close()
             self.logger.info(
@@ -497,7 +497,7 @@ class Test_001_Login:
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
         time.sleep(3)
-        if c == 0:
+        if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_LEGAL_ACTIONS2020.png")
             self.driver.close()
             self.logger.info(
@@ -525,7 +525,7 @@ class Test_001_Login:
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
         time.sleep(3)
-        if c == 0:
+        if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2021.png")
             self.driver.close()
             self.logger.info(
@@ -553,7 +553,7 @@ class Test_001_Login:
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
         time.sleep(3)
-        if c == 0:
+        if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_TRANSACTIONS2021.png")
             self.driver.close()
             self.logger.info(
@@ -581,7 +581,7 @@ class Test_001_Login:
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
         time.sleep(3)
-        if c == 0:
+        if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_PAYMENTS2021.png")
             self.driver.close()
             self.logger.info(
@@ -608,7 +608,7 @@ class Test_001_Login:
         SelectYear.select_by_index(1)
         c = self.driver.find_element_by_id("").text
         time.sleep(3)
-        if c == 0:
+        if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_LEGAL_ACTIONS2021.png")
             self.driver.close()
             self.logger.info(

@@ -1,6 +1,6 @@
 import time
 
-
+import pytest
 
 from PageObjects.HomePage_Billing import Homepage_Billing
 from PageObjects.LoginPage import LoginPage
@@ -15,6 +15,7 @@ class Test_001_Login:
 
     logger =log_Details.logen()
 
+    @pytest.mark.smoke
     def test_Homepage(self,setup):
         self.logger.info("********************verifying Homepage Test********************************")
         self.driver = setup

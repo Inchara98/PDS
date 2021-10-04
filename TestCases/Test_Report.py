@@ -12,7 +12,7 @@ class Test_001_Report:
     password = ReadConfig.getPassword1()
     Community = ReadConfig.get_Community_FilePath()
     Deaconess = ReadConfig.get_Deaconess_FilePath()
-    womens_Hospital = ReadConfig.get_Womenshospital_FilePath()
+    Womens_Hospital = ReadConfig.get_Womenshospital_FilePath()
     St_Vincent = ReadConfig.get_St_Vincent_FilePath()
     St_Vincent_Dunn = ReadConfig.get_St_Vincent_Dunn_FilePath()
     Park_view = ReadConfig.get_Park_view_FilePath()
@@ -32,9 +32,9 @@ class Test_001_Report:
         self.driver.maximize_window()
         self.rp = ReportPage(self.driver)
         time.sleep(3)
-        choose_files = self.rp.choosefiles()
+        choose_files = self.rp.choosefilesCommunity()
         choose_files.sendkeys(self.Community)
-        submit = self.driver.find_element_by_id("")
+        submit = self.rp.SubmitCommunity()
         if submit.is_enabled():
             assert True
         else:
@@ -55,10 +55,10 @@ class Test_001_Report:
         self.driver.maximize_window()
         self.rp = ReportPage(self.driver)
         time.sleep(3)
-        choose_files = self.rp.choosefiles()
+        choose_files = self.rp.choosefilesCommunity()
         choose_files.sendkeys(self.Community)
-        self.rp.Submit().click()
-        Execute_Button = self.rp.ExecuteButton()
+        self.rp.SubmitCommunity().click()
+        Execute_Button = self.rp.ExecuteButtonCommunity()
         if Execute_Button.is_enabled():
             assert True
         else:
@@ -79,11 +79,11 @@ class Test_001_Report:
         self.driver.maximize_window()
         self.rp = ReportPage(self.driver)
         time.sleep(3)
-        choose_files = self.rp.choosefiles()
+        choose_files = self.rp.choosefilesCommunity()
         choose_files.sendkeys(self.Community)
-        self.rp.Submit().click()
+        self.rp.SubmitCommunity().click()
         time.sleep(5)
-        self.rp.ExecuteButton().click()
+        self.rp.ExecuteButtonCommunity().click()
         time.sleep(15)
         Status = self.rp.Status()
         if Status is 100:
@@ -107,11 +107,11 @@ class Test_001_Report:
         self.driver.maximize_window()
         self.rp = ReportPage(self.driver)
         time.sleep(3)
-        choose_files = self.rp.choosefiles()
+        choose_files = self.rp.choosefilesCommunity()
         choose_files.sendkeys(self.Community)
-        self.rp.Submit().click()
+        self.rp.SubmitCommunity().click()
         time.sleep(5)
-        self.rp.ExecuteButton().click()
+        self.rp.ExecuteButtonCommunity().click()
         time.sleep(15)
         Status = self.rp.Status()
         if Status is 100:
@@ -134,9 +134,9 @@ class Test_001_Report:
         self.driver.maximize_window()
         self.rp = ReportPage(self.driver)
         time.sleep(3)
-        choose_files = self.rp.choosefiles()
+        choose_files = self.rp.choosefilesDeaconess()
         choose_files.sendkeys(self.Deaconess)
-        submit = self.driver.find_element_by_id("")
+        submit = self.rp.SubmitDeaconess()
         if submit.is_enabled():
             assert True
         else:
@@ -156,10 +156,10 @@ class Test_001_Report:
         self.driver.maximize_window()
         self.rp = ReportPage(self.driver)
         time.sleep(3)
-        choose_files = self.rp.choosefiles()
+        choose_files = self.rp.choosefilesDeaconess()
         choose_files.sendkeys(self.Deaconess)
-        self.rp.Submit().click()
-        Execute_Button = self.rp.ExecuteButton()
+        self.rp.SubmitDeaconess().click()
+        Execute_Button = self.rp.ExecuteButtonDeaconess()
         if Execute_Button.is_enabled():
             assert True
         else:
@@ -182,11 +182,11 @@ class Test_001_Report:
         self.driver.maximize_window()
         self.rp = ReportPage(self.driver)
         time.sleep(3)
-        choose_files = self.rp.choosefiles()
+        choose_files = self.rp.choosefilesDeaconess()
         choose_files.sendkeys(self.Deaconess)
-        self.rp.Submit().click()
+        self.rp.SubmitDeaconess().click()
         time.sleep(5)
-        self.rp.ExecuteButton().click()
+        self.rp.ExecuteButtonDeaconess().click()
         time.sleep(15)
         Status = self.rp.Status()
         if Status is 100:
@@ -210,11 +210,11 @@ class Test_001_Report:
         self.driver.maximize_window()
         self.rp = ReportPage(self.driver)
         time.sleep(3)
-        choose_files = self.rp.choosefiles()
+        choose_files = self.rp.choosefilesDeaconess()
         choose_files.sendkeys(self.Deaconess)
-        self.rp.Submit().click()
+        self.rp.SubmitDeaconess().click()
         time.sleep(5)
-        self.rp.ExecuteButton().click()
+        self.rp.ExecuteButtonDeaconess().click()
         time.sleep(15)
         Status = self.rp.Status()
         if Status is 100:
@@ -237,9 +237,9 @@ class Test_001_Report:
         self.driver.maximize_window()
         self.rp = ReportPage(self.driver)
         time.sleep(3)
-        choose_files = self.rp.choosefiles()
+        choose_files = self.rp.choosefilesWomenshsptl()
         choose_files.sendkeys(self.womens_Hospital)
-        submit = self.driver.find_element_by_id("")
+        submit = self.rp.SubmitWomenshsptl()
         if submit.is_enabled():
             assert True
         else:
@@ -263,7 +263,7 @@ class Test_001_Report:
         choose_files = self.rp.choosefiles()
         choose_files.sendkeys(self.womens_Hospital)
         self.rp.Submit().click()
-        Execute_Button = self.rp.ExecuteButton()
+        Execute_Button = self.rp.ExecuteButtonWomenshsptl()
         if Execute_Button.is_enabled():
             assert True
         else:
@@ -284,11 +284,11 @@ class Test_001_Report:
         self.driver.maximize_window()
         self.rp = ReportPage(self.driver)
         time.sleep(3)
-        choose_files = self.rp.choosefiles()
+        choose_files = self.rp.choosefilesWomenshsptl()
         choose_files.sendkeys(self.womens_Hospital)
-        self.rp.Submit().click()
+        self.rp.SubmitWomenshsptl().click()
         time.sleep(5)
-        self.rp.ExecuteButton().click()
+        self.rp.ExecuteButtonWomenshsptl().click()
         time.sleep(15)
         Status = self.rp.Status()
         if Status is 100:
@@ -312,11 +312,11 @@ class Test_001_Report:
         self.driver.maximize_window()
         self.rp = ReportPage(self.driver)
         time.sleep(3)
-        choose_files = self.rp.choosefiles()
+        choose_files = self.rp.choosefilesWomenshsptl()
         choose_files.sendkeys(self.womens_Hospital)
-        self.rp.Submit().click()
+        self.rp.SubmitWomenshsptl().click()
         time.sleep(5)
-        self.rp.ExecuteButton().click()
+        self.rp.ExecuteButtonWomenshsptl().click()
         time.sleep(15)
         Status = self.rp.Status()
         if Status is 100:
@@ -339,9 +339,9 @@ class Test_001_Report:
         self.driver.maximize_window()
         self.rp = ReportPage(self.driver)
         time.sleep(3)
-        choose_files = self.rp.choosefiles()
+        choose_files = self.rp.choosefilesVinecnt()
         choose_files.sendkeys(self.St_Vincent)
-        submit = self.driver.find_element_by_id("")
+        submit = self.rp.SubmitVincent()
         if submit.is_enabled():
             assert True
         else:
@@ -363,10 +363,10 @@ class Test_001_Report:
         self.driver.maximize_window()
         self.rp = ReportPage(self.driver)
         time.sleep(3)
-        choose_files = self.rp.choosefiles()
+        choose_files = self.rp.choosefilesVinecnt()
         choose_files.sendkeys(self.St_Vincent)
-        self.rp.Submit().click()
-        Execute_Button = self.rp.ExecuteButton()
+        self.rp.SubmitVincent().click()
+        Execute_Button = self.rp.ExecuteButtonVincent()
         if Execute_Button.is_enabled():
             assert True
         else:
@@ -387,11 +387,11 @@ class Test_001_Report:
         self.driver.maximize_window()
         self.rp = ReportPage(self.driver)
         time.sleep(3)
-        choose_files = self.rp.choosefiles()
+        choose_files = self.rp.choosefilesVinecnt()
         choose_files.sendkeys(self.St_Vincent)
-        self.rp.Submit().click()
+        self.rp.SubmitVincent().click()
         time.sleep(5)
-        self.rp.ExecuteButton().click()
+        self.rp.ExecuteButtonVincent().click()
         time.sleep(15)
         Status = self.rp.Status()
         if Status is 100:
@@ -414,11 +414,11 @@ class Test_001_Report:
         self.driver.maximize_window()
         self.rp = ReportPage(self.driver)
         time.sleep(3)
-        choose_files = self.rp.choosefiles()
+        choose_files = self.rp.choosefilesVinecnt()
         choose_files.sendkeys(self.St_Vincent)
-        self.rp.Submit().click()
+        self.rp.SubmitVincent().click()
         time.sleep(5)
-        self.rp.ExecuteButton().click()
+        self.rp.ExecuteButtonVincent().click()
         time.sleep(15)
         Status = self.rp.Status()
         if Status is 100:
@@ -441,9 +441,9 @@ class Test_001_Report:
         self.driver.maximize_window()
         self.rp = ReportPage(self.driver)
         time.sleep(3)
-        choose_files = self.rp.choosefiles()
+        choose_files = self.rp.choosefilesVincentDunniles()
         choose_files.sendkeys(self.St_Vincent_Dunn)
-        submit = self.driver.find_element_by_id("")
+        submit = self.rp.SubmitVincentDunn()
         if submit.is_enabled():
             assert True
             self.logger.info("********************ChooseFile Test passed********************************")
@@ -465,10 +465,10 @@ class Test_001_Report:
         self.driver.maximize_window()
         self.rp = ReportPage(self.driver)
         time.sleep(3)
-        choose_files = self.rp.choosefiles()
+        choose_files = self.rp.choosefilesVincentDunn()
         choose_files.sendkeys(self.St_Vincent_Dunn)
-        self.rp.Submit().click()
-        Execute_Button = self.rp.ExecuteButton()
+        self.rp.SubmitVincentDunn().click()
+        Execute_Button = self.rp.ExecuteButtonVincentDunn()
         if Execute_Button.is_enabled():
             assert True
             self.logger.info("********************Submit Test passed********************************")
@@ -490,11 +490,11 @@ class Test_001_Report:
         self.driver.maximize_window()
         self.rp = ReportPage(self.driver)
         time.sleep(3)
-        choose_files = self.rp.choosefiles()
+        choose_files = self.rp.choosefilesVincentDunn()
         choose_files.sendkeys(self.St_Vincent_Dunn)
-        self.rp.Submit().click()
+        self.rp.SubmitVincentDunn().click()
         time.sleep(5)
-        self.rp.ExecuteButton().click()
+        self.rp.ExecuteButtonVincentDunn().click()
         time.sleep(15)
         Status = self.rp.Status()
         if Status is 100:
@@ -518,11 +518,11 @@ class Test_001_Report:
         self.driver.maximize_window()
         self.rp = ReportPage(self.driver)
         time.sleep(3)
-        choose_files = self.rp.choosefiles()
+        choose_files = self.rp.choosefilesVincentDunn()
         choose_files.sendkeys(self.St_Vincent_Dunn)
-        self.rp.Submit().click()
+        self.rp.SubmitVincentDunn().click()
         time.sleep(5)
-        self.rp.ExecuteButton().click()
+        self.rp.ExecuteButtonVincentDunn().click()
         time.sleep(15)
         Status = self.rp.Status()
         if Status is 100:
@@ -545,9 +545,9 @@ class Test_001_Report:
         self.driver.maximize_window()
         self.rp = ReportPage(self.driver)
         time.sleep(3)
-        choose_files = self.rp.choosefiles()
+        choose_files = self.rp.choosefilesParkview()
         choose_files.sendkeys(self.Park_view)
-        submit = self.driver.find_element_by_id("")
+        submit = self.rp.SubmitParkView()
         if submit.is_enabled():
             assert True
         else:
@@ -568,10 +568,10 @@ class Test_001_Report:
         self.driver.maximize_window()
         self.rp = ReportPage(self.driver)
         time.sleep(3)
-        choose_files = self.rp.choosefiles()
+        choose_files = self.rp.choosefilesParkview()
         choose_files.sendkeys(self.Park_view)
-        self.rp.Submit().click()
-        Execute_Button = self.rp.ExecuteButton()
+        self.rp.SubmitParkView().click()
+        Execute_Button = self.rp.ExecuteButtonParkview()
         if Execute_Button.is_enabled():
             assert True
             self.logger.info("********************Submit Test passed********************************")
@@ -593,11 +593,11 @@ class Test_001_Report:
         self.driver.maximize_window()
         self.rp = ReportPage(self.driver)
         time.sleep(3)
-        choose_files = self.rp.choosefiles()
+        choose_files = self.rp.choosefilesParkview()
         choose_files.sendkeys(self.Park_view)
-        self.rp.Submit().click()
+        self.rp.SubmitParkView().click()
         time.sleep(5)
-        self.rp.ExecuteButton().click()
+        self.rp.ExecuteButtonParkview().click()
         time.sleep(15)
         Status = self.rp.Status()
         if Status is 100:
@@ -621,11 +621,11 @@ class Test_001_Report:
         self.driver.maximize_window()
         self.rp = ReportPage(self.driver)
         time.sleep(3)
-        choose_files = self.rp.choosefiles()
+        choose_files = self.rp.choosefilesParkview()
         choose_files.sendkeys(self.Park_view)
-        self.rp.Submit().click()
+        self.rp.SubmitParkView().click()
         time.sleep(5)
-        self.rp.ExecuteButton().click()
+        self.rp.ExecuteButtonParkview().click()
         time.sleep(15)
         Status = self.rp.Status()
         if Status is 100:
@@ -636,3 +636,105 @@ class Test_001_Report:
             self.logger.info("********************DownloadButton Test Ended********************************")
             assert False
 
+    def test_ReportPage_GoodSam(self, setup):
+        self.logger.info("********************verifying ChooseFile Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(5)
+        self.driver.maximize_window()
+        self.rp = ReportPage(self.driver)
+        time.sleep(3)
+        choose_files = self.rp.choosefileGoodsamFam()
+        choose_files.sendkeys(self.GoodSam)
+        submit = self.rp.SubmitGoodSam()
+        if submit.is_enabled():
+            assert True
+        else:
+            self.driver.save_screenshot(
+                "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_ReportPage_Park_view.png")
+            self.logger.info("********************ChooseFile Test passed********************************")
+            assert False
+
+    def test_GoodSam_Submit(self, setup):
+        self.logger.info("********************verifying Login Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(5)
+        self.driver.maximize_window()
+        self.rp = ReportPage(self.driver)
+        time.sleep(3)
+        choose_files = self.rp.choosefileGoodsamFam()
+        choose_files.sendkeys(self.GoodSam)
+        self.rp.SubmitGoodSam().click()
+        Execute_Button = self.rp.ExecuteButtonGoodSam()
+        if Execute_Button.is_enabled():
+            assert True
+            self.logger.info("********************Submit Test passed********************************")
+        else:
+            self.driver.save_screenshot(
+                "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Park_view_Submit.png")
+            self.logger.info("********************Submit Test Ended********************************")
+            assert False
+
+    def test_GoodSam_ExecuteButton(self, setup):
+        self.logger.info("********************verifying ExecuteButton Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(5)
+        self.driver.maximize_window()
+        self.rp = ReportPage(self.driver)
+        time.sleep(3)
+        choose_files = self.rp.choosefileGoodsamFam()
+        choose_files.sendkeys(self.GoodSam)
+        self.rp.SubmitGoodSam().click()
+        time.sleep(5)
+        self.rp.ExecuteButtonGoodSam().click()
+        time.sleep(15)
+        Status = self.rp.Status()
+        if Status is 100:
+            assert True
+            self.logger.info("********************ExecuteButton Test passed********************************")
+        else:
+            self.driver.save_screenshot(
+                "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Park_view_ExecuteButton.png")
+            self.logger.info("********************ExecuteButton Test Ended********************************")
+            assert False
+
+    def test_GoodSam_DownloadButton(self, setup):
+        self.logger.info("********************verifying Login Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(5)
+        self.driver.maximize_window()
+        self.rp = ReportPage(self.driver)
+        time.sleep(3)
+        choose_files = self.rp.choosefileGoodsamFam()
+        choose_files.sendkeys(self.GoodSam)
+        self.rp.SubmitGoodSam().click()
+        time.sleep(5)
+        self.rp.ExecuteButtonGoodSam().click()
+        time.sleep(15)
+        Status = self.rp.Status()
+        if Status is 100:
+            self.driver.find_element_by_id("").click()
+        else:
+            self.driver.save_screenshot(
+                "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_GoodSam_DownloadButton.png")
+            self.logger.info("********************DownloadButton Test Ended********************************")
+            assert False

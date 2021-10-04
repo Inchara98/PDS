@@ -1,5 +1,5 @@
 import time
-
+import pytest
 from Pageobjects_AT.LoginPage import LoginPage
 from Logs.Log import log_Details
 from Utilities.readProperties import ReadConfig
@@ -30,6 +30,7 @@ class Test_001_Login:
             self.logger.info("********************Test  Login Ended Due to difference in the title********************************")
             assert False
 
+    @pytest.mark.smoke
     def test_login(self,setup):
         self.logger.info("********************verifying Login Test********************************")
         self.driver = setup

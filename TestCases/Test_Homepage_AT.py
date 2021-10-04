@@ -1,5 +1,5 @@
 import time
-
+import pytest
 from Pageobjects_AT.Homepage import Homepage
 from Pageobjects_AT.LoginPage import LoginPage
 from Logs.Log import log_Details
@@ -13,6 +13,7 @@ class Test_001_Homepage:
 
     logger =log_Details.logen()
 
+    @pytest.mark.smoke
     def test_Homepage(self,setup):
         self.logger.info("********************verifying Login Test********************************")
         self.driver = setup
@@ -34,8 +35,7 @@ class Test_001_Homepage:
             self.logger.info("********************Login Test passed********************************")
             assert False
 
-
-
+    @pytest.mark.smoke
     def test_Book_to_Facs(self,setup):
         self.logger.info("********************verifying Login Test********************************")
         self.driver = setup
@@ -59,6 +59,7 @@ class Test_001_Homepage:
             self.logger.info("********************Book_To_Facs Test passed********************************")
             assert False
 
+    @pytest.mark.smoke
     def test_Weekly_Reports(self,setup):
         self.logger.info("********************verifying Login Test********************************")
         self.driver = setup
@@ -106,6 +107,7 @@ class Test_001_Homepage:
             self.logger.info("********************Filemanager Test passed********************************")
             assert False
 
+    @pytest.mark.smoke
     def test_Exception_Report(self,setup):
         self.logger.info("********************verifying Login Test********************************")
         self.driver = setup
@@ -129,7 +131,7 @@ class Test_001_Homepage:
             self.logger.info("********************ExceptionReport Test passed********************************")
             assert False
 
-
+    @pytest.mark.smoke
     def test_logout(self,setup):
         self.logger.info("********************verifying Login Test********************************")
         self.driver = setup

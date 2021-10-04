@@ -1,21 +1,24 @@
-import requests
-import wget
-import zipfile
-import os
+word=input()
+word1=''
+for i in word:
+    if(i.isupper())==True:
+        word1+=(i.lower())
+    elif(i.islower())==True:
+        word1 += (i.lower())
+    elif(i.isspace())==True:
+        word1+=1
+print(word1)
 
 
+a = "inchara"
+print(a.upper())
 
 
+n=input("")
+for i in n:
+    n=chr(ord(i)-(-32))
+    print(n,end='')
 
-
-url = 'https://chromedriver.storage.googleapis.com/LATEST_RELEASE'
-response = requests.get(url)
-version_number = response.text
-# build the donwload url
-download_url = "https://chromedriver.storage.googleapis.com/" + version_number + "/chromedriver_linux64.zip"
-# download the zip file using the url built above
-latest_driver_zip = wget.download(download_url, 'chromedriver.zip')
-# extract the zip file
-with zipfile.ZipFile(latest_driver_zip, 'r') as zip_ref:
-    zip_ref.extractall()  # you can specify the destination folder path here
+varLowerCase = "INCHARA"
+print(varLowerCase.lower())
 

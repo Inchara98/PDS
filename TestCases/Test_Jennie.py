@@ -1,5 +1,5 @@
 import time
-
+import pytest
 from PageObjects.LoginPage import LoginPage
 from Logs.Log import log_Details
 from Utilities.readProperties import ReadConfig
@@ -12,6 +12,7 @@ class Test_001_Login:
 
     logger =log_Details.logen()
 
+    @pytest.mark.smoke
     def test_JennieHomepage(self,setup):
         self.logger.info("********************verifying Homepage Test********************************")
         self.driver = setup

@@ -65,6 +65,10 @@ class ReadConfig():
        Park_view = config.get('common_info', 'Park_view')
        return Park_view
 
+   @staticmethod
+   def get_GoodSam_FilePath():
+       GoodSam = config.get('common_info', 'GoodSam')
+       return GoodSam
 
    @staticmethod
    def get_BookToFacs_FilePath():

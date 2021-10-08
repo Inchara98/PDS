@@ -27,7 +27,7 @@ class Test_001_Report:
         self.driver.close()
         self.BK = BookToFacs(self.driver)
         self.BK.BookToFacs()
-        choosefiles = self.BK.Choosefiles()
+        choosefiles = self.BK.Choosefile_BK()
         choosefiles.send_keys(self.BookToFacs)
         submit = self.driver.find_element_by_id("")
         if submit.is_enabled():

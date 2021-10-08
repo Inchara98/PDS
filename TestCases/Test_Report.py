@@ -115,7 +115,8 @@ class Test_001_Report:
         time.sleep(15)
         Status = self.rp.Status()
         if Status is 100:
-            self.driver.find_element_by_id("").click()
+            self.rp.DownloadCommunity().click()
+            assert True
         else:
             self.driver.save_screenshot(
                 "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Community_DownloadButton.png")
@@ -218,7 +219,8 @@ class Test_001_Report:
         time.sleep(15)
         Status = self.rp.Status()
         if Status is 100:
-            self.driver.find_element_by_id("").click()
+            self.rp.DownloadDeaconess().click()
+            assert True
         else:
             self.driver.save_screenshot(
                 "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Community_DownloadButton.png")
@@ -320,7 +322,8 @@ class Test_001_Report:
         time.sleep(15)
         Status = self.rp.Status()
         if Status is 100:
-            self.driver.find_element_by_id("").click()
+            self.rp.DownloadWomenshsptl().click()
+            assert True
         else:
             self.driver.save_screenshot(
                 "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_WomensHospital_DownloadButton.png")
@@ -422,7 +425,8 @@ class Test_001_Report:
         time.sleep(15)
         Status = self.rp.Status()
         if Status is 100:
-            self.driver.find_element_by_id("").click()
+            self.rp.DownloadVincent().click()
+            assert True
         else:
             self.driver.save_screenshot(
                 "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_St_Vincent_DownloadButton.png")
@@ -526,7 +530,7 @@ class Test_001_Report:
         time.sleep(15)
         Status = self.rp.Status()
         if Status is 100:
-            self.driver.find_element_by_id("").click()
+            self.rp.DownloadVincentDunn().click()
         else:
             self.driver.save_screenshot(
                 "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_St_Vincent_DownloadButton.png")
@@ -629,7 +633,8 @@ class Test_001_Report:
         time.sleep(15)
         Status = self.rp.Status()
         if Status is 100:
-            self.driver.find_element_by_id("").click()
+            self.rp.DownloadParkview().click()
+            assert True
         else:
             self.driver.save_screenshot(
                 "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Park_view_DownloadButton.png")
@@ -732,7 +737,8 @@ class Test_001_Report:
         time.sleep(15)
         Status = self.rp.Status()
         if Status is 100:
-            self.driver.find_element_by_id("").click()
+            self.rp.GoodSam().click()
+            assert True
         else:
             self.driver.save_screenshot(
                 "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_GoodSam_DownloadButton.png")

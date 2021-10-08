@@ -80,7 +80,7 @@ class Test_001_Login:
         time.sleep(3)
         SelectYear = self.hp.SelectYear()
         SelectYear.select_by_index(1)
-        a = self.driver.find_element_by_id("").text
+        a = self.hp.RevenueTittle()
         time.sleep(3)
         if a == "Revenue 2018":
             assert True
@@ -108,7 +108,7 @@ class Test_001_Login:
         time.sleep(3)
         SelectYear = self.hp.SelectYear()
         SelectYear.select_by_index(2)
-        a = self.driver.find_element_by_id("").text
+        a = self.hp.RevenueTittle()
         time.sleep(3)
         if a == "Revenue 2019":
             assert True
@@ -136,7 +136,7 @@ class Test_001_Login:
         time.sleep(3)
         SelectYear = Select(self.hp.SelectYear())
         SelectYear.select_by_index(3)
-        a = self.driver.find_element_by_id("").text
+        a = self.hp.RevenueTittle()
         time.sleep(3)
         if a == "Revenue 2020":
             assert True
@@ -164,7 +164,7 @@ class Test_001_Login:
         time.sleep(3)
         SelectYear = self.hp.SelectYear()
         SelectYear.select_by_index(4)
-        a = self.driver.find_element_by_id("").text
+        a = self.hp.RevenueTittle()
         time.sleep(3)
         if a == "Revenue 2021":
             assert True
@@ -191,7 +191,7 @@ class Test_001_Login:
         time.sleep(3)
         SelectYear = self.hp.SelectYear()
         SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        c = self.hp.Revenue()
         time.sleep(3)
         if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2018.png")
@@ -219,7 +219,7 @@ class Test_001_Login:
         time.sleep(3)
         SelectYear = self.hp.SelectYear()
         SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        c = self.hp.Total_Transaction()
         time.sleep(3)
         if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_TRANSACTIONS2018.png")
@@ -247,7 +247,7 @@ class Test_001_Login:
         time.sleep(3)
         SelectYear = self.hp.SelectYear()
         SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        c = self.hp.Total_Payment()
         time.sleep(3)
         if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_PAYMENTS2018.png")
@@ -274,7 +274,7 @@ class Test_001_Login:
         time.sleep(3)
         SelectYear = self.hp.SelectYear()
         SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        c = self.hp.Legal_Action()
         time.sleep(3)
         if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_LEGAL_ACTIONS2018.png")
@@ -302,7 +302,7 @@ class Test_001_Login:
         time.sleep(3)
         SelectYear = self.hp.SelectYear()
         SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        c = self.hp.Revenue()
         time.sleep(3)
         if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2019.png")
@@ -330,7 +330,7 @@ class Test_001_Login:
         time.sleep(3)
         SelectYear = self.hp.SelectYear()
         SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        c = self.hp.Total_Transaction()
         time.sleep(3)
         if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_TRANSACTIONS2019.png")
@@ -358,7 +358,7 @@ class Test_001_Login:
         time.sleep(3)
         SelectYear = self.hp.SelectYear()
         SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        c = self.hp.Total_Payment()
         time.sleep(3)
         if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_PAYMENTS2019.png")
@@ -385,7 +385,7 @@ class Test_001_Login:
         time.sleep(3)
         SelectYear = self.hp.SelectYear()
         SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        c = self.hp.Legal_Action()
         time.sleep(3)
         if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_LEGAL_ACTIONS2019.png")
@@ -413,7 +413,7 @@ class Test_001_Login:
         time.sleep(3)
         SelectYear = self.hp.SelectYear()
         SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        c = self.hp.Revenue()
         time.sleep(3)
         if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2020.png")
@@ -441,7 +441,7 @@ class Test_001_Login:
         time.sleep(3)
         SelectYear = self.hp.SelectYear()
         SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        c = self.hp.Total_Transaction()
         time.sleep(3)
         if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_TRANSACTIONS2020.png")
@@ -469,7 +469,7 @@ class Test_001_Login:
         time.sleep(3)
         SelectYear = self.hp.SelectYear()
         SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        c = self.hp.Total_Payment()
         time.sleep(3)
         if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_PAYMENTS2020.png")
@@ -496,7 +496,7 @@ class Test_001_Login:
         time.sleep(3)
         SelectYear = self.hp.SelectYear()
         SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        c = self.hp.Legal_Action()
         time.sleep(3)
         if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_LEGAL_ACTIONS2020.png")
@@ -524,7 +524,7 @@ class Test_001_Login:
         time.sleep(3)
         SelectYear = self.hp.SelectYear()
         SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        c = self.hp.Revenue()
         time.sleep(3)
         if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2021.png")
@@ -552,7 +552,7 @@ class Test_001_Login:
         time.sleep(3)
         SelectYear = self.hp.SelectYear()
         SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        c = self.hp.Total_Transaction()
         time.sleep(3)
         if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_TRANSACTIONS2021.png")
@@ -580,7 +580,7 @@ class Test_001_Login:
         time.sleep(3)
         SelectYear = self.hp.SelectYear()
         SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        c = self.hp.Total_Payment()
         time.sleep(3)
         if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_PAYMENTS2021.png")
@@ -607,7 +607,7 @@ class Test_001_Login:
         time.sleep(3)
         SelectYear = self.hp.SelectYear()
         SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        c = self.hp.Legal_Action()
         time.sleep(3)
         if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_LEGAL_ACTIONS2021.png")
@@ -633,7 +633,7 @@ class Test_001_Login:
         self.hp = Homepage_Billing(self.driver)
         time.sleep(3)
         self.hp.Dashboard()
-        selectyear = self.driver.find_element_by_id("")
+        selectyear = self.hp.SelectYear()
         if selectyear.is_selected():
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Dashboard.png")
             self.driver.close()

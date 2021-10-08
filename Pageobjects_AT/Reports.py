@@ -145,3 +145,38 @@ class ReportPage:
         Status = self.driver.find_element_by_id(self.data.StatusGoodSam)
         return Status
 
+    def DownloadCommunity(self):
+        self.data = Locator_Path()
+        Download = self.driver.find_element_by_name(self.data.DownloadCommunity)
+        return Download
+
+    def DownloadDeaconess(self):
+        self.data = Locator_Path()
+        Download = self.driver.find_element_by_name(self.data.DownloadDeaconess)
+        return Download
+
+    def DownloadWomenshsptl(self):
+        self.data = Locator_Path()
+        Download = self.driver.find_element_by_name(self.data.DownloadWomenshsptl)
+        return Download
+
+    def DownloadVincent(self):
+        self.data = Locator_Path()
+        Download = self.driver.find_element_by_name(self.data.DownloadVincent)
+        return Download
+
+    def DownloadVincentDunn(self):
+        self.data = Locator_Path()
+        Download = self.driver.find_element_by_name(self.data.DownloadVincentDunn)
+        return Download
+
+    def DownloadParkview(self):
+        self.data = Locator_Path()
+        Download = self.driver.find_element_by_name(self.data.DownloadParkview)
+        return Download
+
+    def DownloadGoodSam(self):
+        self.data = Locator_Path()
+        Download = self.driver.find_element_by_name(self.data.DownloadGoodSam)
+        return Download
+

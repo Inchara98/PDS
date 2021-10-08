@@ -13,7 +13,7 @@ class BookToFacs:
 
     def Choosefiles(self):
         self.data = Locator_Path()
-        file = self.driver.find_element_by_id(self.data.choosefiles)
+        file = self.driver.find_element_by_id(self.data.Choosefile_BK)
         return file
 
     def Submit(self):

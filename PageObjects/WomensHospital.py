@@ -11,7 +11,7 @@ class WomensHospital:
 
     def WomensHomepage(self):
         self.data = Locator_Path()
-        self.driver.find_element_by_id(self.data.ColumbBargraph).click()
+        self.driver.find_element_by_id(self.data.WomensBargraph).click()
         time.sleep(4)
 
     def SelectYear(self):
@@ -19,12 +19,12 @@ class WomensHospital:
         Year = Select(self.driver.find_element_by_id(self.data.SelectYear))
         return Year
 
-    def Revenue(self):
+    def HospitalRevenue(self):
         self.data = Locator_Path()
         self.driver.find_element_by_id(self.data.HospitalRevenue).text
 
 
-    def Total_Transaction(self):
+    def HospitalTotal_Transaction(self):
         self.data = Locator_Path()
         self.driver.find_element_by_id(self.data.HospitalTotal_Transaction).text
 
@@ -32,10 +32,10 @@ class WomensHospital:
         self.data = Locator_Path()
         self.driver.find_element_by_id(self.data.HospitalTotal_Payment).text
 
-    def Legal_Action(self):
+    def HospitalLegal_Action(self):
         self.data = Locator_Path()
         self.driver.find_element_by_id(self.data.HospitalLegal_Action).text
 
-    def CommunityPageTittle(self):
+    def HospitalPageTittle(self):
         self.date = Locator_Path()
         self.driver.find_element_by_css_selector(self.data.HospitalPageTittle).text

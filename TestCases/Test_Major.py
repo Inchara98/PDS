@@ -47,9 +47,11 @@ class MajorHospital:
         self.driver.maximize_window()
         self.CH = MajorHospital(self.driver)
         time.sleep(3)
+        self.CH.MajorHomepage()
+        time.sleep(4)
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
-        a = self.driver.find_element_by_id("").text
+        a = self.CH.HospitalPageTittle()
         time.sleep(3)
         if a == "Overall Revenue v/s Transactions-2018":
             assert True
@@ -73,10 +75,11 @@ class MajorHospital:
         time.sleep(5)
         self.driver.maximize_window()
         self.CH = MajorHospital(self.driver)
+        self.CH.MajorHomepage()
         time.sleep(3)
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(2)
-        a = self.driver.find_element_by_id("").text
+        a = self.CH.HospitalPageTittle()
         time.sleep(3)
         if a == "Overall Revenue v/s Transactions-2018":
             assert True
@@ -101,10 +104,11 @@ class MajorHospital:
         time.sleep(5)
         self.driver.maximize_window()
         self.CH = MajorHospital(self.driver)
+        self.CH.MajorHomepage()
         time.sleep(3)
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(3)
-        a = self.driver.find_element_by_id("").text
+        a = self.CH.HospitalPageTittle()
         time.sleep(3)
         if a == "Overall Revenue v/s Transactions-2018":
             assert True
@@ -129,10 +133,11 @@ class MajorHospital:
         time.sleep(5)
         self.driver.maximize_window()
         self.CH = MajorHospital(self.driver)
+        self.CH.MajorHomepage()
         time.sleep(3)
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(4)
-        a = self.driver.find_element_by_id("").text
+        a = self.CH.HospitalPageTittle()
         time.sleep(3)
         if a == "Overall Revenue v/s Transactions-2018":
             assert True
@@ -160,7 +165,7 @@ class MajorHospital:
         self.CH.MajorHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        c = self.CH.HospitalRevenue()
         time.sleep(3)
         if c >= 0:
             assert True
@@ -189,10 +194,9 @@ class MajorHospital:
         self.CH.MajorHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        c = self.CH.HospitalTotal_Transaction()
         time.sleep(3)
         if c >= 0:
-            else:
             assert True
             self.driver.close()
             self.logger.info("********************Test  TOTAL_TRANSACTIONS2018 Ended********************************")
@@ -221,7 +225,7 @@ class MajorHospital:
         self.CH.MajorHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        c = self.CH.HospitalTotal_Payment()
         time.sleep(3)
         if c >= 0:
             assert True
@@ -251,7 +255,7 @@ class MajorHospital:
         self.CH.MajorHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        c = self.CH.HospitalLegal_Action()
         time.sleep(3)
         if c >= 0:
             assert True
@@ -279,8 +283,8 @@ class MajorHospital:
         time.sleep(3)
         self.CH.MajorHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        SelectYear.select_by_index(2)
+        c = self.CH.HospitalRevenue()
         time.sleep(3)
         if c >= 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2019.png")
@@ -308,8 +312,8 @@ class MajorHospital:
         time.sleep(3)
         self.CH.MajorHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        SelectYear.select_by_index(2)
+        c = self.CH.HospitalTotal_Transaction()
         time.sleep(3)
         if c >= 0:
             assert True
@@ -338,8 +342,8 @@ class MajorHospital:
         time.sleep(3)
         self.CH.MajorHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        SelectYear.select_by_index(2)
+        c = self.CH.HospitalTotal_Payment()
         time.sleep(3)
         if c >= 0:
             assert True
@@ -368,8 +372,8 @@ class MajorHospital:
         time.sleep(3)
         self.CH.MajorHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        SelectYear.select_by_index(2)
+        c = self.CH.HospitalLegal_Action()
         time.sleep(3)
         if c == 0:
             assert True
@@ -398,18 +402,13 @@ class MajorHospital:
         time.sleep(3)
         self.CH.MajorHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        SelectYear.select_by_index(3)
+        c = self.CH.HospitalRevenue()
         time.sleep(3)
         if c >= 0:
             assert True
             self.driver.close()
             self.logger.info("********************Test  Revenue2020 Ended********************************")
-            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2020.png")
-            self.driver.close()
-            self.logger.info(
-                "********************Test  Revenue2020 Ended Due to difference in the txt********************************")
-            assert False
         else:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2020.png")
             self.driver.close()
@@ -432,8 +431,8 @@ class MajorHospital:
         time.sleep(3)
         self.CH.MajorHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        SelectYear.select_by_index(3)
+        c = self.CH.HospitalTotal_Transaction()
         time.sleep(3)
         if c >= 0:
             assert True
@@ -462,8 +461,8 @@ class MajorHospital:
         time.sleep(3)
         self.CH.MajorHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        SelectYear.select_by_index(3)
+        c = self.CH.HospitalTotal_Payment()
         time.sleep(3)
         if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_PAYMENTS2020.png")
@@ -490,8 +489,8 @@ class MajorHospital:
         time.sleep(3)
         self.CH.MajorHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        SelectYear.select_by_index(3)
+        c = self.CH.HospitalLegal_Action()
         time.sleep(3)
         if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_LEGAL_ACTIONS2020.png")
@@ -519,8 +518,8 @@ class MajorHospital:
         time.sleep(3)
         self.CH.MajorHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        SelectYear.select_by_index(4)
+        c = self.CH.HospitalRevenue()
         time.sleep(3)
         if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2021.png")
@@ -548,8 +547,8 @@ class MajorHospital:
         time.sleep(3)
         self.CH.MajorHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        SelectYear.select_by_index(4)
+        c = self.CH.HospitalTotal_Transaction()
         time.sleep(3)
         if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_TRANSACTIONS2021.png")
@@ -577,8 +576,8 @@ class MajorHospital:
         time.sleep(3)
         self.CH.MajorHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        SelectYear.select_by_index(4)
+        c = self.CH.HospitalTotal_Payment()
         time.sleep(3)
         if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_PAYMENTS2021.png")
@@ -605,8 +604,8 @@ class MajorHospital:
         time.sleep(3)
         self.CH.MajorHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        SelectYear.select_by_index(4)
+        c = self.CH.HospitalLegal_Action()
         time.sleep(3)
         if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_LEGAL_ACTIONS2021.png")

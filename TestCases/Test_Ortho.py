@@ -1,6 +1,7 @@
 import time
 import pytest
 from PageObjects.LoginPage import LoginPage
+from PageObjects.OrthoHospital import OrthoHospital
 from Logs.Log import log_Details
 from Utilities.readProperties import ReadConfig
 
@@ -23,9 +24,9 @@ class Test_Ortho_Hospital:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = OrtgoHospital(self.driver)
+        self.CH = OrthoHospital(self.driver)
         time.sleep(3)
-        self.CH.OrtgoHomepage()
+        self.CH.OrthoHomepage()
         a = self.driver.current_url
         if a == "https://pds-billing-info.tibilprojects.com/dashboard/ORTHO":
             assert True
@@ -45,11 +46,12 @@ class Test_Ortho_Hospital:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = OrtgoHospital(self.driver)
+        self.CH = OrthoHospital(self.driver)
+        self.CH.OrthoHomepage()
         time.sleep(3)
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
-        a = self.driver.find_element_by_id("").text
+        a = self.CH.HospitalPageTittle()
         time.sleep(3)
         if a == "Overall Revenue v/s Transactions-2018":
             assert True
@@ -72,11 +74,12 @@ class Test_Ortho_Hospital:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = OrtgoHospital(self.driver)
+        self.CH = OrthoHospital(self.driver)
+        self.CH.OrthoHomepage()
         time.sleep(3)
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(2)
-        a = self.driver.find_element_by_id("").text
+        a = self.CH.HospitalPageTittle()
         time.sleep(3)
         if a == "Overall Revenue v/s Transactions-2018":
             assert True
@@ -100,11 +103,12 @@ class Test_Ortho_Hospital:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = OrtgoHospital(self.driver)
+        self.CH = OrthoHospital(self.driver)
+        self.CH.OrthoHomepage()
         time.sleep(3)
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(3)
-        a = self.driver.find_element_by_id("").text
+        a = self.CH.HospitalPageTittle()
         time.sleep(3)
         if a == "Overall Revenue v/s Transactions-2018":
             assert True
@@ -128,11 +132,11 @@ class Test_Ortho_Hospital:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = OrtgoHospital(self.driver)
+        self.CH = OrthoHospital(self.driver)
         time.sleep(3)
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(4)
-        a = self.driver.find_element_by_id("").text
+        a = self.CH.HospitalPageTittle()
         time.sleep(3)
         if a == "Overall Revenue v/s Transactions-2018":
             assert True
@@ -155,12 +159,12 @@ class Test_Ortho_Hospital:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = OrtgoHospital(self.driver)
+        self.CH = OrthoHospital(self.driver)
         time.sleep(3)
-        self.CH.OrtgoHomepage()
+        self.CH.OrthoHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        c = self.CH.HospitalRevenue()
         time.sleep(3)
         if c >= 0:
             assert True
@@ -184,15 +188,14 @@ class Test_Ortho_Hospital:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = OrtgoHospital(self.driver)
+        self.CH = OrthoHospital(self.driver)
         time.sleep(3)
-        self.CH.OrtgoHomepage()
+        self.CH.OrthoHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        c = self.CH.HospitalTotal_Transaction()
         time.sleep(3)
         if c >= 0:
-            else:
             assert True
             self.driver.close()
             self.logger.info("********************Test  TOTAL_TRANSACTIONS2018 Ended********************************")
@@ -216,12 +219,12 @@ class Test_Ortho_Hospital:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = OrtgoHospital(self.driver)
+        self.CH = OrthoHospital(self.driver)
         time.sleep(3)
-        self.CH.OrtgoHomepage()
+        self.CH.OrthoHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        c = self.CH.HospitalTotal_Payment()
         time.sleep(3)
         if c >= 0:
             assert True
@@ -246,12 +249,12 @@ class Test_Ortho_Hospital:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = OrtgoHospital(self.driver)
+        self.CH = OrthoHospital(self.driver)
         time.sleep(3)
-        self.CH.OrtgoHomepage()
+        self.CH.OrthoHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        c = self.CH.HospitalLegal_Action()
         time.sleep(3)
         if c >= 0:
             assert True
@@ -275,12 +278,12 @@ class Test_Ortho_Hospital:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = OrtgoHospital(self.driver)
+        self.CH = OrthoHospital(self.driver)
         time.sleep(3)
-        self.CH.OrtgoHomepage()
+        self.CH.OrthoHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        SelectYear.select_by_index(2)
+        c = self.CH.HospitalRevenue()
         time.sleep(3)
         if c >= 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2019.png")
@@ -304,12 +307,12 @@ class Test_Ortho_Hospital:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = OrtgoHospital(self.driver)
+        self.CH = OrthoHospital(self.driver)
         time.sleep(3)
-        self.CH.OrtgoHomepage()
+        self.CH.OrthoHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        SelectYear.select_by_index(2)
+        c = self.CH.HospitalTotal_Transaction()
         time.sleep(3)
         if c >= 0:
             assert True
@@ -334,12 +337,12 @@ class Test_Ortho_Hospital:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = OrtgoHospital(self.driver)
+        self.CH = OrthoHospital(self.driver)
         time.sleep(3)
-        self.CH.OrtgoHomepage()
+        self.CH.OrthoHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        SelectYear.select_by_index(2)
+        c = self.CH.HospitalTotal_Payment()
         time.sleep(3)
         if c >= 0:
             assert True
@@ -364,12 +367,12 @@ class Test_Ortho_Hospital:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = OrtgoHospital(self.driver)
+        self.CH = OrthoHospital(self.driver)
         time.sleep(3)
-        self.CH.OrtgoHomepage()
+        self.CH.OrthoHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        SelectYear.select_by_index(2)
+        c = self.CH.HospitalLegal_Action()
         time.sleep(3)
         if c == 0:
             assert True
@@ -394,12 +397,12 @@ class Test_Ortho_Hospital:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = OrtgoHospital(self.driver)
+        self.CH = OrthoHospital(self.driver)
         time.sleep(3)
-        self.CH.OrtgoHomepage()
+        self.CH.OrthoHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        SelectYear.select_by_index(3)
+        c = self.CH.HospitalRevenue()
         time.sleep(3)
         if c >= 0:
             assert True
@@ -428,12 +431,12 @@ class Test_Ortho_Hospital:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = OrtgoHospital(self.driver)
+        self.CH = OrthoHospital(self.driver)
         time.sleep(3)
-        self.CH.OrtgoHomepage()
+        self.CH.OrthoHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        SelectYear.select_by_index(3)
+        c = self.CH.HospitalTotal_Transaction()
         time.sleep(3)
         if c >= 0:
             assert True
@@ -458,12 +461,12 @@ class Test_Ortho_Hospital:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = OrtgoHospital(self.driver)
+        self.CH = OrthoHospital(self.driver)
         time.sleep(3)
-        self.CH.OrtgoHomepage()
+        self.CH.OrthoHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        SelectYear.select_by_index(3)
+        c = self.CH.HospitalTotal_Payment()
         time.sleep(3)
         if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_PAYMENTS2020.png")
@@ -486,12 +489,12 @@ class Test_Ortho_Hospital:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = OrtgoHospital(self.driver)
+        self.CH = OrthoHospital(self.driver)
         time.sleep(3)
-        self.CH.OrtgoHomepage()
+        self.CH.OrthoHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        SelectYear.select_by_index(3)
+        c = self.CH.HospitalLegal_Action()
         time.sleep(3)
         if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_LEGAL_ACTIONS2020.png")
@@ -515,12 +518,12 @@ class Test_Ortho_Hospital:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = OrtgoHospital(self.driver)
+        self.CH = OrthoHospital(self.driver)
         time.sleep(3)
-        self.CH.OrtgoHomepage()
+        self.CH.OrthoHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        SelectYear.select_by_index(4)
+        c = self.CH.HospitalRevenue()
         time.sleep(3)
         if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2021.png")
@@ -544,12 +547,12 @@ class Test_Ortho_Hospital:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = OrtgoHospital(self.driver)
+        self.CH = OrthoHospital(self.driver)
         time.sleep(3)
-        self.CH.OrtgoHomepage()
+        self.CH.OrthoHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        SelectYear.select_by_index(4)
+        c = self.CH.HospitalTotal_Transaction()
         time.sleep(3)
         if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_TRANSACTIONS2021.png")
@@ -573,12 +576,12 @@ class Test_Ortho_Hospital:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = OrtgoHospital(self.driver)
+        self.CH = OrthoHospital(self.driver)
         time.sleep(3)
-        self.CH.OrtgoHomepage()
+        self.CH.OrthoHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        SelectYear.select_by_index(4)
+        c = self.CH.HospitalTotal_Payment()
         time.sleep(3)
         if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_PAYMENTS2021.png")
@@ -601,12 +604,12 @@ class Test_Ortho_Hospital:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = OrtgoHospital(self.driver)
+        self.CH = OrthoHospital(self.driver)
         time.sleep(3)
-        self.CH.OrtgoHomepage()
+        self.CH.OrthoHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        SelectYear.select_by_index(4)
+        c = self.CH.HospitalLegal_Action()
         time.sleep(3)
         if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_LEGAL_ACTIONS2021.png")

@@ -4,7 +4,7 @@ from selenium.webdriver.support.select import Select
 
 from Locators.Locators import Locator_Path
 
-class ColumbHosptal:
+class ColumbHospital:
 
     def __init__(self,driver):
         self.driver = driver

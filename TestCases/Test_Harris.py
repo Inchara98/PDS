@@ -1,6 +1,7 @@
 import time
 import pytest
 from PageObjects.LoginPage import LoginPage
+from PageObjects.HarrisHospital import HarrisHospital
 from Logs.Log import log_Details
 from Utilities.readProperties import ReadConfig
 
@@ -46,6 +47,7 @@ class Test_001_Login:
         time.sleep(5)
         self.driver.maximize_window()
         self.CH = HarrisHospital(self.driver)
+        self.CH.HarrisHomepage()
         time.sleep(3)
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
@@ -73,12 +75,13 @@ class Test_001_Login:
         time.sleep(5)
         self.driver.maximize_window()
         self.CH = HarrisHospital(self.driver)
+        self.CH.HarrisHomepage()
         time.sleep(3)
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(2)
         a = self.CH.HospitalPageTittle()
         time.sleep(3)
-        if a == "Overall Revenue v/s Transactions-2018":
+        if a == "Overall Revenue v/s Transactions-2019":
             assert True
             self.driver.close()
             self.logger.info("********************Test  SelectYear Ended********************************")
@@ -101,12 +104,13 @@ class Test_001_Login:
         time.sleep(5)
         self.driver.maximize_window()
         self.CH = HarrisHospital(self.driver)
+        self.CH.HarrisHomepage()
         time.sleep(3)
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(3)
         a = self.CH.HospitalPageTittle()
         time.sleep(3)
-        if a == "Overall Revenue v/s Transactions-2018":
+        if a == "Overall Revenue v/s Transactions-2020":
             assert True
             self.driver.close()
             self.logger.info("********************Test  SelectYear Ended********************************")
@@ -129,12 +133,13 @@ class Test_001_Login:
         time.sleep(5)
         self.driver.maximize_window()
         self.CH = HarrisHospital(self.driver)
+        self.CH.HarrisHomepage()
         time.sleep(3)
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(4)
         a = self.CH.HospitalPageTittle()
         time.sleep(3)
-        if a == "Overall Revenue v/s Transactions-2018":
+        if a == "Overall Revenue v/s Transactions-2021":
             assert True
             self.driver.close()
             self.logger.info("********************Test  SelectYear2021 Ended********************************")
@@ -192,7 +197,6 @@ class Test_001_Login:
         c = self.CH.HospitalTotal_Transaction()
         time.sleep(3)
         if c >= 0:
-            else:
             assert True
             self.driver.close()
             self.logger.info("********************Test  TOTAL_TRANSACTIONS2018 Ended********************************")
@@ -279,7 +283,7 @@ class Test_001_Login:
         time.sleep(3)
         self.CH.HarrisHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(2)
         c = self.CH.HospitalRevenue()
         time.sleep(3)
         if c >= 0:
@@ -371,7 +375,7 @@ class Test_001_Login:
         SelectYear.select_by_index(2)
         c = self.CH.HospitalLegal_Action()
         time.sleep(3)
-        if c == 0:
+        if c >= 0:
             assert True
             self.driver.close()
             self.logger.info("********************Test  LEGAL_ACTIONS2019 Ended********************************")
@@ -405,11 +409,6 @@ class Test_001_Login:
             assert True
             self.driver.close()
             self.logger.info("********************Test  Revenue2020 Ended********************************")
-            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2020.png")
-            self.driver.close()
-            self.logger.info(
-                "********************Test  Revenue2020 Ended Due to difference in the txt********************************")
-            assert False
         else:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2020.png")
             self.driver.close()
@@ -548,7 +547,7 @@ class Test_001_Login:
         time.sleep(3)
         self.CH.HarrisHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(3)
+        SelectYear.select_by_index(4)
         c = self.CH.HospitalTotal_Transaction()
         time.sleep(3)
         if c < 0:
@@ -577,7 +576,7 @@ class Test_001_Login:
         time.sleep(3)
         self.CH.HarrisHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(3)
+        SelectYear.select_by_index(4)
         c = self.CH.HospitalTotal_Payment()
         time.sleep(3)
         if c < 0:
@@ -605,7 +604,7 @@ class Test_001_Login:
         time.sleep(3)
         self.CH.HarrisHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(3)
+        SelectYear.select_by_index(4)
         c = self.CH.HospitalLegal_Action()
         time.sleep(3)
         if c < 0:

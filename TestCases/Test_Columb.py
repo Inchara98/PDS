@@ -1,6 +1,7 @@
 import time
 
 from PageObjects.LoginPage import LoginPage
+from PageObjects.ColumbHospital import ColumbHospital
 from Logs.Log import log_Details
 from Utilities.readProperties import ReadConfig
 
@@ -196,7 +197,6 @@ class Test_001_Login:
         c = self.CH.HospitalTotal_Transaction()
         time.sleep(3)
         if c >= 0:
-            else:
             assert True
             self.driver.close()
             self.logger.info("********************Test  TOTAL_TRANSACTIONS2018 Ended********************************")
@@ -283,19 +283,20 @@ class Test_001_Login:
         time.sleep(3)
         self.CH.ColumbHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(2)
         c = self.CH.HospitalRevenue()
         time.sleep(3)
         if c >= 0:
+            assert True
+            self.driver.close()
+            self.logger.info("********************Test  Revenue2019 Ended********************************")
+        else:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2019.png")
             self.driver.close()
             self.logger.info(
                 "********************Test  Revenue2019 Ended Due to difference in the txt********************************")
             assert False
-        else:
-            assert True
-            self.driver.close()
-            self.logger.info("********************Test  Revenue2019 Ended********************************")
+
 
 
     def test_TOTALTRANSACTIONS2019(self,setup):
@@ -312,7 +313,7 @@ class Test_001_Login:
         time.sleep(3)
         self.CH.ColumbHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(2)
         c = self.CH.HospitalTotal_Transaction()
         time.sleep(3)
         if c >= 0:
@@ -342,7 +343,7 @@ class Test_001_Login:
         time.sleep(3)
         self.CH.ColumbHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(2)
         c = self.CH.HospitalTotal_Payment()
         time.sleep(3)
         if c >= 0:
@@ -372,7 +373,7 @@ class Test_001_Login:
         time.sleep(3)
         self.CH.ColumbHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(2)
         c = self.CH.HospitalLegal_Action()
         time.sleep(3)
         if c == 0:
@@ -402,7 +403,7 @@ class Test_001_Login:
         time.sleep(3)
         self.CH.ColumbHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(3)
         c = self.CH.HospitalRevenue()
         time.sleep(3)
         if c >= 0:
@@ -436,7 +437,7 @@ class Test_001_Login:
         time.sleep(3)
         self.CH.ColumbHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(3)
         c = self.CH.HospitalTotal_Transaction()
         time.sleep(3)
         if c >= 0:
@@ -466,7 +467,7 @@ class Test_001_Login:
         time.sleep(3)
         self.CH.ColumbHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(3)
         c = self.CH.HospitalTotal_Payment()
         time.sleep(3)
         if c < 0:
@@ -494,7 +495,7 @@ class Test_001_Login:
         time.sleep(3)
         self.CH.ColumbHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(3)
         c = self.CH.HospitalLegal_Action()
         time.sleep(3)
         if c < 0:
@@ -523,7 +524,7 @@ class Test_001_Login:
         time.sleep(3)
         self.CH.ColumbHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(4)
         c = self.CH.HospitalRevenue()
         time.sleep(3)
         if c < 0:
@@ -552,7 +553,7 @@ class Test_001_Login:
         time.sleep(3)
         self.CH.ColumbHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(4)
         c = self.CH.HospitalTotal_Transaction()
         time.sleep(3)
         if c < 0:
@@ -581,7 +582,7 @@ class Test_001_Login:
         time.sleep(3)
         self.CH.ColumbHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(4)
         c = self.CH.HospitalTotal_Payment()
         time.sleep(3)
         if c < 0:

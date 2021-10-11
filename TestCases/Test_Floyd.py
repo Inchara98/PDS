@@ -1,6 +1,7 @@
 import time
 
 from PageObjects.LoginPage import LoginPage
+from PageObjects.FloydHospital import FloydHospital
 from Logs.Log import log_Details
 from Utilities.readProperties import ReadConfig
 
@@ -46,6 +47,7 @@ class Test_001_Login:
         time.sleep(5)
         self.driver.maximize_window()
         self.CH = FloydHospital(self.driver)
+        self.CH.FloydHomepage()
         time.sleep(3)
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
@@ -73,12 +75,13 @@ class Test_001_Login:
         time.sleep(5)
         self.driver.maximize_window()
         self.CH = FloydHospital(self.driver)
+        self.CH.FloydHomepage()
         time.sleep(3)
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(2)
         a = self.CH.HospitalPageTittle()
         time.sleep(3)
-        if a == "Overall Revenue v/s Transactions-2018":
+        if a == "Overall Revenue v/s Transactions-2019":
             assert True
             self.driver.close()
             self.logger.info("********************Test  SelectYear Ended********************************")
@@ -101,6 +104,7 @@ class Test_001_Login:
         time.sleep(5)
         self.driver.maximize_window()
         self.CH = FloydHospital(self.driver)
+        self.CH.FloydHomepage()
         time.sleep(3)
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(3)
@@ -129,6 +133,7 @@ class Test_001_Login:
         time.sleep(5)
         self.driver.maximize_window()
         self.CH = FloydHospital(self.driver)
+        self.CH.FloydHomepage()
         time.sleep(3)
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(4)
@@ -191,7 +196,6 @@ class Test_001_Login:
         c = self.CH.HospitalTotal_Transaction()
         time.sleep(3)
         if c >= 0:
-            else:
             assert True
             self.driver.close()
             self.logger.info("********************Test  TOTAL_TRANSACTIONS2018 Ended********************************")
@@ -302,7 +306,7 @@ class Test_001_Login:
         time.sleep(3)
         self.CH.FloydHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(2)
         c = self.CH.HospitalTotal_Transaction()
         time.sleep(3)
         if c >= 0:
@@ -331,7 +335,7 @@ class Test_001_Login:
         time.sleep(3)
         self.CH.FloydHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(2)
         c = self.CH.HospitalTotal_Payment()
         time.sleep(3)
         if c >= 0:
@@ -360,7 +364,7 @@ class Test_001_Login:
         time.sleep(3)
         self.CH.FloydHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(2)
         c = self.CH.HospitalLegal_Action()
         time.sleep(3)
         if c == 0:
@@ -388,7 +392,7 @@ class Test_001_Login:
         time.sleep(3)
         self.CH.FloydHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(3)
         c = self.CH.HospitalRevenue()
         time.sleep(3)
         if c >= 0:
@@ -418,7 +422,7 @@ class Test_001_Login:
         time.sleep(3)
         self.CH.FloydHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(3)
         c = self.CH.HospitalTotal_Transaction()
         time.sleep(3)
         if c >= 0:
@@ -447,7 +451,7 @@ class Test_001_Login:
         time.sleep(3)
         self.CH.FloydHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(3)
         c = self.CH.HospitalTotal_Payment()
         time.sleep(3)
         if c < 0:
@@ -476,7 +480,7 @@ class Test_001_Login:
         time.sleep(3)
         self.CH.FloydHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(3)
         c = self.CH.HospitalLegal_Action()
         time.sleep(3)
         if c < 0:
@@ -504,7 +508,7 @@ class Test_001_Login:
         time.sleep(3)
         self.CH.FloydHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(4)
         c = self.CH.HospitalRevenue()
         time.sleep(3)
         if c < 0:
@@ -532,7 +536,7 @@ class Test_001_Login:
         time.sleep(3)
         self.CH.FloydHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(4)
         c = self.CH.HospitalTotal_Transaction()
         time.sleep(3)
         if c < 0:
@@ -561,7 +565,7 @@ class Test_001_Login:
         time.sleep(3)
         self.CH.FloydHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(4)
         c = self.CH.HospitalTotal_Payment()
         time.sleep(3)
         if c < 0:
@@ -590,7 +594,7 @@ class Test_001_Login:
         time.sleep(3)
         self.CH.FloydHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(4)
         c = self.CH.HospitalLegal_Action()
         time.sleep(3)
         if c < 0:

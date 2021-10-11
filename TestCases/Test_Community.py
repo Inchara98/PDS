@@ -1,6 +1,7 @@
 import time
 
 from PageObjects.LoginPage import LoginPage
+from PageObjects.CommunityHospital import CommunityHospital
 from Logs.Log import log_Details
 from Utilities.readProperties import ReadConfig
 
@@ -46,6 +47,7 @@ class Test_001_Login:
         time.sleep(5)
         self.driver.maximize_window()
         self.CH = CommunityHospital(self.driver)
+        self.CH.CommunityHomepage()
         time.sleep(3)
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
@@ -73,6 +75,7 @@ class Test_001_Login:
         time.sleep(5)
         self.driver.maximize_window()
         self.CH = CommunityHospital(self.driver)
+        self.CH.CommunityHomepage()
         time.sleep(3)
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(2)
@@ -101,6 +104,7 @@ class Test_001_Login:
         time.sleep(5)
         self.driver.maximize_window()
         self.CH = CommunityHospital(self.driver)
+        self.CH.CommunityHomepage()
         time.sleep(3)
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(3)
@@ -129,6 +133,7 @@ class Test_001_Login:
         time.sleep(5)
         self.driver.maximize_window()
         self.CH = CommunityHospital(self.driver)
+        self.CH.CommunityHomepage()
         time.sleep(3)
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(4)
@@ -246,7 +251,7 @@ class Test_001_Login:
         self.CH.CommunityHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        c = self.CH.HospitalLegal_Action()
         time.sleep(3)
         if c >= 0:
             assert True
@@ -273,19 +278,20 @@ class Test_001_Login:
         time.sleep(3)
         self.CH.CommunityHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(2)
         c = self.CH.HospitalRevenue()
         time.sleep(3)
         if c >= 0:
+            assert True
+            self.driver.close()
+            self.logger.info("********************Test  Revenue2019 Ended********************************")
+        else:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2019.png")
             self.driver.close()
             self.logger.info(
                 "********************Test  Revenue2019 Ended Due to difference in the txt********************************")
             assert False
-        else:
-            assert True
-            self.driver.close()
-            self.logger.info("********************Test  Revenue2019 Ended********************************")
+
 
     def test_TOTALTRANSACTIONS2019(self, setup):
         self.logger.info("********************verifying TOTAL_TRANSACTIONS2019 Test********************************")
@@ -301,7 +307,7 @@ class Test_001_Login:
         time.sleep(3)
         self.CH.CommunityHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(2)
         c = self.CH.HospitalTotal_Transaction()
         time.sleep(3)
         if c >= 0:
@@ -330,7 +336,7 @@ class Test_001_Login:
         time.sleep(3)
         self.CH.CommunityHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(2)
         c = self.CH.HospitalTotal_Payment()
         time.sleep(3)
         if c >= 0:
@@ -359,8 +365,8 @@ class Test_001_Login:
         time.sleep(3)
         self.CH.CommunityHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        SelectYear.select_by_index(2)
+        c = self.CH.HospitalLegal_Action()
         time.sleep(3)
         if c == 0:
             assert True
@@ -387,18 +393,13 @@ class Test_001_Login:
         time.sleep(3)
         self.CH.CommunityHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(3)
         c = self.CH.HospitalRevenue()
         time.sleep(3)
         if c >= 0:
             assert True
             self.driver.close()
             self.logger.info("********************Test  Revenue2020 Ended********************************")
-            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2020.png")
-            self.driver.close()
-            self.logger.info(
-                "********************Test  Revenue2020 Ended Due to difference in the txt********************************")
-            assert False
         else:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2020.png")
             self.driver.close()
@@ -479,7 +480,7 @@ class Test_001_Login:
         self.CH.CommunityHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
-        c = self.driver.find_element_by_id("").text
+        c = self.CH.HospitalLegal_Action()
         time.sleep(3)
         if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_LEGAL_ACTIONS2020.png")
@@ -506,7 +507,7 @@ class Test_001_Login:
         time.sleep(3)
         self.CH.CommunityHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(4)
         c = self.CH.HospitalRevenue()
         time.sleep(3)
         if c < 0:
@@ -534,7 +535,7 @@ class Test_001_Login:
         time.sleep(3)
         self.CH.CommunityHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(4)
         c = self.CH.HospitalTotal_Transaction()
         time.sleep(3)
         if c < 0:
@@ -563,7 +564,7 @@ class Test_001_Login:
         time.sleep(3)
         self.CH.CommunityHomepage()
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(4)
         c = self.CH.HospitalTotal_Payment()
         time.sleep(3)
         if c < 0:

@@ -367,7 +367,7 @@ class Test_001_Login:
         SelectYear.select_by_index(2)
         c = self.CH.HospitalLegal_Action()
         time.sleep(3)
-        if c == 0:
+        if c >= 0:
             assert True
             self.driver.close()
             self.logger.info("********************Test  LEGAL_ACTIONS2019 Ended********************************")

@@ -287,15 +287,15 @@ class Test_001_Login:
         c = self.CH.HospitalRevenue()
         time.sleep(3)
         if c >= 0:
+            assert True
+            self.driver.close()
+            self.logger.info("********************Test  Revenue2019 Ended********************************")
+        else:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2019.png")
             self.driver.close()
             self.logger.info(
                 "********************Test  Revenue2019 Ended Due to difference in the txt********************************")
             assert False
-        else:
-            assert True
-            self.driver.close()
-            self.logger.info("********************Test  Revenue2019 Ended********************************")
 
 
     def test_TOTALTRANSACTIONS2019(self,setup):

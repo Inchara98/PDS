@@ -81,7 +81,7 @@ class Test_PutnamHospital:
         SelectYear.select_by_index(2)
         a = self.CH.HospitalPageTittle()
         time.sleep(3)
-        if a == "Overall Revenue v/s Transactions-2018":
+        if a == "Overall Revenue v/s Transactions-2019":
             assert True
             self.driver.close()
             self.logger.info("********************Test  SelectYear Ended********************************")
@@ -110,7 +110,7 @@ class Test_PutnamHospital:
         SelectYear.select_by_index(3)
         a = self.CH.HospitalPageTittle()
         time.sleep(3)
-        if a == "Overall Revenue v/s Transactions-2018":
+        if a == "Overall Revenue v/s Transactions-2020":
             assert True
             self.driver.close()
             self.logger.info("********************Test  SelectYear Ended********************************")
@@ -139,7 +139,7 @@ class Test_PutnamHospital:
         SelectYear.select_by_index(4)
         a = self.CH.HospitalPageTittle()
         time.sleep(3)
-        if a == "Overall Revenue v/s Transactions-2018":
+        if a == "Overall Revenue v/s Transactions-2021":
             assert True
             self.driver.close()
             self.logger.info("********************Test  SelectYear2021 Ended********************************")
@@ -286,7 +286,7 @@ class Test_PutnamHospital:
         SelectYear.select_by_index(2)
         c = self.CH.HospitalRevenue()
         time.sleep(3)
-        if c >= 0:
+        if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2019.png")
             self.driver.close()
             self.logger.info(
@@ -375,7 +375,7 @@ class Test_PutnamHospital:
         SelectYear.select_by_index(2)
         c = self.CH.HospitalLegal_Action()
         time.sleep(3)
-        if c == 0:
+        if c >= 0:
             assert True
             self.driver.close()
             self.logger.info("********************Test  LEGAL_ACTIONS2019 Ended********************************")
@@ -409,11 +409,6 @@ class Test_PutnamHospital:
             assert True
             self.driver.close()
             self.logger.info("********************Test  Revenue2020 Ended********************************")
-            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2020.png")
-            self.driver.close()
-            self.logger.info(
-                "********************Test  Revenue2020 Ended Due to difference in the txt********************************")
-            assert False
         else:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2020.png")
             self.driver.close()
@@ -638,7 +633,7 @@ class Test_PutnamHospital:
         self.CH.PutnamHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
-        hospital = Select(self.driver.find_element_by_id(""))
+        hospital = self.CH.Hospitaldropdown()
         for i in range(1, len(hospital.options)):
             hospital.select_by_index(i)
             if "No Data Found for this hospital" in self.page_source:
@@ -662,7 +657,7 @@ class Test_PutnamHospital:
         self.CH.PutnamHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(2)
-        hospital = Select(self.driver.find_element_by_id(""))
+        hospital = self.CH.Hospitaldropdown()
         for i in range(1, len(hospital.options)):
             hospital.select_by_index(i)
             if "No Data Found For This Hospital" in self.page_source:
@@ -686,7 +681,7 @@ class Test_PutnamHospital:
         self.CH.PutnamHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(3)
-        hospital = Select(self.driver.find_element_by_id(""))
+        hospital = self.CH.Hospitaldropdown()
         for i in range(1, len(hospital.options)):
             hospital.select_by_index(2)
             if "No Data Found For This Hospital" in self.page_source:
@@ -710,7 +705,7 @@ class Test_PutnamHospital:
         self.CH.PutnamHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(4)
-        hospital = Select(self.driver.find_element_by_id(""))
+        hospital = self.CH.Hospitaldropdown()
         for i in range(1, len(hospital.options)):
             hospital.select_by_index(i)
             if "No Data Found For This Hospital" in self.page_source:

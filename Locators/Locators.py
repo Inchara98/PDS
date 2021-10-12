@@ -96,7 +96,7 @@ class Locator_Path():
     HospitalTotal_Payment = "group_payments"
     HospitalLegal_Action = "group_legal"
     HospitalPageTittle = "#hospitalGroup_bar > div> div>div> svg > text.highcharts-title"
-
+    Hospitaldropdown = "hospitalName"
 
 
 

@@ -621,7 +621,7 @@ class Test_001_Login:
         self.CH.DeaconessHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
-        hospital = Select(self.driver.find_element_by_id(""))
+        hospital = self.CH.Hospitaldropdown()
         for i in range(1, len(hospital.options)):
             hospital.select_by_index(i)
             if "No Data Found For This Hospital" in self.page_source:
@@ -645,7 +645,7 @@ class Test_001_Login:
         self.CH.DeaconessHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(2)
-        hospital = Select(self.driver.find_element_by_id(""))
+        hospital = self.CH.Hospitaldropdown()
         for i in range(1, len(hospital.options)):
             hospital.select_by_index(i)
             if "No Data Found For This Hospital" in self.page_source:
@@ -669,7 +669,7 @@ class Test_001_Login:
         self.CH.DeaconessHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(3)
-        hospital = Select(self.driver.find_element_by_id(""))
+        hospital = self.CH.Hospitaldropdown()
         for i in range(1, len(hospital.options)):
             hospital.select_by_index(i)
             if "No Data Found For This Hospital" in self.page_source:
@@ -693,7 +693,7 @@ class Test_001_Login:
         self.CH.DeaconessHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(4)
-        hospital = Select(self.driver.find_element_by_id(""))
+        hospital = self.CH.Hospitaldropdown()
         for i in range(1, len(hospital.options)):
             hospital.select_by_index(i)
             if "No Data Found For This Hospital" in self.page_source:

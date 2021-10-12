@@ -39,3 +39,8 @@ class PutnamHospital:
     def HospitalPageTittle(self):
         self.date = Locator_Path()
         self.driver.find_element_by_css_selector(self.data.HospitalPageTittle).text
+
+    def Hospitaldropdown(self):
+        self.date = Locator_Path()
+        Hospital = Select(self.driver.find_element_by_id(self.data.Hospitaldropdown))
+        return Hospital

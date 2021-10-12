@@ -1,6 +1,7 @@
 import time
 import pytest
 from PageObjects.LoginPage import LoginPage
+from PageObjects.UtmcHospital import UtmcHospital
 from Logs.Log import log_Details
 from Utilities.readProperties import ReadConfig
 
@@ -50,6 +51,7 @@ class Test_UTMC_Hospital:
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
         a = self.CH.HospitalPageTittle()
+        self.CH.UtmcHomepage()
         time.sleep(3)
         if a == "Overall Revenue v/s Transactions-2018":
             assert True
@@ -73,6 +75,7 @@ class Test_UTMC_Hospital:
         time.sleep(5)
         self.driver.maximize_window()
         self.CH = UtmcHospital(self.driver)
+        self.CH.UtmcHomepage()
         time.sleep(3)
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(2)
@@ -101,6 +104,7 @@ class Test_UTMC_Hospital:
         time.sleep(5)
         self.driver.maximize_window()
         self.CH = UtmcHospital(self.driver)
+        self.CH.UtmcHomepage()
         time.sleep(3)
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(3)
@@ -129,6 +133,7 @@ class Test_UTMC_Hospital:
         time.sleep(5)
         self.driver.maximize_window()
         self.CH = UtmcHospital(self.driver)
+        self.CH.UtmcHomepage()
         time.sleep(3)
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(4)
@@ -281,7 +286,7 @@ class Test_UTMC_Hospital:
         SelectYear.select_by_index(2)
         c = self.CH.HospitalRevenue()
         time.sleep(3)
-        if c >= 0:
+        if c < 0:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2019.png")
             self.driver.close()
             self.logger.info(
@@ -370,7 +375,7 @@ class Test_UTMC_Hospital:
         SelectYear.select_by_index(2)
         c = self.CH.HospitalLegal_Action()
         time.sleep(3)
-        if c == 0:
+        if c >= 0:
             assert True
             self.driver.close()
             self.logger.info("********************Test  LEGAL_ACTIONS2019 Ended********************************")
@@ -628,7 +633,7 @@ class Test_UTMC_Hospital:
         self.CH.UtmctHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
-        hospital = Select(self.driver.find_element_by_id(""))
+        hospital = self.CH.Hospitaldropdown()
         for i in range(1, len(hospital.options)):
             hospital.select_by_index(i)
             if "No Data Found for this hospital" in self.page_source:
@@ -652,7 +657,7 @@ class Test_UTMC_Hospital:
         self.CH.UtmctHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(2)
-        hospital = Select(self.driver.find_element_by_id(""))
+        hospital = self.CH.Hospitaldropdown()
         for i in range(1, len(hospital.options)):
             hospital.select_by_index(i)
             if "No Data Found For This Hospital" in self.page_source:
@@ -676,7 +681,7 @@ class Test_UTMC_Hospital:
         self.CH.UtmctHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(3)
-        hospital = Select(self.driver.find_element_by_id(""))
+        hospital = self.CH.Hospitaldropdown()
         for i in range(1,len(hospital.options)):
             hospital.select_by_index(2)
             if "No Data Found For This Hospital" in self.page_source:
@@ -700,7 +705,7 @@ class Test_UTMC_Hospital:
         self.CH.UtmctHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(4)
-        hospital = Select(self.driver.find_element_by_id(""))
+        hospital = self.CH.Hospitaldropdown()
         for i in range(1, len(hospital.options)):
             hospital.select_by_index(i)
             if "No Data Found For This Hospital" in self.page_source:

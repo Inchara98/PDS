@@ -1,6 +1,7 @@
 import time
 import pytest
 from PageObjects.LoginPage import LoginPage
+from PageObjects.JennieHospital import JennieHospital
 from Logs.Log import log_Details
 from Utilities.readProperties import ReadConfig
 
@@ -46,6 +47,7 @@ class Test_001_Login:
         time.sleep(5)
         self.driver.maximize_window()
         self.CH = JennieHospital(self.driver)
+        self.CH.JennieHomepage()
         time.sleep(3)
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
@@ -73,12 +75,13 @@ class Test_001_Login:
         time.sleep(5)
         self.driver.maximize_window()
         self.CH = JennieHospital(self.driver)
+        self.CH.JennieHomepage()
         time.sleep(3)
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(2)
         a = self.CH.HospitalPageTittle()
         time.sleep(3)
-        if a == "Overall Revenue v/s Transactions-2018":
+        if a == "Overall Revenue v/s Transactions-2019":
             assert True
             self.driver.close()
             self.logger.info("********************Test  SelectYear Ended********************************")
@@ -101,12 +104,13 @@ class Test_001_Login:
         time.sleep(5)
         self.driver.maximize_window()
         self.CH = JennieHospital(self.driver)
+        self.CH.JennieHomepage()
         time.sleep(3)
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(3)
         a = self.CH.HospitalPageTittle()
         time.sleep(3)
-        if a == "Overall Revenue v/s Transactions-2018":
+        if a == "Overall Revenue v/s Transactions-2020":
             assert True
             self.driver.close()
             self.logger.info("********************Test  SelectYear Ended********************************")
@@ -129,12 +133,13 @@ class Test_001_Login:
         time.sleep(5)
         self.driver.maximize_window()
         self.CH = JennieHospital(self.driver)
+        self.CH.JennieHomepage()
         time.sleep(3)
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(4)
         a = self.CH.HospitalPageTittle()
         time.sleep(3)
-        if a == "Overall Revenue v/s Transactions-2018":
+        if a == "Overall Revenue v/s Transactions-2021":
             assert True
             self.driver.close()
             self.logger.info("********************Test  SelectYear2021 Ended********************************")
@@ -282,15 +287,15 @@ class Test_001_Login:
         c = self.CH.HospitalRevenue()
         time.sleep(3)
         if c >= 0:
+            assert True
+            self.driver.close()
+            self.logger.info("********************Test  Revenue2019 Ended********************************")
+        else:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2019.png")
             self.driver.close()
             self.logger.info(
                 "********************Test  Revenue2019 Ended Due to difference in the txt********************************")
             assert False
-        else:
-            assert True
-            self.driver.close()
-            self.logger.info("********************Test  Revenue2019 Ended********************************")
 
 
     def test_TOTALTRANSACTIONS2019(self,setup):
@@ -370,7 +375,7 @@ class Test_001_Login:
         SelectYear.select_by_index(2)
         c = self.CH.HospitalLegal_Action()
         time.sleep(3)
-        if c == 0:
+        if c >= 0:
             assert True
             self.driver.close()
             self.logger.info("********************Test  LEGAL_ACTIONS2019 Ended********************************")
@@ -404,11 +409,6 @@ class Test_001_Login:
             assert True
             self.driver.close()
             self.logger.info("********************Test  Revenue2020 Ended********************************")
-            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2020.png")
-            self.driver.close()
-            self.logger.info(
-                "********************Test  Revenue2020 Ended Due to difference in the txt********************************")
-            assert False
         else:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2020.png")
             self.driver.close()
@@ -633,7 +633,7 @@ class Test_001_Login:
         self.CH.JennieHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(1)
-        hospital = Select(self.driver.find_element_by_id(""))
+        hospital = self.CH.Hospitaldropdown()
         for i in range(1, len(hospital.options)):
             hospital.select_by_index(i)
             if "No Data Found For This Hospital" in self.page_source:
@@ -657,7 +657,7 @@ class Test_001_Login:
         self.CH.JennieHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(2)
-        hospital = Select(self.driver.find_element_by_id(""))
+        hospital = self.CH.Hospitaldropdown()
         for i in range(1, len(hospital.options)):
             hospital.select_by_index(i)
             if "No Data Found For This Hospital" in self.page_source:
@@ -681,7 +681,7 @@ class Test_001_Login:
         self.CH.JennieHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(3)
-        hospital = Select(self.driver.find_element_by_id(""))
+        hospital = self.CH.Hospitaldropdown()
         for i in range(1, len(hospital.options)):
             hospital.select_by_index(2)
             if "No Data Found For This Hospital" in self.page_source:
@@ -705,7 +705,7 @@ class Test_001_Login:
         self.CH.JennieHomepage()
         SelectYear = self.CH.SelectYear()
         SelectYear.select_by_index(4)
-        hospital = Select(self.driver.find_element_by_id(""))
+        hospital = self.CH.Hospitaldropdown()
         for i in range(1, len(hospital.options)):
             hospital.select_by_index(i)
             if "No Data Found For This Hospital" in self.page_source:

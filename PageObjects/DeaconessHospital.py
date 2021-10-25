@@ -11,8 +11,8 @@ class DeaconessHospital:
 
     def DeaconessHomepage(self):
         self.data = Locator_Path()
-        self.driver.find_element_by_id(self.data.CommunityBargraph).click()
-        time.sleep(4)
+        a = Select(self.driver.find_element_by_id(self.data.SelectHospital)).select_by_visible_text("DEACONESS")
+        return a
 
     def SelectYear(self):
         self.data = Locator_Path()

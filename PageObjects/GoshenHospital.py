@@ -11,8 +11,8 @@ class GoshenHospital:
 
     def GoshenHomepage(self):
         self.data = Locator_Path()
-        self.driver.find_element_by_id(self.data.GoshenBargraph).click()
-        time.sleep(4)
+        a = Select(self.driver.find_element_by_id(self.data.SelectHospital)).select_by_visible_text("GOSHEN")
+        return a
 
     def SelectYear(self):
         self.data = Locator_Path()

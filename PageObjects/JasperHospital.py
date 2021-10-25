@@ -11,8 +11,8 @@ class JasperHospital:
 
     def JasperHomepage(self):
         self.data = Locator_Path()
-        self.driver.find_element_by_id(self.data.JasperBargraph).click()
-        time.sleep(4)
+        a = Select(self.driver.find_element_by_id(self.data.SelectHospital)).select_by_visible_text("JASPER")
+        return a
 
     def SelectYear(self):
         self.data = Locator_Path()

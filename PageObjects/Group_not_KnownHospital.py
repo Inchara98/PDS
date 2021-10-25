@@ -11,8 +11,8 @@ class Group_not_knownHospital:
 
     def Group_not_knownHomepage(self):
         self.data = Locator_Path()
-        self.driver.find_element_by_id(self.data.Group_not_KnownBargraph).click()
-        time.sleep(4)
+        a = Select(self.driver.find_element_by_id(self.data.SelectHospital)).select_by_visible_text("GROUP_NOT_KNOWN")
+        return a
 
     def SelectYear(self):
         self.data = Locator_Path()

@@ -1,23 +1,35 @@
 from selenium import webdriver
+from Utilities.readProperties import ReadConfig
+
+
 class LoginPage:
-    textbox_username_id = "username"
-    textbox_password_xpath = "//input[@name='password']"
-    button_login_xpath = "//button[@type='submit']"
-    button_logout_class_name = "btn btn-danger"
+    textbox_username = "username"
+    textbox_password = "password"
+    button_login = "login"
+    button_logout = "logout"
+    baseUrl = ReadConfig.getApplicationUrl()
+    username = ReadConfig.getUserID()
+    password = ReadConfig.getPassword()
 
     def __init__(self,driver):
         self.driver = driver
 
     def setUserName(self,username):
-        self.driver.find_element_by_id(self.textbox_username_id).send_keys(username)
+        self.driver.find_element_by_id(self.textbox_username).send_keys(username)
 
 
     def setPassword(self,password):
-        self.driver.find_element_by_xpath(self.textbox_password_xpath).send_keys(password)
+        self.driver.find_element_by_id(self.textbox_password).send_keys(password)
 
     def clickLogin(self):
-        self.driver.find_element_by_xpath(self.button_login_xpath).click()
+        self.driver.find_element_by_id(self.button_login).click()
 
     def clickLogout(self):
-        self.driver.find_element_by_class_name(self.button_logout_class_name).click()
+        self.driver.find_element_by_id(self.button_logout).click()
+
+    def login_PDS(self):
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
 

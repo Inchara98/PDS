@@ -11,8 +11,8 @@ class OrthoHospital:
 
     def OrthoHomepage(self):
         self.data = Locator_Path()
-        self.driver.find_element_by_id(self.data.OrthoBargraph).click()
-        time.sleep(4)
+        a = Select(self.driver.find_element_by_id(self.data.SelectHospital)).select_by_visible_text("ORTHO")
+        return a
 
     def SelectYear(self):
         self.data = Locator_Path()

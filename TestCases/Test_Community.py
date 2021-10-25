@@ -50,7 +50,7 @@ class Test_001_Login:
         self.CH.CommunityHomepage()
         time.sleep(3)
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(0)
         a = self.CH.HospitalPageTittle()
         time.sleep(3)
         if a == "Overall Revenue v/s Transactions-2018":
@@ -78,7 +78,8 @@ class Test_001_Login:
         self.CH.CommunityHomepage()
         time.sleep(3)
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(2)
+        SelectYear.select_by_index(1)
+        time.sleep(15)
         a = self.CH.HospitalPageTittle()
         time.sleep(3)
         if a == "Overall Revenue v/s Transactions-2019":
@@ -107,7 +108,8 @@ class Test_001_Login:
         self.CH.CommunityHomepage()
         time.sleep(3)
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(3)
+        SelectYear.select_by_index(2)
+        time.sleep(15)
         a = self.CH.HospitalPageTittle()
         time.sleep(3)
         if a == "Overall Revenue v/s Transactions-2020":
@@ -136,7 +138,8 @@ class Test_001_Login:
         self.CH.CommunityHomepage()
         time.sleep(3)
         SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(4)
+        SelectYear.select_by_index(3)
+        time.sleep(15)
         a = self.CH.HospitalPageTittle()
         time.sleep(3)
         if a == "Overall Revenue v/s Transactions-2021":

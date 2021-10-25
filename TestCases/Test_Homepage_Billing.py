@@ -20,6 +20,7 @@ class Test_001_Login:
         self.logger.info("********************verifying Homepage Test********************************")
         self.driver = setup
         self.driver.get(self.baseUrl)
+        time.sleep(5)
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
@@ -27,9 +28,9 @@ class Test_001_Login:
         time.sleep(5)
         self.driver.maximize_window()
         self.hp = Homepage_Billing(self.driver)
-        time.sleep(3)
+        time.sleep(7)
         a = self.driver.current_url
-        if a == "https://pds-billing-info.tibilprojects.com/dashboard":
+        if a == "https://uat-pds-billing-info.pdsnew.com/dashboard":
             assert True
             self.logger.info("********************Test  Homepage Ended********************************")
         else:
@@ -46,15 +47,15 @@ class Test_001_Login:
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
-        time.sleep(5)
+        time.sleep(10)
         self.driver.maximize_window()
         self.hp = Homepage_Billing(self.driver)
-        time.sleep(3)
-        self.hp.logut()
-        time.sleep(3)
+        time.sleep(10)
+        self.hp.logout()
+        time.sleep(5)
         act_title = self.driver.title
         time.sleep(5)
-        if act_title == "TIBIL SOLUTIONS":
+        if act_title == "PDS":
             assert True
             self.driver.close()
             self.logger.info("********************Test  Logout Ended********************************")
@@ -74,15 +75,19 @@ class Test_001_Login:
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
-        time.sleep(5)
+        time.sleep(30)
         self.driver.maximize_window()
         self.hp = Homepage_Billing(self.driver)
-        time.sleep(3)
-        SelectYear = self.hp.SelectYear()
-        SelectYear.select_by_index(1)
+        time.sleep(30)
+        SelectYear18 = self.hp.SelectYear()
+        time.sleep(10)
+        SelectYear18.select_by_index(0)
+        time.sleep(15)
         a = self.hp.RevenueTittle()
-        time.sleep(3)
-        if a == "Revenue 2018":
+        print(a)
+        time.sleep(10)
+        if a == 'Revenue-2018':
+        # if (driver.getPageSource().contains("Revenue-2018"))
             assert True
             self.driver.close()
             self.logger.info("********************Test  SelectYear Ended********************************")
@@ -90,7 +95,7 @@ class Test_001_Login:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_SelectYear.png")
             self.driver.close()
             self.logger.info(
-                "********************Test  SelectYear Ended Due to difference in the txt********************************")
+                "********************Test  SelectYear Ended Due to difference in the text********************************")
             assert False
 
 
@@ -102,15 +107,16 @@ class Test_001_Login:
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
-        time.sleep(5)
+        time.sleep(10)
         self.driver.maximize_window()
         self.hp = Homepage_Billing(self.driver)
         time.sleep(3)
-        SelectYear = self.hp.SelectYear()
-        SelectYear.select_by_index(2)
+        SelectYear19 = self.hp.SelectYear()
+        SelectYear19.select_by_index(1)
+        time.sleep(15)
         a = self.hp.RevenueTittle()
-        time.sleep(3)
-        if a == "Revenue 2019":
+        time.sleep(15)
+        if a == "Revenue-2019":
             assert True
             self.driver.close()
             self.logger.info("********************Test  SelectYear Ended********************************")
@@ -130,15 +136,17 @@ class Test_001_Login:
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
-        time.sleep(5)
+        time.sleep(10)
         self.driver.maximize_window()
         self.hp = Homepage_Billing(self.driver)
         time.sleep(3)
-        SelectYear = Select(self.hp.SelectYear())
-        SelectYear.select_by_index(3)
+        SelectYear20 = self.hp.SelectYear()
+        time.sleep(6)
+        SelectYear20.select_by_index(2)
+        time.sleep(15)
         a = self.hp.RevenueTittle()
-        time.sleep(3)
-        if a == "Revenue 2020":
+        time.sleep(15)
+        if a == "Revenue-2020":
             assert True
             self.driver.close()
             self.logger.info("********************Test  SelectYear Ended********************************")
@@ -158,15 +166,17 @@ class Test_001_Login:
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
-        time.sleep(5)
+        time.sleep(10)
         self.driver.maximize_window()
         self.hp = Homepage_Billing(self.driver)
         time.sleep(3)
-        SelectYear = self.hp.SelectYear()
-        SelectYear.select_by_index(4)
+        SelectYear21 = self.hp.SelectYear()
+        time.sleep(7)
+        SelectYear21.select_by_index(3)
+        time.sleep(15)
         a = self.hp.RevenueTittle()
-        time.sleep(3)
-        if a == "Revenue 2021":
+        time.sleep(15)
+        if a == "Revenue-2021":
             assert True
             self.driver.close()
             self.logger.info("********************Test  SelectYear Ended********************************")
@@ -185,15 +195,18 @@ class Test_001_Login:
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
-        time.sleep(5)
+        time.sleep(10)
         self.driver.maximize_window()
         self.hp = Homepage_Billing(self.driver)
         time.sleep(3)
         SelectYear = self.hp.SelectYear()
-        SelectYear.select_by_index(1)
+        time.sleep(7)
+        SelectYear.select_by_index(0)
+        time.sleep(15)
         c = self.hp.Revenue()
-        time.sleep(3)
-        if c < 0:
+        a = "0"
+        time.sleep(15)
+        if c < a:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2018.png")
             self.driver.close()
             self.logger.info(
@@ -213,15 +226,18 @@ class Test_001_Login:
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
-        time.sleep(5)
+        time.sleep(10)
         self.driver.maximize_window()
         self.hp = Homepage_Billing(self.driver)
         time.sleep(3)
         SelectYear = self.hp.SelectYear()
-        SelectYear.select_by_index(1)
+        time.sleep(7)
+        SelectYear.select_by_index(0)
+        time.sleep(15)
         c = self.hp.Total_Transaction()
-        time.sleep(3)
-        if c < 0:
+        a = "0"
+        time.sleep(15)
+        if c < a:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_TRANSACTIONS2018.png")
             self.driver.close()
             self.logger.info(
@@ -241,15 +257,18 @@ class Test_001_Login:
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
-        time.sleep(5)
+        time.sleep(10)
         self.driver.maximize_window()
         self.hp = Homepage_Billing(self.driver)
         time.sleep(3)
         SelectYear = self.hp.SelectYear()
-        SelectYear.select_by_index(1)
+        time.sleep(7)
+        SelectYear.select_by_index(0)
+        time.sleep(15)
         c = self.hp.Total_Payment()
-        time.sleep(3)
-        if c < 0:
+        a = "0"
+        time.sleep(15)
+        if c < a:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_PAYMENTS2018.png")
             self.driver.close()
             self.logger.info(
@@ -268,15 +287,18 @@ class Test_001_Login:
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
-        time.sleep(5)
+        time.sleep(10)
         self.driver.maximize_window()
         self.hp = Homepage_Billing(self.driver)
         time.sleep(3)
         SelectYear = self.hp.SelectYear()
-        SelectYear.select_by_index(1)
+        time.sleep(7)
+        SelectYear.select_by_index(0)
+        time.sleep(15)
         c = self.hp.Legal_Action()
-        time.sleep(3)
-        if c < 0:
+        a = "0"
+        time.sleep(15)
+        if c < a:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_LEGAL_ACTIONS2018.png")
             self.driver.close()
             self.logger.info(
@@ -296,15 +318,17 @@ class Test_001_Login:
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
-        time.sleep(5)
+        time.sleep(10)
         self.driver.maximize_window()
         self.hp = Homepage_Billing(self.driver)
         time.sleep(3)
         SelectYear = self.hp.SelectYear()
         SelectYear.select_by_index(1)
+        time.sleep(7)
         c = self.hp.Revenue()
-        time.sleep(3)
-        if c < 0:
+        a = "0"
+        time.sleep(15)
+        if c < a:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2019.png")
             self.driver.close()
             self.logger.info(
@@ -324,15 +348,17 @@ class Test_001_Login:
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
-        time.sleep(5)
+        time.sleep(10)
         self.driver.maximize_window()
         self.hp = Homepage_Billing(self.driver)
         time.sleep(3)
         SelectYear = self.hp.SelectYear()
         SelectYear.select_by_index(1)
+        time.sleep(7)
         c = self.hp.Total_Transaction()
-        time.sleep(3)
-        if c < 0:
+        a = "0"
+        time.sleep(15)
+        if c < a:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_TRANSACTIONS2019.png")
             self.driver.close()
             self.logger.info(
@@ -352,15 +378,17 @@ class Test_001_Login:
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
-        time.sleep(5)
+        time.sleep(10)
         self.driver.maximize_window()
         self.hp = Homepage_Billing(self.driver)
         time.sleep(3)
         SelectYear = self.hp.SelectYear()
         SelectYear.select_by_index(1)
+        time.sleep(7)
         c = self.hp.Total_Payment()
-        time.sleep(3)
-        if c < 0:
+        a = "0"
+        time.sleep(15)
+        if c < a:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_PAYMENTS2019.png")
             self.driver.close()
             self.logger.info(
@@ -379,15 +407,17 @@ class Test_001_Login:
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
-        time.sleep(5)
+        time.sleep(10)
         self.driver.maximize_window()
         self.hp = Homepage_Billing(self.driver)
         time.sleep(3)
         SelectYear = self.hp.SelectYear()
         SelectYear.select_by_index(1)
+        time.sleep(15)
         c = self.hp.Legal_Action()
-        time.sleep(3)
-        if c < 0:
+        a = "0"
+        time.sleep(15)
+        if c < a:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_LEGAL_ACTIONS2019.png")
             self.driver.close()
             self.logger.info(
@@ -407,15 +437,17 @@ class Test_001_Login:
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
-        time.sleep(5)
+        time.sleep(10)
         self.driver.maximize_window()
         self.hp = Homepage_Billing(self.driver)
         time.sleep(3)
         SelectYear = self.hp.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(2)
+        time.sleep(7)
         c = self.hp.Revenue()
-        time.sleep(3)
-        if c < 0:
+        a = "0"
+        time.sleep(15)
+        if c < a:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2020.png")
             self.driver.close()
             self.logger.info(
@@ -435,15 +467,17 @@ class Test_001_Login:
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
-        time.sleep(5)
+        time.sleep(10)
         self.driver.maximize_window()
         self.hp = Homepage_Billing(self.driver)
         time.sleep(3)
         SelectYear = self.hp.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(2)
+        time.sleep(7)
         c = self.hp.Total_Transaction()
-        time.sleep(3)
-        if c < 0:
+        a = "0"
+        time.sleep(15)
+        if c < a:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_TRANSACTIONS2020.png")
             self.driver.close()
             self.logger.info(
@@ -463,15 +497,17 @@ class Test_001_Login:
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
-        time.sleep(5)
+        time.sleep(10)
         self.driver.maximize_window()
         self.hp = Homepage_Billing(self.driver)
         time.sleep(3)
         SelectYear = self.hp.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(2)
+        time.sleep(7)
         c = self.hp.Total_Payment()
-        time.sleep(3)
-        if c < 0:
+        a = "0"
+        time.sleep(15)
+        if c < a:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_PAYMENTS2020.png")
             self.driver.close()
             self.logger.info(
@@ -490,15 +526,17 @@ class Test_001_Login:
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
-        time.sleep(5)
+        time.sleep(10)
         self.driver.maximize_window()
         self.hp = Homepage_Billing(self.driver)
         time.sleep(3)
         SelectYear = self.hp.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(2)
+        time.sleep(7)
         c = self.hp.Legal_Action()
-        time.sleep(3)
-        if c < 0:
+        a = "0"
+        time.sleep(15)
+        if c < a:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_LEGAL_ACTIONS2020.png")
             self.driver.close()
             self.logger.info(
@@ -518,15 +556,17 @@ class Test_001_Login:
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
-        time.sleep(5)
+        time.sleep(10)
         self.driver.maximize_window()
         self.hp = Homepage_Billing(self.driver)
         time.sleep(3)
         SelectYear = self.hp.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(3)
+        time.sleep(7)
         c = self.hp.Revenue()
-        time.sleep(3)
-        if c < 0:
+        a = "0"
+        time.sleep(15)
+        if c < a:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2021.png")
             self.driver.close()
             self.logger.info(
@@ -546,15 +586,17 @@ class Test_001_Login:
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
-        time.sleep(5)
+        time.sleep(10)
         self.driver.maximize_window()
         self.hp = Homepage_Billing(self.driver)
         time.sleep(3)
         SelectYear = self.hp.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(3)
+        time.sleep(7)
         c = self.hp.Total_Transaction()
-        time.sleep(3)
-        if c < 0:
+        a = "0"
+        time.sleep(15)
+        if c < a:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_TRANSACTIONS2021.png")
             self.driver.close()
             self.logger.info(
@@ -574,15 +616,17 @@ class Test_001_Login:
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
-        time.sleep(5)
+        time.sleep(10)
         self.driver.maximize_window()
         self.hp = Homepage_Billing(self.driver)
         time.sleep(3)
         SelectYear = self.hp.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(3)
+        time.sleep(15)
         c = self.hp.Total_Payment()
-        time.sleep(3)
-        if c < 0:
+        a = "0"
+        time.sleep(15)
+        if c < a:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_PAYMENTS2021.png")
             self.driver.close()
             self.logger.info(
@@ -601,15 +645,17 @@ class Test_001_Login:
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
-        time.sleep(5)
+        time.sleep(10)
         self.driver.maximize_window()
         self.hp = Homepage_Billing(self.driver)
         time.sleep(3)
         SelectYear = self.hp.SelectYear()
-        SelectYear.select_by_index(1)
+        SelectYear.select_by_index(3)
+        time.sleep(7)
         c = self.hp.Legal_Action()
-        time.sleep(3)
-        if c < 0:
+        a = "0"
+        time.sleep(15)
+        if c < a:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_LEGAL_ACTIONS2021.png")
             self.driver.close()
             self.logger.info(
@@ -620,7 +666,7 @@ class Test_001_Login:
             self.driver.close()
             self.logger.info("********************Test  LEGAL_ACTIONS2021 Ended********************************")
 
-    def Dashboard(self,setup):
+    def test_Dashboard(self,setup):
         self.logger.info("********************verifying Dashboard Test********************************")
         self.driver = setup
         self.driver.get(self.baseUrl)
@@ -631,8 +677,9 @@ class Test_001_Login:
         time.sleep(5)
         self.driver.maximize_window()
         self.hp = Homepage_Billing(self.driver)
-        time.sleep(3)
+        time.sleep(10)
         self.hp.Dashboard()
+        time.sleep(10)
         selectyear = self.hp.SelectYear()
         if selectyear.is_selected():
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Dashboard.png")

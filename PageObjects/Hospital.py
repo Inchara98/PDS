@@ -4,7 +4,7 @@ from selenium.webdriver.support.select import Select
 from Locators.Locators import Locator_Path
 
 
-class AllHospital:
+class Hospital:
 
     def __init__(self,driver):
         self.driver = driver
@@ -137,7 +137,7 @@ class AllHospital:
 
     def HospitalRevenue(self):
         self.data = Locator_Path()
-        a = self.driver.find_element_by_id(self.data.HospitalRevenue).text
+        a = self.driver.find_element_by_id(self.data.HospitalRevenue1).text
         return a
 
     def HospitalTotal_Transaction(self):
@@ -168,4 +168,11 @@ class AllHospital:
         Hospital = self.driver.find_element_by_id(self.data.Hospitaldropdown).click()
         return Hospital
 
-    
+    def Dashboard(self):
+        Dashboard = self.driver.find_element_by_link_text('DASHBOARD').click()
+        return Dashboard
+
+
+    def Dashboardmenu(self):
+        Dashboardmenu = self.driver.find_element_by_id(self.data.Dashboard).click()
+        return Dashboardmenu

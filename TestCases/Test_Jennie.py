@@ -1,7 +1,7 @@
 import time
 import pytest
 from PageObjects.LoginPage import LoginPage
-from PageObjects.JennieHospital import JennieHospital
+from PageObjects.Hospital import Hospital
 from Logs.Log import log_Details
 from Utilities.readProperties import ReadConfig
 
@@ -24,11 +24,11 @@ class Test_001_Login:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = JennieHospital(self.driver)
+        self.CH = Hospital(self.driver)
         time.sleep(3)
         self.CH.JennieHomepage()
         a = self.driver.current_url
-        if a == "https://pds-billing-info.tibilprojects.com/dashboard/Jennie":
+        if a == "https://uat-pds-billing-info.pdsnew.com/dashboard/Jennie":
             assert True
             self.logger.info("********************Test JennieHomepage Passed********************************")
         else:
@@ -36,7 +36,7 @@ class Test_001_Login:
             self.logger.info("********************JennieHomepage Test ended********************************")
             assert False
 
-    def test_SelectYear2018(self,setup):
+    def test_SelectYear(self, setup):
         self.logger.info("********************verifying SelectYear2018 Test********************************")
         self.driver = setup
         self.driver.get(self.baseUrl)
@@ -44,113 +44,35 @@ class Test_001_Login:
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
-        time.sleep(5)
+        time.sleep(10)
         self.driver.maximize_window()
-        self.CH = JennieHospital(self.driver)
+        self.CH = Hospital(self.driver)
+        time.sleep(35)
         self.CH.JennieHomepage()
-        time.sleep(3)
-        SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
-        a = self.CH.HospitalPageTittle()
-        time.sleep(3)
-        if a == "Overall Revenue v/s Transactions-2018":
-            assert True
-            self.driver.close()
-            self.logger.info("********************Test  SelectYear2018 Ended********************************")
-        else:
-            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_SelectYear2018.png")
-            self.driver.close()
-            self.logger.info(
-                "********************Test  SelectYear2018 Ended Due to difference in the txt********************************")
-            assert False
-
-    def test_SelectYear2019(self,setup):
-        self.logger.info("********************verifying SelectYear2019 Test********************************")
-        self.driver = setup
-        self.driver.get(self.baseUrl)
-        self.lp = LoginPage(self.driver)
-        self.lp.setUserName(self.username)
-        self.lp.setPassword(self.password)
-        self.lp.clickLogin()
         time.sleep(5)
-        self.driver.maximize_window()
-        self.CH = JennieHospital(self.driver)
-        self.CH.JennieHomepage()
-        time.sleep(3)
-        SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(2)
-        a = self.CH.HospitalPageTittle()
-        time.sleep(3)
-        if a == "Overall Revenue v/s Transactions-2019":
-            assert True
-            self.driver.close()
-            self.logger.info("********************Test  SelectYear Ended********************************")
-        else:
-            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_SelectYear.png")
-            self.driver.close()
-            self.logger.info(
-                "********************Test  SelectYear Ended Due to difference in the txt********************************")
-            assert False
 
+        year = self.CH.SelectYear()
+        i = 0
+        for i in range(0, len(year.options)):
+            year.select_by_index(i)
+            print(year.options[i].text, 'year is selected ')
+            time.sleep(8)
+            z = "PROPENSITY TO PAY SCORES"
+            value = year.options[i].text
+            if z in self.driver.page_source:
+                print(value, 'Records are Displayed')
+            elif z not in self.driver.page_source:
+                print(year.options[i].text, "is not having data")
+                assert True
+            else:
+                self.driver.save_screenshot(
+                    "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_SelectYear2020.png")
+                self.driver.close()
+                self.logger.info(
+                    "********************Test  SelectYear2020 Ended Due to difference in the txt********************************")
+                assert False
 
-    def test_SelectYear2020(self,setup):
-        self.logger.info("********************verifying SelectYear2020 Test********************************")
-        self.driver = setup
-        self.driver.get(self.baseUrl)
-        self.lp = LoginPage(self.driver)
-        self.lp.setUserName(self.username)
-        self.lp.setPassword(self.password)
-        self.lp.clickLogin()
-        time.sleep(5)
-        self.driver.maximize_window()
-        self.CH = JennieHospital(self.driver)
-        self.CH.JennieHomepage()
-        time.sleep(3)
-        SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(3)
-        a = self.CH.HospitalPageTittle()
-        time.sleep(3)
-        if a == "Overall Revenue v/s Transactions-2020":
-            assert True
-            self.driver.close()
-            self.logger.info("********************Test  SelectYear Ended********************************")
-        else:
-            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_SelectYear.png")
-            self.driver.close()
-            self.logger.info(
-                "********************Test  SelectYear Ended Due to difference in the txt********************************")
-            assert False
-
-
-    def test_SelectYear2021(self,setup):
-        self.logger.info("********************verifying SelectYear2021 Test********************************")
-        self.driver = setup
-        self.driver.get(self.baseUrl)
-        self.lp = LoginPage(self.driver)
-        self.lp.setUserName(self.username)
-        self.lp.setPassword(self.password)
-        self.lp.clickLogin()
-        time.sleep(5)
-        self.driver.maximize_window()
-        self.CH = JennieHospital(self.driver)
-        self.CH.JennieHomepage()
-        time.sleep(3)
-        SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(4)
-        a = self.CH.HospitalPageTittle()
-        time.sleep(3)
-        if a == "Overall Revenue v/s Transactions-2021":
-            assert True
-            self.driver.close()
-            self.logger.info("********************Test  SelectYear2021 Ended********************************")
-        else:
-            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_SelectYear2021.png")
-            self.driver.close()
-            self.logger.info(
-                "********************Test  SelectYear2021 Ended Due to difference in the txt********************************")
-            assert False
-
-    def test_Revenue2018(self,setup):
+    def test_Revenue(self, setup):
         self.logger.info("********************verifying Revenue2018 Test********************************")
         self.driver = setup
         self.driver.get(self.baseUrl)
@@ -158,28 +80,40 @@ class Test_001_Login:
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
-        time.sleep(5)
+        time.sleep(10)
         self.driver.maximize_window()
-        self.CH = JennieHospital(self.driver)
-        time.sleep(3)
+        self.CH = Hospital(self.driver)
+        time.sleep(30)
         self.CH.JennieHomepage()
-        SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
-        c = self.CH.HospitalRevenue()
-        time.sleep(3)
-        if c >= 0:
-            assert True
-            self.driver.close()
-            self.logger.info("********************Test  LEGAL_ACTIONS2018 Ended********************************")
-        else:
-            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_LEGAL_ACTIONS2018.png")
-            self.driver.close()
-            self.logger.info(
-                "********************Test  LEGAL_ACTIONS2018 Ended Due to difference in the txt********************************")
-            assert False
+        time.sleep(15)
+        year = self.CH.SelectYear()
+        time.sleep(15)
+        i = 0
+        for i in range(0, len(year.options)):
+            year.select_by_index(i)
+            time.sleep(20)
+            print(year.options[i].text, 'year is selected ')
+            time.sleep(15)
+            D = "PROPENSITY TO PAY SCORES"
+            if D in self.driver.page_source:
+                c = self.CH.HospitalRevenue()
+                a = "0"
+                if c >= a:
+                    print(year.options[i].text, "REVENUE", c)
+                    assert True
+                    self.logger.info("********************Test  Revenue Ended********************************")
+            elif D not in self.driver.page_source:
+                print(year.options[i].text, "is not having data")
+                assert True
+            else:
+                self.driver.save_screenshot(
+                    "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_SelectYear2020.png")
+                self.driver.close()
+                self.logger.info(
+                    "********************Test  SelectYear2020 Ended Due to difference in the txt********************************")
+                assert False
 
-
-    def test_TOTALTRANSACTIONS2018(self,setup):
+    def test_TOTALTRANSACTIONS(self, setup):
         self.logger.info("********************verifying TOTAL_TRANSACTIONS2018 Test********************************")
         self.driver = setup
         self.driver.get(self.baseUrl)
@@ -187,30 +121,40 @@ class Test_001_Login:
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
-        time.sleep(5)
+        time.sleep(10)
         self.driver.maximize_window()
-        self.CH = JennieHospital(self.driver)
-        time.sleep(3)
+        self.CH = Hospital(self.driver)
+        time.sleep(30)
         self.CH.JennieHomepage()
-        SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
-        c = self.CH.HospitalTotal_Transaction()
-        time.sleep(3)
-        if c >= 0:
-            assert True
-            self.driver.close()
-            self.logger.info("********************Test  TOTAL_TRANSACTIONS2018 Ended********************************")
-        else:
-            self.driver.save_screenshot(
-                "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_TRANSACTIONS2018.png")
-            self.driver.close()
-            self.logger.info(
-                "********************Test  TOTAL_TRANSACTIONS2018 Ended Due to difference in the txt********************************")
-            assert False
+        time.sleep(15)
+        year = self.CH.SelectYear()
+        time.sleep(15)
+        i = 0
+        for i in range(0, len(year.options)):
+            year.select_by_index(i)
+            time.sleep(20)
+            print(year.options[i].text, 'year is selected ')
+            time.sleep(15)
+            D = "PROPENSITY TO PAY SCORES"
+            if D in self.driver.page_source:
+                c = self.CH.HospitalTotal_Transaction()
+                a = "0"
+                if c >= a:
+                    print(year.options[i].text, "TotalTransaction", c)
+                    assert True
+                    self.logger.info("********************Test  Revenue Ended********************************")
+            elif D not in self.driver.page_source:
+                print(year.options[i].text, "is not having data")
+                assert True
+            else:
+                self.driver.save_screenshot(
+                    "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_SelectYear2020.png")
+                self.driver.close()
+                self.logger.info(
+                    "********************Test  SelectYear2020 Ended Due to difference in the txt********************************")
+                assert False
 
-
-
-    def test_TOTALPAYMENTS2018(self,setup):
+    def test_TOTALPAYMENTS(self, setup):
         self.logger.info("********************verifying TOTAL_PAYMENTS2018 Test********************************")
         self.driver = setup
         self.driver.get(self.baseUrl)
@@ -220,27 +164,38 @@ class Test_001_Login:
         self.lp.clickLogin()
         time.sleep(5)
         self.driver.maximize_window()
-        self.CH = JennieHospital(self.driver)
-        time.sleep(3)
+        self.CH = Hospital(self.driver)
+        time.sleep(30)
         self.CH.JennieHomepage()
-        SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
-        c = self.CH.HospitalTotal_Payment()
-        time.sleep(3)
-        if c >= 0:
-            assert True
-            self.driver.close()
-            self.logger.info("********************Test  TOTAL_PAYMENTS2018 Ended********************************")
-        else:
-            self.driver.save_screenshot(
-                "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_PAYMENTS2018.png")
-            self.driver.close()
-            self.logger.info(
-                "********************Test  TOTAL_PAYMENTS2018 Ended Due to difference in the txt********************************")
-            assert False
+        time.sleep(15)
+        year = self.CH.SelectYear()
+        time.sleep(15)
+        i = 0
+        for i in range(0, len(year.options)):
+            year.select_by_index(i)
+            time.sleep(20)
+            print(year.options[i].text, 'year is selected ')
+            time.sleep(15)
+            D = "PROPENSITY TO PAY SCORES"
+            if D in self.driver.page_source:
+                c = self.CH.HospitalTotal_Payment()
+                a = "0"
+                if c >= a:
+                    print(year.options[i].text, "TOTALPAYMENTS", c)
+                    assert True
+                    self.logger.info("********************Test  Revenue Ended********************************")
+            elif D not in self.driver.page_source:
+                print(year.options[i].text, "is not having data")
+                assert True
+            else:
+                self.driver.save_screenshot(
+                    "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_SelectYear2020.png")
+                self.driver.close()
+                self.logger.info(
+                    "********************Test  SelectYear2020 Ended Due to difference in the txt********************************")
+                assert False
 
-
-    def test_LEGAL_ACTIONS2018(self,setup):
+    def test_LEGAL_ACTIONS(self, setup):
         self.logger.info("********************verifying LEGAL_ACTIONS2018 Test********************************")
         self.driver = setup
         self.driver.get(self.baseUrl)
@@ -248,468 +203,168 @@ class Test_001_Login:
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
-        time.sleep(5)
+        time.sleep(10)
         self.driver.maximize_window()
-        self.CH = JennieHospital(self.driver)
-        time.sleep(3)
+        self.CH = Hospital(self.driver)
+        time.sleep(30)
         self.CH.JennieHomepage()
-        SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
-        c = self.CH.HospitalLegal_Action()
-        time.sleep(3)
-        if c >= 0:
-            assert True
-            self.driver.close()
-            self.logger.info("********************Test  LEGAL_ACTIONS2018 Ended********************************")
-        else:
-            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_LEGAL_ACTIONS2018.png")
-            self.driver.close()
-            self.logger.info(
-                "********************Test  LEGAL_ACTIONS2018 Ended Due to difference in the txt********************************")
-            assert False
-
-
-    def test_Revenue2019(self,setup):
-        self.logger.info("********************verifying Revenue2019 Test********************************")
-        self.driver = setup
-        self.driver.get(self.baseUrl)
-        self.lp = LoginPage(self.driver)
-        self.lp.setUserName(self.username)
-        self.lp.setPassword(self.password)
-        self.lp.clickLogin()
-        time.sleep(5)
-        self.driver.maximize_window()
-        self.CH = JennieHospital(self.driver)
-        time.sleep(3)
-        self.CH.JennieHomepage()
-        SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(2)
-        c = self.CH.HospitalRevenue()
-        time.sleep(3)
-        if c >= 0:
-            assert True
-            self.driver.close()
-            self.logger.info("********************Test  Revenue2019 Ended********************************")
-        else:
-            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2019.png")
-            self.driver.close()
-            self.logger.info(
-                "********************Test  Revenue2019 Ended Due to difference in the txt********************************")
-            assert False
-
-
-    def test_TOTALTRANSACTIONS2019(self,setup):
-        self.logger.info("********************verifying TOTAL_TRANSACTIONS2019 Test********************************")
-        self.driver = setup
-        self.driver.get(self.baseUrl)
-        self.lp = LoginPage(self.driver)
-        self.lp.setUserName(self.username)
-        self.lp.setPassword(self.password)
-        self.lp.clickLogin()
-        time.sleep(5)
-        self.driver.maximize_window()
-        self.CH = JennieHospital(self.driver)
-        time.sleep(3)
-        self.CH.JennieHomepage()
-        SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(2)
-        c = self.CH.HospitalTotal_Transaction()
-        time.sleep(3)
-        if c >= 0:
-            assert True
-            self.driver.close()
-            self.logger.info("********************Test  TOTAL_TRANSACTIONS2019 Ended********************************")
-        else:
-            self.driver.save_screenshot(
-                "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_TRANSACTIONS2019.png")
-            self.driver.close()
-            self.logger.info(
-                "********************Test  TOTAL_TRANSACTIONS2019 Ended Due to difference in the txt********************************")
-            assert False
-
-
-    def test_TOTALPAYMENTS2019(self,setup):
-        self.logger.info("********************verifying TOTAL_PAYMENTS2019 Test********************************")
-        self.driver = setup
-        self.driver.get(self.baseUrl)
-        self.lp = LoginPage(self.driver)
-        self.lp.setUserName(self.username)
-        self.lp.setPassword(self.password)
-        self.lp.clickLogin()
-        time.sleep(5)
-        self.driver.maximize_window()
-        self.CH = JennieHospital(self.driver)
-        time.sleep(3)
-        self.CH.JennieHomepage()
-        SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(2)
-        c = self.CH.HospitalTotal_Payment()
-        time.sleep(3)
-        if c >= 0:
-            assert True
-            self.driver.close()
-            self.logger.info("********************Test  TOTAL_PAYMENTS2019 Ended********************************")
-        else:
-            self.driver.save_screenshot(
-                "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_PAYMENTS2019.png")
-            self.driver.close()
-            self.logger.info(
-                "********************Test  TOTAL_PAYMENTS2019 Ended Due to difference in the txt********************************")
-            assert False
-
-
-    def test_LEGAL_ACTIONS2019(self,setup):
-        self.logger.info("********************verifying LEGALACTIONS2019 Test********************************")
-        self.driver = setup
-        self.driver.get(self.baseUrl)
-        self.lp = LoginPage(self.driver)
-        self.lp.setUserName(self.username)
-        self.lp.setPassword(self.password)
-        self.lp.clickLogin()
-        time.sleep(5)
-        self.driver.maximize_window()
-        self.CH = JennieHospital(self.driver)
-        time.sleep(3)
-        self.CH.JennieHomepage()
-        SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(2)
-        c = self.CH.HospitalLegal_Action()
-        time.sleep(3)
-        if c >= 0:
-            assert True
-            self.driver.close()
-            self.logger.info("********************Test  LEGAL_ACTIONS2019 Ended********************************")
-        else:
-            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_LEGAL_ACTIONS2019.png")
-            self.driver.close()
-            self.logger.info(
-                "********************Test  LEGAL_ACTIONS2019 Ended Due to difference in the txt********************************")
-            assert False
-
-
-
-    def test_Revenue2020(self,setup):
-        self.logger.info("********************verifying REVENUE2020 Test********************************")
-        self.driver = setup
-        self.driver.get(self.baseUrl)
-        self.lp = LoginPage(self.driver)
-        self.lp.setUserName(self.username)
-        self.lp.setPassword(self.password)
-        self.lp.clickLogin()
-        time.sleep(5)
-        self.driver.maximize_window()
-        self.CH = JennieHospital(self.driver)
-        time.sleep(3)
-        self.CH.JennieHomepage()
-        SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(3)
-        c = self.CH.HospitalRevenue()
-        time.sleep(3)
-        if c >= 0:
-            assert True
-            self.driver.close()
-            self.logger.info("********************Test  Revenue2020 Ended********************************")
-        else:
-            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2020.png")
-            self.driver.close()
-            self.logger.info(
-                "********************Test  Revenue2020 Ended Due to difference in the txt********************************")
-            assert False
-
-
-    def test_TOTALTRANSACTIONS2020(self,setup):
-        self.logger.info("********************verifying TOTALTRANSACTIONS2020 Test********************************")
-        self.driver = setup
-        self.driver.get(self.baseUrl)
-        self.lp = LoginPage(self.driver)
-        self.lp.setUserName(self.username)
-        self.lp.setPassword(self.password)
-        self.lp.clickLogin()
-        time.sleep(5)
-        self.driver.maximize_window()
-        self.CH = JennieHospital(self.driver)
-        time.sleep(3)
-        self.CH.JennieHomepage()
-        SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(3)
-        c = self.CH.HospitalTotal_Transaction()
-        time.sleep(3)
-        if c >= 0:
-            assert True
-            self.driver.close()
-            self.logger.info("********************Test  TOTAL_TRANSACTIONS Ended********************************")
-        else:
-            self.driver.save_screenshot(
-                "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_TRANSACTIONS2020.png")
-            self.driver.close()
-            self.logger.info(
-                "********************Test  TOTAL_TRANSACTIONS2020 Ended Due to difference in the txt********************************")
-            assert False
-
-
-    def test_TOTALPAYMENTS2020(self,setup):
-        self.logger.info("********************verifying TOTALPAYMENTS2020 Test********************************")
-        self.driver = setup
-        self.driver.get(self.baseUrl)
-        self.lp = LoginPage(self.driver)
-        self.lp.setUserName(self.username)
-        self.lp.setPassword(self.password)
-        self.lp.clickLogin()
-        time.sleep(5)
-        self.driver.maximize_window()
-        self.CH = JennieHospital(self.driver)
-        time.sleep(3)
-        self.CH.JennieHomepage()
-        SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(3)
-        c = self.CH.HospitalTotal_Payment()
-        time.sleep(3)
-        if c < 0:
-            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_PAYMENTS2020.png")
-            self.driver.close()
-            self.logger.info(
-                "********************Test  TOTAL_PAYMENTS2020 Ended Due to difference in the txt********************************")
-            assert False
-        else:
-            assert True
-            self.driver.close()
-            self.logger.info("********************Test  TOTAL_PAYMENTS2020 Ended********************************")
-
-    def test_LEGAL_ACTIONS2020(self,setup):
-        self.logger.info("********************verifying LEGALACTIONS2020 Test********************************")
-        self.driver = setup
-        self.driver.get(self.baseUrl)
-        self.lp = LoginPage(self.driver)
-        self.lp.setUserName(self.username)
-        self.lp.setPassword(self.password)
-        self.lp.clickLogin()
-        time.sleep(5)
-        self.driver.maximize_window()
-        self.CH = JennieHospital(self.driver)
-        time.sleep(3)
-        self.CH.JennieHomepage()
-        SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(3)
-        c = self.CH.HospitalLegal_Action()
-        time.sleep(3)
-        if c < 0:
-            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_LEGAL_ACTIONS2020.png")
-            self.driver.close()
-            self.logger.info(
-                "********************Test  LEGAL_ACTIONS2020 Ended Due to difference in the txt********************************")
-            assert False
-        else:
-            assert True
-            self.driver.close()
-            self.logger.info("********************Test  LEGAL_ACTIONS2020 Ended********************************")
-
-
-    def test_Revenue2021(self,setup):
-        self.logger.info("********************verifying Revenue2021 Test********************************")
-        self.driver = setup
-        self.driver.get(self.baseUrl)
-        self.lp = LoginPage(self.driver)
-        self.lp.setUserName(self.username)
-        self.lp.setPassword(self.password)
-        self.lp.clickLogin()
-        time.sleep(5)
-        self.driver.maximize_window()
-        self.CH = JennieHospital(self.driver)
-        time.sleep(3)
-        self.CH.JennieHomepage()
-        SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(4)
-        c = self.CH.HospitalRevenue()
-        time.sleep(3)
-        if c < 0:
-            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue2021.png")
-            self.driver.close()
-            self.logger.info(
-                "********************Test  Revenue2021 Ended Due to difference in the txt********************************")
-            assert False
-        else:
-            assert True
-            self.driver.close()
-            self.logger.info("********************Test  Revenue2021 Ended********************************")
-
-
-    def test_TOTALTRANSACTIONS2021(self,setup):
-        self.logger.info("********************verifying TOTALTRANSACTION2021 Test********************************")
-        self.driver = setup
-        self.driver.get(self.baseUrl)
-        self.lp = LoginPage(self.driver)
-        self.lp.setUserName(self.username)
-        self.lp.setPassword(self.password)
-        self.lp.clickLogin()
-        time.sleep(5)
-        self.driver.maximize_window()
-        self.CH = JennieHospital(self.driver)
-        time.sleep(3)
-        self.CH.JennieHomepage()
-        SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(4)
-        c = self.CH.HospitalTotal_Transaction()
-        time.sleep(3)
-        if c < 0:
-            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_TRANSACTIONS2021.png")
-            self.driver.close()
-            self.logger.info(
-                "********************Test  TOTAL_TRANSACTIONS2021 Ended Due to difference in the txt********************************")
-            assert False
-        else:
-            assert True
-            self.driver.close()
-            self.logger.info("********************Test  TOTAL_TRANSACTIONS2021 Ended********************************")
-
-
-    def test_TOTALPAYMENTS2021(self,setup):
-        self.logger.info("********************verifying TOTALPAYMENTS2021 Test********************************")
-        self.driver = setup
-        self.driver.get(self.baseUrl)
-        self.lp = LoginPage(self.driver)
-        self.lp.setUserName(self.username)
-        self.lp.setPassword(self.password)
-        self.lp.clickLogin()
-        time.sleep(5)
-        self.driver.maximize_window()
-        self.CH = JennieHospital(self.driver)
-        time.sleep(3)
-        self.CH.JennieHomepage()
-        SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(4)
-        c = self.CH.HospitalTotal_Payment()
-        time.sleep(3)
-        if c < 0:
-            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTAL_PAYMENTS2021.png")
-            self.driver.close()
-            self.logger.info(
-                "********************Test  TOTAL_PAYMENTS2021 Ended Due to difference in the txt********************************")
-            assert False
-        else:
-            assert True
-            self.driver.close()
-            self.logger.info("********************Test  TOTAL_PAYMENTS Ended********************************")
-
-    def test_LEGAL_ACTIONS2021(self,setup):
-        self.logger.info("********************verifying LEGALACTIONs2021 Test********************************")
-        self.driver = setup
-        self.driver.get(self.baseUrl)
-        self.lp = LoginPage(self.driver)
-        self.lp.setUserName(self.username)
-        self.lp.setPassword(self.password)
-        self.lp.clickLogin()
-        time.sleep(5)
-        self.driver.maximize_window()
-        self.CH = JennieHospital(self.driver)
-        time.sleep(3)
-        self.CH.JennieHomepage()
-        SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(4)
-        c = self.CH.HospitalLegal_Action()
-        time.sleep(3)
-        if c < 0:
-            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_LEGAL_ACTIONS2021.png")
-            self.driver.close()
-            self.logger.info(
-                "********************Test  LEGAL_ACTIONS2021 Ended Due to difference in the txt********************************")
-            assert False
-        else:
-            assert True
-            self.driver.close()
-            self.logger.info("********************Test  LEGAL_ACTIONS2021 Ended********************************")
-
-    def test_Data2018(self, setup):
-        self.logger.info("********************verifying Data2018 Test********************************")
-        self.driver = setup
-        self.driver.get(self.baseUrl)
-        self.lp = LoginPage(self.driver)
-        self.lp.setUserName(self.username)
-        self.lp.setPassword(self.password)
-        self.lp.clickLogin()
-        time.sleep(5)
-        self.driver.maximize_window()
-        self.CH = JennieHospital(self.driver)
-        time.sleep(3)
-        self.CH.JennieHomepage()
-        SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(1)
-        hospital = self.CH.Hospitaldropdown()
-        for i in range(1, len(hospital.options)):
-            hospital.select_by_index(i)
-            if "No Data Found For This Hospital" in self.page_source:
-                print(hospital.options[i].text, "No Data")
+        time.sleep(15)
+        year = self.CH.SelectYear()
+        time.sleep(15)
+        i = 0
+        for i in range(0, len(year.options)):
+            year.select_by_index(i)
+            time.sleep(20)
+            print(year.options[i].text, 'year is selected ')
+            time.sleep(15)
+            D = "PROPENSITY TO PAY SCORES"
+            if D in self.driver.page_source:
+                c = self.CH.HospitalLegal_Action()
+                a = "0"
+                if c >= a:
+                    print(year.options[i].text, "LEGAL_ACTIONS", c)
+                    assert True
+                    self.logger.info("********************Test  Revenue Ended********************************")
+            elif D not in self.driver.page_source:
+                print(year.options[i].text, "is not having data")
+                assert True
             else:
-                if hospital == name:
-                    print("Selected hospital records are present")
+                self.driver.save_screenshot(
+                    "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_SelectYear2020.png")
+                self.driver.close()
+                self.logger.info(
+                    "********************Test  SelectYear2020 Ended Due to difference in the txt********************************")
+                assert False
 
-    def test_Data2019(self, setup):
-        self.logger.info("********************verifying Data2019 Test********************************")
+    # def test_Data2018(self, setup):
+    #     self.logger.info("********************verifying Data2018 Test********************************")
+    #     self.driver = setup
+    #     self.driver.get(self.baseUrl)
+    #     self.lp = LoginPage(self.driver)
+    #     self.lp.setUserName(self.username)
+    #     self.lp.setPassword(self.password)
+    #     self.lp.clickLogin()
+    #     time.sleep(5)
+    #     self.driver.maximize_window()
+    #     self.CH = Hospital(self.driver)
+    #     time.sleep(3)
+    #     self.CH.JennieHomepage()
+    #     SelectYear = self.CH.SelectYear()
+    #     SelectYear.select_by_index(1)
+    #     hospital = self.CH.Hospitaldropdown()
+    #     for i in range(1, len(hospital.options)):
+    #         hospital.select_by_index(i)
+    #         if "No Data Found For This Hospital" in self.page_source:
+    #             print(hospital.options[i].text, "No Data")
+    #         else:
+    #             if hospital == name:
+    #                 print("Selected hospital records are present")
+
+
+    def test_Dashboard(self, setup):
+        self.logger.info("********************verifying test_Dashboard ********************************")
         self.driver = setup
         self.driver.get(self.baseUrl)
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
-        time.sleep(5)
+        time.sleep(15)
         self.driver.maximize_window()
-        self.CH = JennieHospital(self.driver)
-        time.sleep(3)
+        self.CH = Hospital(self.driver)
+        time.sleep(35)
         self.CH.JennieHomepage()
-        SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(2)
-        hospital = self.CH.Hospitaldropdown()
-        for i in range(1, len(hospital.options)):
-            hospital.select_by_index(i)
-            if "No Data Found For This Hospital" in self.page_source:
-                print(hospital.options[i].text, "No Data")
-            else:
-                if hospital == name:
-                    print("Selected hospital records are present")
+        time.sleep(35)
+        self.CH.Dashboard()
+        a = self.driver.current_url
+        if a == "https://uat-pds-billing-info.pdsnew.com/dashboard":
+            assert True
+            self.logger.info("********************test_Dashboard Passed********************************")
+        else:
+            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Dashboard.png")
+            self.logger.info("********************test_Dashboard ended********************************")
+            assert False
 
-    def test_Data2020(self, setup):
-        self.logger.info("********************verifying Data2020 Test********************************")
+
+    def test_Dashboard1(self, setup):
+        self.logger.info("********************verifying test_Dashboard1 Test********************************")
         self.driver = setup
         self.driver.get(self.baseUrl)
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
-        time.sleep(5)
+        time.sleep(15)
         self.driver.maximize_window()
-        self.CH = JennieHospital(self.driver)
-        time.sleep(3)
+        self.CH = Hospital(self.driver)
+        time.sleep(35)
         self.CH.JennieHomepage()
-        SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(3)
-        hospital = self.CH.Hospitaldropdown()
-        for i in range(1, len(hospital.options)):
-            hospital.select_by_index(2)
-            if "No Data Found For This Hospital" in self.page_source:
-                print(hospital.options[i].text, "No Data")
-            else:
-                if hospital == name:
-                    print("Selected hospital records are present")
+        time.sleep(35)
+        self.CH.Dashboard()
+        self.CH.JennieHomepage()
+        time.sleep(35)
+        a = self.driver.current_url
+        if a == "https://uat-pds-billing-info.pdsnew.com/dashboard/JENNIE":
+            assert True
+            self.logger.info("********************test_Dashboard1 Passed********************************")
+        else:
+            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Dashboard1.png")
+            self.logger.info("********************test_Dashboard1 ended********************************")
+            assert False
 
-    def test_Data2021(self, setup):
-        self.logger.info("********************verifying Data2021 Test********************************")
+
+    def test_logout(self, setup):
+        self.logger.info("********************verifying test_logout Test********************************")
         self.driver = setup
         self.driver.get(self.baseUrl)
         self.lp = LoginPage(self.driver)
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
-        time.sleep(5)
+        time.sleep(10)
         self.driver.maximize_window()
-        self.CH = JennieHospital(self.driver)
-        time.sleep(3)
+        self.CH = Hospital(self.driver)
+        time.sleep(35)
         self.CH.JennieHomepage()
-        SelectYear = self.CH.SelectYear()
-        SelectYear.select_by_index(4)
-        hospital = self.CH.Hospitaldropdown()
-        for i in range(1, len(hospital.options)):
-            hospital.select_by_index(i)
-            if "No Data Found For This Hospital" in self.page_source:
-                print(hospital.options[i].text, "No Data")
-            else:
-                if hospital == name:
-                    print("Selected hospital records are present")
+        self.hp = Homepage_Billing(self.driver)
+        time.sleep(10)
+        self.hp.logout()
+        time.sleep(5)
+        act_title = self.driver.title
+        time.sleep(5)
+        if act_title == "PDS":
+            assert True
+            self.driver.close()
+            self.logger.info("********************Test  Logout Ended********************************")
+        else:
+            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_logout.png")
+            self.driver.close()
+            self.logger.info(
+                "********************Test  Logout Ended Due to difference in the title********************************")
+            assert False
+
+
+    def test_DashboardMenu(self, setup):
+        self.logger.info("********************verifying test_DashboardMenu ********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(10)
+        self.driver.maximize_window()
+        self.CH = Hospital(self.driver)
+        time.sleep(35)
+        self.CH.JennieHomepage()
+        time.sleep(10)
+        self.CH.Dashboardmenu()
+        a = self.driver.current_url
+        if a == "https://uat-pds-billing-info.pdsnew.com/dashboard":
+            assert True
+            self.logger.info("********************test_DashboardMenu Passed********************************")
+        else:
+            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_DashboardMenu.png")
+            self.logger.info("********************test_DashboardMenu ended********************************")
+            assert False
+

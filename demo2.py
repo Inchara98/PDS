@@ -1,25 +1,40 @@
-# import os
-# import zipfile
-# 
-# import wget
-# from selenium import webdriver
-# 
-# fdriver = webdriver.Firefox(executable_path="/home/inchara/PycharmProjects/PDS/driver/geckodriver")
-# 
-# url = 'https://chromedriver.storage.googleapis.com/LATEST_RELEASE'
-# response = fdriver.get(url)
-# version_number = response.text
-# # build the donwload url
-# download_url = "https://chromedriver.storage.googleapis.com/" + version_number + "/chromedriver_linux64.zip"
-# fdriver.get(download_url)
-# # download the zip file using the url built above
-# latest_driver_zip = wget.download(download_url, 'chromedriver.zip')
-# # extract the zip file
-# with zipfile.ZipFile(latest_driver_zip, 'r') as zip_ref:
-#    zip_ref.extractall()  # you can specify the destination folder path here
-# 
-#     #delete the zip file downloaded above
-# os.remove("/home/inchara/PycharmProjects/PDS/driver/chromedriver")
+import time
+
+from selenium.webdriver.support.select import Select
+
+from reuse_func import GetData
+
+cal = GetData()
+driver = cal.get_driver()
+driver.implicitly_wait(100)
+driver.get("https://uat-pds-billing-info.pdsnew.com/")
+
+driver.find_element_by_id("username").send_keys("admin")
+driver.find_element_by_id("password").send_keys("admin")
+driver.find_element_by_id("login").click()
+
+# alert = Alert(driver)
+# alert.dismiss()
+time.sleep(20)
+a = Select(driver.find_element_by_id("selectHospitalGroup"))
+time.sleep(5)
+a.select_by_visible_text("COLUMB")
+year = Select(driver.find_element_by_id("selectYear"))
+i = 0
+for i in range(1,len(year.options)):
+    year.select_by_index(i)
+    print(year.options[i].text)
+    time.sleep(8)
+    z = "No Data Found"
+    value = "Overall Revenue v/s Transactions-" + "year.options[i].text"
+    if z in driver.page_source:
+        print(year.options[0].text, "is not having data")
+        i = i + 1
+    else:
+        if a == value:
+            assert True
+            driver.refresh()
+
 
 
 

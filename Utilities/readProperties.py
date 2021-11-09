@@ -31,6 +31,21 @@ class ReadConfig():
         return password
 
     @staticmethod
+    def getUser():
+        Fakeusername = config.get('common_info', 'FakeUsername')
+        return Fakeusername
+
+    @staticmethod
+    def getpassword():
+        FakePassword = config.get('common_info', 'FakePassword')
+        return FakePassword
+
+    @staticmethod
+    def getEmpty():
+        Empty = config.get('common_info', 'Empty')
+        return Empty
+
+    @staticmethod
     def getApplicationUrl1():
         url = config.get('common_info', 'baseUrl(AT)')
         return url

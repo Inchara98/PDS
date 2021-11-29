@@ -261,3 +261,57 @@ class Test_001_Login:
                     "********************Test  SelectYear2020 Ended Due to difference in the txt********************************")
                 assert False
 
+    def test_Chatbot(self, setup):
+        self.logger.info("********************verifying Chatbot Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(10)
+        self.driver.maximize_window()
+        self.CH = Homepage_Billing(self.driver)
+        time.sleep(30)
+        self.CH.Chatbot()
+        c = self.CH.chatbot_tittle()
+        time.sleep(10)
+        if c == "PDS Bot":
+            assert True
+            self.driver.close()
+            self.logger.info("********************Test  Chatbot Ended********************************")
+        else:
+            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Chatbot.png")
+            self.driver.close()
+            self.logger.info(
+                "********************Test  Chatbot Ended Due to difference in the title********************************")
+            assert False
+
+    def test_Chatbot_exit(self, setup):
+        self.logger.info("********************verifying ChatbotExit Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(10)
+        self.driver.maximize_window()
+        self.CH = Homepage_Billing(self.driver)
+        time.sleep(30)
+        self.CH.Chatbot()
+        time.sleep(10)
+        self.CH.chatbot_exit()
+        D = "PDS Bot"
+        if D in self.driver.page_source:
+            assert True
+            self.logger.info("********************Test  Chatbot_Exit Ended********************************")
+        else:
+            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Chatbot_exit.png")
+            self.driver.close()
+            self.logger.info(
+                "********************Test  Chatbot_Exit Ended Due to difference in the title********************************")
+            assert False
+
+
+

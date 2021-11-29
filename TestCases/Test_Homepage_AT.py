@@ -22,12 +22,12 @@ class Test_001_Homepage:
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
-        time.sleep(5)
+        time.sleep(35)
         self.driver.maximize_window()
         self.hp = Homepage(self.driver)
         time.sleep(3)
         a = self.driver.current_url
-        if a == "https://pds-bi-automationtool.tibilprojects.com/reports":
+        if a == "https://uat-pds-bi-automationtool.pdsnew.com/reports":
             assert True
             self.logger.info("********************Test  Homepage Ended********************************")
         else:
@@ -44,14 +44,14 @@ class Test_001_Homepage:
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
-        time.sleep(5)
+        time.sleep(35)
         self.driver.maximize_window()
         self.hp = Homepage(self.driver)
         time.sleep(3)
         self.hp.clickBooktoFacs()
         time.sleep(3)
         c = self.driver.current_url
-        if c == "https://pds-bi-automationtool.tibilprojects.com/reports/Book_To_Facs":
+        if c == "https://uat-pds-bi-automationtool.pdsnew.com/reports/Book_To_Facs":
             assert True
             self.logger.info("********************Test Book_To_Facs Ended********************************")
         else:
@@ -68,14 +68,14 @@ class Test_001_Homepage:
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
-        time.sleep(5)
+        time.sleep(35)
         self.driver.maximize_window()
         self.hp = Homepage(self.driver)
-        time.sleep(3)
+        time.sleep(6)
         self.hp.clickBooktoFacs()
-        time.sleep(3)
+        time.sleep(8)
         c = self.driver.current_url
-        if c == "https://pds-bi-automationtool.tibilprojects.com/reports/Weekly_Reports":
+        if c == "https://uat-pds-bi-automationtool.pdsnew.com/reports/Weekly_Reports":
             assert True
             self.logger.info("********************Test Weekly_Reports Ended********************************")
         else:
@@ -92,14 +92,14 @@ class Test_001_Homepage:
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
-        time.sleep(5)
+        time.sleep(35)
         self.driver.maximize_window()
         self.hp = Homepage(self.driver)
-        time.sleep(3)
+        time.sleep(6)
         self.hp.clickFilemanager()
-        time.sleep(3)
+        time.sleep(8)
         b = self.driver.current_url
-        if b == "https://pds-bi-automationtool.tibilprojects.com/fileslist":
+        if b == "https://uat-pds-bi-automationtool.pdsnew.com/fileslist":
             assert True
             self.logger.info("********************Test File_Manager_page Ended********************************")
         else:
@@ -116,14 +116,14 @@ class Test_001_Homepage:
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
-        time.sleep(5)
+        time.sleep(35)
         self.driver.maximize_window()
         self.hp = Homepage(self.driver)
-        time.sleep(3)
+        time.sleep(6)
         self.hp.clickExceptionReport()
-        time.sleep(3)
+        time.sleep(8)
         b = self.driver.current_url
-        if b == "https://pds-bi-automationtool.tibilprojects.com/exceptionReport":
+        if b == "https://uat-pds-bi-automationtool.pdsnew.com/exceptionReport":
             assert True
             self.logger.info("********************Test File_Manager_page Ended********************************")
         else:
@@ -140,12 +140,12 @@ class Test_001_Homepage:
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
-        time.sleep(5)
+        time.sleep(35)
         self.driver.maximize_window()
         self.hp = Homepage(self.driver)
-        time.sleep(3)
+        time.sleep(6)
         self.hp.clicklogout()
-        time.sleep(3)
+        time.sleep(8)
         act_title = self.driver.title
         time.sleep(5)
         if act_title == "PDS":

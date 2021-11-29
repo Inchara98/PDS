@@ -368,3 +368,30 @@ class Test_001_Login:
             self.logger.info("********************test_DashboardMenu ended********************************")
             assert False
 
+
+    def test_DashboardMenu10(self,setup):
+        self.logger.info("********************verifying test_DashboardMenu8 Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(15)
+        self.driver.maximize_window()
+        self.CH = Hospital(self.driver)
+        time.sleep(35)
+        self.CH.JennieHomepage()
+        time.sleep(35)
+        self.CH.Dashboardmenu()
+        self.CH.JennieHomepage()
+        time.sleep(35)
+        a = self.driver.current_url
+        if a == "https://uat-pds-billing-info.pdsnew.com/dashboard/JENNIE":
+            assert True
+            self.logger.info("********************test_Dashboard1 Passed********************************")
+        else:
+            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_DashboardMenu10.png")
+            self.logger.info("********************test_DashboardMenu10 ended********************************")
+            assert False
+

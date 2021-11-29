@@ -1,11 +1,15 @@
 from selenium import webdriver
 import pytest
+from selenium.webdriver.chrome.options import Options
 @pytest.fixture()
 
 
 def setup(browser):
+    chromeOptions = Options()
+    chromeOptions.add_experimental_option("prefs",
+                                          {"download.default_directory": "/home/inchara/PycharmProjects/PDS/Downloads"})
     if browser == 'chrome':
-        driver = webdriver.Chrome(executable_path="/home/inchara/PycharmProjects/PDS/driver/chromedriver")
+        driver = webdriver.Chrome(executable_path="/home/inchara/PycharmProjects/PDS/driver/chromedriver",chrome_options=chromeOptions)
         print("Launching chrome browser.......")
     elif browser == 'firefox':
         driver = webdriver.Firefox(executable_path="/home/inchara/PycharmProjects/PDS/driver/geckodriver")

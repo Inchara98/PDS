@@ -48,3 +48,19 @@ class Homepage_Billing:
         self.date = Locator_Path()
         revenue = self.driver.find_element_by_css_selector(self.data.RevenueTittle1).text
         return revenue
+
+    def Chatbot(self):
+        self.data = Locator_Path()
+        e = self.driver.find_element_by_id(self.data.Chatbot).click()
+        return e
+
+    def chatbot_exit(self):
+        self.data = Locator_Path()
+        f = self.driver.find_element_by_id(self.data.ChatbotExit).click()
+        return f
+
+    def chatbot_tittle(self):
+        self.data = Locator_Path()
+        g = self.driver.find_element_by_class_name(self.data.Chatbot_tittle).text
+        return g
+

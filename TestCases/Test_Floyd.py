@@ -272,7 +272,7 @@ class Test_001_Login:
         self.driver.maximize_window()
         self.CH = Hospital(self.driver)
         time.sleep(35)
-        self.CH.CommunityHomepage()
+        self.CH.FloydHomepage()
         time.sleep(35)
         self.CH.Dashboard()
         a = self.driver.current_url
@@ -297,10 +297,10 @@ class Test_001_Login:
         self.driver.maximize_window()
         self.CH = Hospital(self.driver)
         time.sleep(35)
-        self.CH.ColumbHomepage()
+        self.CH.FloydHomepage()
         time.sleep(35)
         self.CH.Dashboard()
-        self.CH.CommunityHomepage()
+        self.CH.FloydHomepage()
         time.sleep(35)
         a = self.driver.current_url
         if a == "https://uat-pds-billing-info.pdsnew.com/dashboard/FLOYD":
@@ -324,7 +324,7 @@ class Test_001_Login:
         self.driver.maximize_window()
         self.CH = Hospital(self.driver)
         time.sleep(35)
-        self.CH.ColumbHomepage()
+        self.CH.FloydHomepage()
         self.hp = Homepage_Billing(self.driver)
         time.sleep(10)
         self.hp.logout()
@@ -355,7 +355,7 @@ class Test_001_Login:
         self.driver.maximize_window()
         self.CH = Hospital(self.driver)
         time.sleep(35)
-        self.CH.CommunityHomepage()
+        self.CH.FloydHomepage()
         time.sleep(10)
         self.CH.Dashboardmenu()
         a = self.driver.current_url
@@ -365,4 +365,30 @@ class Test_001_Login:
         else:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_DashboardMenu.png")
             self.logger.info("********************test_DashboardMenu ended********************************")
+            assert False
+
+    def test_DashboardMenu4(self,setup):
+        self.logger.info("********************verifying test_DashboardMenu4 Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(15)
+        self.driver.maximize_window()
+        self.CH = Hospital(self.driver)
+        time.sleep(35)
+        self.CH.FloydHomepage()
+        time.sleep(35)
+        self.CH.Dashboardmenu()
+        self.CH.FloydHomepage()
+        time.sleep(35)
+        a = self.driver.current_url
+        if a == "https://uat-pds-billing-info.pdsnew.com/dashboard/FLOYD":
+            assert True
+            self.logger.info("********************test_Dashboard1 Passed********************************")
+        else:
+            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_DashboardMenu4.png")
+            self.logger.info("********************test_DashboardMenu4 ended********************************")
             assert False

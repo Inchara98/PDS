@@ -11,7 +11,7 @@ class ReportPage:
 
     def choosefilesCommunity(self):
         self.data = Locator_Path()
-        file = self.driver.find_element_by_id(self.data.choosefilesCommunity)
+        file = self.driver.find_element_by_xpath(self.data.choosefilescommunity)
         return file
 
     def choosefilesDeaconess(self):

@@ -5,34 +5,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Configurations/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Configurations/config.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Locators/Locators.py" beforeDir="false" afterPath="$PROJECT_DIR$/Locators/Locators.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageObjects/AllHospital.py" beforeDir="false" afterPath="$PROJECT_DIR$/PageObjects/Hospital.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageObjects/CommunityHospital.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageObjects/DeaconessHospital.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageObjects/FloydHospital.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageObjects/GoshenHospital.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageObjects/Group_not_KnownHospital.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageObjects/HarrisHospital.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageObjects/HchphyHospital.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageObjects/JasperHospital.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageObjects/JennieHospital.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageObjects/KingsHospital.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageObjects/Logan1Hospital.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageObjects/LoginPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/PageObjects/LoginPage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageObjects/LvngstHospital.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageObjects/MajorHospital.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageObjects/MemsbHospital.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageObjects/OrthoHospital.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageObjects/ParkvwHospital.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageObjects/PutnamHospital.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageObjects/RiverHospital.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageObjects/SchnekHospital.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageObjects/ThehrtHospital.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageObjects/UtmcHospital.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageObjects/VincentHospital.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PageObjects/WomensHospital.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reports/assets/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reports/report.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Screenshots/test_loginPageTittle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PageObjects/HomePage_Billing.py" beforeDir="false" afterPath="$PROJECT_DIR$/PageObjects/HomePage_Billing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PageObjects/Hospital.py" beforeDir="false" afterPath="$PROJECT_DIR$/PageObjects/Hospital.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pageobjects_AT/Homepage.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pageobjects_AT/Homepage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pageobjects_AT/LoginPage.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pageobjects_AT/LoginPage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pageobjects_AT/Reports.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pageobjects_AT/Reports.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCases/Test_Columb.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/Test_Columb.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCases/Test_Community.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/Test_Community.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCases/Test_Deaconess.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/Test_Deaconess.py" afterDir="false" />
@@ -41,11 +18,13 @@
       <change beforePath="$PROJECT_DIR$/TestCases/Test_Group_not_known.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/Test_Group_not_known.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCases/Test_Harris.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/Test_Harris.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCases/Test_Hchphy.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/Test_Hchphy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/Test_Homepage_AT.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/Test_Homepage_AT.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCases/Test_Homepage_Billing.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/Test_Homepage_Billing.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCases/Test_Jasper.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/Test_Jasper.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCases/Test_Jennie.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/Test_Jennie.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCases/Test_Kings.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/Test_Kings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCases/Test_Logan1.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/Test_Logan1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/Test_Login_AT.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/Test_Login_AT.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCases/Test_Lvngst.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/Test_Lvngst.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCases/Test_Major.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/Test_Major.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCases/Test_Memsb.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/Test_Memsb.py" afterDir="false" />
@@ -59,9 +38,8 @@
       <change beforePath="$PROJECT_DIR$/TestCases/Test_Vincent.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/Test_Vincent.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCases/Test_WomensHospital.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/Test_WomensHospital.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCases/Test_demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/Test_demo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/Test_login.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/Test_login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/conftest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Utilities/readProperties.py" beforeDir="false" afterPath="$PROJECT_DIR$/Utilities/readProperties.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo2.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo2.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,12 +227,12 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.main" />
       <item itemvalue="Python.Test_Bargarph" />
+      <item itemvalue="Python.Test_demo" />
       <item itemvalue="Python.Test_login" />
       <item itemvalue="Python.demo" />
       <item itemvalue="Python.demo_test" />
-      <item itemvalue="Python.Test_demo" />
+      <item itemvalue="Python.main" />
     </list>
     <recent_temporary>
       <list>
@@ -415,7 +393,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635171495427</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="changes">
+      <created>1636455673223</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1636455673223</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

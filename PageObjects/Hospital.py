@@ -1,10 +1,12 @@
 import time
 from selenium.webdriver.support.select import Select
+from Utilities.readProperties import ReadConfig
 
 from Locators.Locators import Locator_Path
 
 
 class Hospital:
+    search = ReadConfig.getSearch()
 
     def __init__(self,driver):
         self.driver = driver
@@ -158,21 +160,85 @@ class Hospital:
     
     
     def HospitalPageTittle(self):
-        self.date = Locator_Path()
+        self.data = Locator_Path()
         page = self.driver.find_element_by_css_selector(self.data.HospitalPageTittle).text
         return page
     
     
     def Hospitaldropdown(self):
-        self.date = Locator_Path()
+        self.data = Locator_Path()
         Hospital = self.driver.find_element_by_id(self.data.Hospitaldropdown).click()
         return Hospital
 
     def Dashboard(self):
+        self.data = Locator_Path()
         Dashboard = self.driver.find_element_by_link_text('DASHBOARD').click()
         return Dashboard
 
 
     def Dashboardmenu(self):
+        self.data = Locator_Path()
         Dashboardmenu = self.driver.find_element_by_id(self.data.Dashboard).click()
         return Dashboardmenu
+
+    def Propensitylink(self):
+        self.data = Locator_Path()
+        Propensitylink = self.driver.find_element_by_id(self.data.propensity_link).click()
+        return Propensitylink
+
+    def PropensityDownload(self):
+        self.data = Locator_Path()
+        PropensityDownload = self.driver.find_element_by_id(self.data.propensity_download).click()
+        return PropensityDownload
+
+    def PropensitySearch(self,search):
+        self.data = Locator_Path()
+        PropensitySearch = self.driver.find_element_by_xpath(self.data.propensity_search).send_keys(search)
+        return PropensitySearch
+    
+    
+    def search_validator(self):
+        self.data = Locator_Path() 
+        search_validator = self.driver.find_element_by_xpath(self.data.search_validator)
+        return search_validator
+    
+    def client_account(self):
+        self.data = Locator_Path()
+        client_account = self.driver.find_element_by_xpath(self.data.client_account).click()
+        return client_account
+        
+    def client_code(self):
+        self.data = Locator_Path()
+        client_code = self.driver.find_element_by_xpath(self.data.client_code).click()
+        return client_code
+        
+    def client_Name(self):
+        self.data = Locator_Path()
+        client_Name = self.driver.find_element_by_xpath(self.data.client_Name).click()
+        return client_Name
+
+    def First_Name(self):
+        self.data = Locator_Path()
+        First_Name = self.driver.find_element_by_xpath(self.data.First_Name).click()
+        return First_Name
+
+    def Last_Name(self):
+        self.data = Locator_Path()
+        Last_Name = self.driver.find_element_by_xpath(self.data.Last_Name).click()
+        return Last_Name
+
+    def Phone(self):
+        self.data = Locator_Path()
+        Phone = self.driver.find_element_by_xpath(self.data.Phone).click()
+        return Phone
+
+    def Propensity_score(self):
+        self.data = Locator_Path()
+        Propensity_score = self.driver.find_element_by_xpath(self.data.Propensity_score).click()
+        return Propensity_score
+
+
+    def Propensity_close(self):
+        self.data = Locator_Path()
+        Propensity_close = self.driver.find_element_by_class_name(self.data.Propensity_Close).click()
+        return Propensity_close

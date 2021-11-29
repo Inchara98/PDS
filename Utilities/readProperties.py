@@ -140,5 +140,7 @@ class ReadConfig():
         self.driver.find_element_by_id(self.button_login).click()
         time.sleep(10)
 
-
-
+    @staticmethod
+    def getSearch():
+        Search = config.get('common_info', 'search')
+        return Search

@@ -371,3 +371,138 @@ class Test_001_Login:
             self.logger.info("********************test_DashboardMenu ended********************************")
             assert False
 
+    def test_DashboardMenu1(self,setup):
+        self.logger.info("********************verifying test_DashboardMenu1 Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(15)
+        self.driver.maximize_window()
+        self.CH = Hospital(self.driver)
+        time.sleep(35)
+        self.CH.CommunityHomepage()
+        time.sleep(35)
+        self.CH.Dashboardmenu()
+        self.CH.CommunityHomepage()
+        time.sleep(35)
+        a = self.driver.current_url
+        if a == "https://uat-pds-billing-info.pdsnew.com/dashboard/COMMUNITY":
+            assert True
+            self.logger.info("********************test_Dashboard1 Passed********************************")
+        else:
+            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_DashboardMenu1.png")
+            self.logger.info("********************test_DashboardMenu1 ended********************************")
+            assert False
+
+    def test_Propensity_score_link(self, setup):
+        self.logger.info("********************verifying test_DashboardMenu1 Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(15)
+        self.driver.maximize_window()
+        self.CH = Hospital(self.driver)
+        time.sleep(35)
+        self.CH.CommunityHomepage()
+        time.sleep(35)
+        self.CH.Propensitylink()
+        D = "PROPENSITY SCORE"
+        if D in self.driver.page_source:
+            assert True
+            self.logger.info("********************test_Propensity_score_link Ended********************************")
+        else:
+            self.driver.save_screenshot(
+                "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Propensity_score_link.png")
+            self.driver.close()
+            self.logger.info(
+                "********************test_Propensity_score_link Ended Due to difference in the txt********************************")
+            assert False
+
+    def test_Propensity_download(self, setup):
+        self.logger.info("********************verifying test_DashboardMenu1 Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(15)
+        self.driver.maximize_window()
+        self.CH = Hospital(self.driver)
+        time.sleep(35)
+        self.CH.CommunityHomepage()
+        time.sleep(35)
+        self.CH.Propensitylink()
+        time.sleep(5)
+        self.CH.PropensityDownload()
+        time.sleep(35)
+        filename = "Download.default_directory" + "COLUMBUS REGIONAL HEALTH_Propensity_Score"
+        if os.path.dirname(filename) != True:
+            print("Download is working")
+        else:
+            print("Download is not working")
+
+    def test_Propensity_Search(self, setup):
+        self.logger.info("********************verifying test_Propensity_Search Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(15)
+        self.driver.maximize_window()
+        self.CH = Hospital(self.driver)
+        time.sleep(35)
+        self.CH.CommunityHomepage()
+        time.sleep(35)
+        self.CH.Propensitylink()
+        time.sleep(40)
+        self.CH.PropensitySearch(self.search)
+        b = self.CH.search_validator()
+        D = "Moss"
+        if D == b:
+            assert True
+            self.logger.info("********************test_Propensity_Search Ended********************************")
+        else:
+            self.driver.save_screenshot(
+                "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Propensity_Search.png")
+            self.driver.close()
+            self.logger.info(
+                "********************test_Propensity_Search Ended Due to difference in the txt********************************")
+            assert False
+
+
+    def test_Propensity_close(self,setup):
+        self.logger.info("********************verifying test_Propensity_close Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(15)
+        self.driver.maximize_window()
+        self.CH = Hospital(self.driver)
+        time.sleep(35)
+        self.CH.CommunityHomepage()()
+        time.sleep(35)
+        self.CH.Propensitylink()
+        time.sleep(5)
+        self.CH.Propensity_close()
+        D = "PROPENSITY TO PAY SCORES"
+        if D in self.driver.page_source:
+            assert True
+            self.logger.info("********************test_Propensity_close Ended********************************")
+        else:
+            self.driver.save_screenshot(
+                "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Propensity_close.png")
+            self.driver.close()
+            self.logger.info(
+                "********************test_Propensity_close Ended Due to difference in the txt********************************")

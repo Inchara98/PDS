@@ -369,3 +369,29 @@ class Test_Hospital:
             self.logger.info("********************test_DashboardMenu ended********************************")
             self.driver.close()
             assert False
+
+    def test_DashboardMenu18(self,setup):
+        self.logger.info("********************verifying test_DashboardMenu18 Test********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(15)
+        self.driver.maximize_window()
+        self.CH = Hospital(self.driver)
+        time.sleep(35)
+        self.CH.PutnamHomepage()
+        time.sleep(35)
+        self.CH.Dashboardmenu()
+        self.CH.PutnamHomepage()
+        time.sleep(35)
+        a = self.driver.current_url
+        if a == "https://uat-pds-billing-info.pdsnew.com/dashboard/PUTNAM":
+            assert True
+            self.logger.info("********************test_Dashboard1 Passed********************************")
+        else:
+            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_DashboardMenu18.png")
+            self.logger.info("********************test_DashboardMenu18 ended********************************")
+            assert False

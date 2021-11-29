@@ -25,7 +25,7 @@ class Homepage:
 
     def clicklogout(self):
         self.data = Locator_Path()
-        self.driver.find_element_by_id(self.data.button_logout_class_name).click()
+        self.driver.find_element_by_id(self.data.button_logout_id).click()
 
     def clickBooktoFacs(self):
         self.data = Locator_Path()

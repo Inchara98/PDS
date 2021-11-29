@@ -31,6 +31,12 @@ class Hospital:
         a = Select(self.driver.find_element_by_id(self.data.SelectHospital)).select_by_visible_text("FLOYD")
         return a
 
+
+    def Good_SamaritanHomepage(self):
+        self.data = Locator_Path()
+        a = Select(self.driver.find_element_by_id(self.data.SelectHospital)).select_by_visible_text("GOOD_SAMARITAN")
+        return a
+
     def GoshenHomepage(self):
         self.data = Locator_Path()
         a = Select(self.driver.find_element_by_id(self.data.SelectHospital)).select_by_visible_text("GOSHEN")

@@ -14,7 +14,7 @@ class Test_001_Login:
     logger =log_Details.logen()
 
     @pytest.mark.smoke
-    def test_DeaconessHomepage(self,setup):
+    def test_Good_SamaritanHomepage(self,setup):
         self.logger.info("********************verifying Homepage Test********************************")
         self.driver = setup
         self.driver.get(self.baseUrl)
@@ -22,22 +22,23 @@ class Test_001_Login:
         self.lp.setUserName(self.username)
         self.lp.setPassword(self.password)
         self.lp.clickLogin()
-        time.sleep(35)
+        time.sleep(15)
         self.driver.maximize_window()
         self.CH = Hospital(self.driver)
-        time.sleep(15)
-        self.CH.DeaconessHomepage()
+        time.sleep(35)
+        self.CH.Good_SamaritanHomepage()
         a = self.driver.current_url
-        if a == "https://uat-pds-billing-info.pdsnew.com/dashboard/DEACONESS":
+        if a == "https://uat-pds-billing-info.pdsnew.com/dashboard/GOOD%20SAMARITAN":
             assert True
-            self.logger.info("********************Test DeaconessHomepage Passed********************************")
+            self.logger.info("********************test_Good_SamaritanHomepage Passed********************************")
         else:
-            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_DeaconessHomepage.png")
-            self.logger.info("********************DeaconessHomepage Test ended********************************")
+            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Good_SamaritanHomepage.png")
+            self.logger.info("********************test_Good_SamaritanHomepage ended********************************")
             assert False
 
+
     def test_SelectYear(self, setup):
-        self.logger.info("********************verifying SelectYear2018 Test********************************")
+        self.logger.info("********************verifying SelectYear Test********************************")
         self.driver = setup
         self.driver.get(self.baseUrl)
         self.lp = LoginPage(self.driver)
@@ -48,7 +49,7 @@ class Test_001_Login:
         self.driver.maximize_window()
         self.CH = Hospital(self.driver)
         time.sleep(35)
-        self.CH.DeaconessHomepage()
+        self.CH.Good_SamaritanHomepage()
         time.sleep(5)
 
         year = self.CH.SelectYear()
@@ -66,14 +67,15 @@ class Test_001_Login:
                 assert True
             else:
                 self.driver.save_screenshot(
-                    "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_SelectYear2020.png")
+                    "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_SelectYear.png")
                 self.driver.close()
                 self.logger.info(
-                    "********************Test  SelectYear2020 Ended Due to difference in the txt********************************")
+                    "********************Test  SelectYear Ended Due to difference in the txt********************************")
                 assert False
 
+
     def test_Revenue(self, setup):
-        self.logger.info("********************verifying Revenue2018 Test********************************")
+        self.logger.info("********************verifying Revenue Test********************************")
         self.driver = setup
         self.driver.get(self.baseUrl)
         self.lp = LoginPage(self.driver)
@@ -84,7 +86,7 @@ class Test_001_Login:
         self.driver.maximize_window()
         self.CH = Hospital(self.driver)
         time.sleep(30)
-        self.CH.DeaconessHomepage()
+        self.CH.Good_SamaritanHomepage()
         time.sleep(15)
         year = self.CH.SelectYear()
         time.sleep(15)
@@ -107,14 +109,14 @@ class Test_001_Login:
                 assert True
             else:
                 self.driver.save_screenshot(
-                    "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_SelectYear2020.png")
+                    "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Revenue.png")
                 self.driver.close()
                 self.logger.info(
-                    "********************Test  SelectYear2020 Ended Due to difference in the txt********************************")
+                    "********************Test  Revenue Ended Due to difference in the txt********************************")
                 assert False
 
     def test_TOTALTRANSACTIONS(self, setup):
-        self.logger.info("********************verifying TOTAL_TRANSACTIONS2018 Test********************************")
+        self.logger.info("********************verifying TOTAL_TRANSACTIONS Test********************************")
         self.driver = setup
         self.driver.get(self.baseUrl)
         self.lp = LoginPage(self.driver)
@@ -125,7 +127,7 @@ class Test_001_Login:
         self.driver.maximize_window()
         self.CH = Hospital(self.driver)
         time.sleep(30)
-        self.CH.DeaconessHomepage()
+        self.CH.Good_SamaritanHomepage()
         time.sleep(15)
         year = self.CH.SelectYear()
         time.sleep(15)
@@ -142,20 +144,20 @@ class Test_001_Login:
                 if c >= a:
                     print(year.options[i].text, "TotalTransaction", c)
                     assert True
-                    self.logger.info("********************Test  Revenue Ended********************************")
+                    self.logger.info("********************Test  TotalTransaction Ended********************************")
             elif D not in self.driver.page_source:
                 print(year.options[i].text, "is not having data")
                 assert True
             else:
                 self.driver.save_screenshot(
-                    "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_SelectYear2020.png")
+                    "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TotalTransaction.png")
                 self.driver.close()
                 self.logger.info(
-                    "********************Test  SelectYear2020 Ended Due to difference in the txt********************************")
+                    "********************Test  TotalTransaction Ended Due to difference in the txt********************************")
                 assert False
 
     def test_TOTALPAYMENTS(self, setup):
-        self.logger.info("********************verifying TOTAL_PAYMENTS2018 Test********************************")
+        self.logger.info("********************verifying TOTAL_PAYMENTS Test********************************")
         self.driver = setup
         self.driver.get(self.baseUrl)
         self.lp = LoginPage(self.driver)
@@ -166,7 +168,7 @@ class Test_001_Login:
         self.driver.maximize_window()
         self.CH = Hospital(self.driver)
         time.sleep(30)
-        self.CH.DeaconessHomepage()
+        self.CH.Good_SamaritanHomepage()
         time.sleep(15)
         year = self.CH.SelectYear()
         time.sleep(15)
@@ -183,20 +185,20 @@ class Test_001_Login:
                 if c >= a:
                     print(year.options[i].text, "TOTALPAYMENTS", c)
                     assert True
-                    self.logger.info("********************Test  Revenue Ended********************************")
+                    self.logger.info("********************Test  TOTALPAYMENTS Ended********************************")
             elif D not in self.driver.page_source:
                 print(year.options[i].text, "is not having data")
                 assert True
             else:
                 self.driver.save_screenshot(
-                    "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_SelectYear2020.png")
+                    "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_TOTALPAYMENTS.png")
                 self.driver.close()
                 self.logger.info(
-                    "********************Test  SelectYear2020 Ended Due to difference in the txt********************************")
+                    "********************Test  TOTALPAYMENTS Ended Due to difference in the txt********************************")
                 assert False
 
     def test_LEGAL_ACTIONS(self, setup):
-        self.logger.info("********************verifying LEGAL_ACTIONS2018 Test********************************")
+        self.logger.info("********************verifying LEGAL_ACTIONS Test********************************")
         self.driver = setup
         self.driver.get(self.baseUrl)
         self.lp = LoginPage(self.driver)
@@ -207,7 +209,7 @@ class Test_001_Login:
         self.driver.maximize_window()
         self.CH = Hospital(self.driver)
         time.sleep(30)
-        self.CH.DeaconessHomepage()
+        self.CH.Good_SamaritanHomepage()
         time.sleep(15)
         year = self.CH.SelectYear()
         time.sleep(15)
@@ -224,16 +226,16 @@ class Test_001_Login:
                 if c >= a:
                     print(year.options[i].text, "LEGAL_ACTIONS", c)
                     assert True
-                    self.logger.info("********************Test  Revenue Ended********************************")
+                    self.logger.info("********************Test  LEGAL_ACTIONS Ended********************************")
             elif D not in self.driver.page_source:
                 print(year.options[i].text, "is not having data")
                 assert True
             else:
                 self.driver.save_screenshot(
-                    "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_SelectYear2020.png")
+                    "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_LEGAL_ACTIONS.png")
                 self.driver.close()
                 self.logger.info(
-                    "********************Test  SelectYear2020 Ended Due to difference in the txt********************************")
+                    "********************Test  LEGAL_ACTIONS Ended Due to difference in the txt********************************")
                 assert False
 
     # def test_Data2018(self, setup):
@@ -246,9 +248,9 @@ class Test_001_Login:
     #     self.lp.clickLogin()
     #     time.sleep(5)
     #     self.driver.maximize_window()
-    #     self.CH = DeaconessHospital(self.driver)
+    #     self.CH = CommunityHospital(self.driver)
     #     time.sleep(3)
-    #     self.CH.DeaconessHomepage()
+    #     self.CH.Good_SamaritanHomepage()
     #     SelectYear = self.CH.SelectYear()
     #     SelectYear.select_by_index(1)
     #     hospital = self.CH.Hospitaldropdown()
@@ -260,6 +262,8 @@ class Test_001_Login:
     #             if hospital == name:
     #                 print("Selected hospital records are present")
     #
+
+
     def test_Dashboard(self, setup):
         self.logger.info("********************verifying test_Dashboard ********************************")
         self.driver = setup
@@ -272,7 +276,7 @@ class Test_001_Login:
         self.driver.maximize_window()
         self.CH = Hospital(self.driver)
         time.sleep(35)
-        self.CH.DeaconessHomepage()
+        self.CH.Good_SamaritanHomepage()
         time.sleep(35)
         self.CH.Dashboard()
         a = self.driver.current_url
@@ -297,13 +301,13 @@ class Test_001_Login:
         self.driver.maximize_window()
         self.CH = Hospital(self.driver)
         time.sleep(35)
-        self.CH.DeaconessHomepage()
+        self.CH.Good_SamaritanHomepage()
         time.sleep(35)
         self.CH.Dashboard()
-        self.CH.DeaconessHomepage()
+        self.CH.Good_SamaritanHomepage()
         time.sleep(35)
         a = self.driver.current_url
-        if a == "https://uat-pds-billing-info.pdsnew.com/dashboard/DEACONESS":
+        if a == "https://uat-pds-billing-info.pdsnew.com/dashboard/GOOD%20SAMARITAN":
             assert True
             self.logger.info("********************test_Dashboard1 Passed********************************")
         else:
@@ -324,7 +328,7 @@ class Test_001_Login:
         self.driver.maximize_window()
         self.CH = Hospital(self.driver)
         time.sleep(35)
-        self.CH.DeaconessHomepage()
+        self.CH.Good_SamaritanHomepage()
         self.hp = Homepage_Billing(self.driver)
         time.sleep(10)
         self.hp.logout()
@@ -355,7 +359,7 @@ class Test_001_Login:
         self.driver.maximize_window()
         self.CH = Hospital(self.driver)
         time.sleep(35)
-        self.CH.DeaconessHomepage()
+        self.CH.Good_SamaritanHomepage()
         time.sleep(10)
         self.CH.Dashboardmenu()
         a = self.driver.current_url
@@ -366,7 +370,6 @@ class Test_001_Login:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_DashboardMenu.png")
             self.logger.info("********************test_DashboardMenu ended********************************")
             assert False
-
 
     def test_DashboardMenu1(self,setup):
         self.logger.info("********************verifying test_DashboardMenu1 Test********************************")
@@ -380,20 +383,19 @@ class Test_001_Login:
         self.driver.maximize_window()
         self.CH = Hospital(self.driver)
         time.sleep(35)
-        self.CH.DeaconessHomepage()
+        self.CH.Good_SamaritanHomepage()
         time.sleep(35)
         self.CH.Dashboardmenu()
-        self.CH.DeaconessHomepage()
+        self.CH.Good_SamaritanHomepage()
         time.sleep(35)
         a = self.driver.current_url
-        if a == "https://uat-pds-billing-info.pdsnew.com/dashboard/DEACONESS":
+        if a == "https://uat-pds-billing-info.pdsnew.com/dashboard/GOOD%20SAMARITAN":
             assert True
             self.logger.info("********************test_Dashboard1 Passed********************************")
         else:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_DashboardMenu1.png")
             self.logger.info("********************test_DashboardMenu1 ended********************************")
             assert False
-
 
     def test_Propensity_score_link(self, setup):
         self.logger.info("********************verifying test_DashboardMenu1 Test********************************")
@@ -407,7 +409,7 @@ class Test_001_Login:
         self.driver.maximize_window()
         self.CH = Hospital(self.driver)
         time.sleep(35)
-        self.CH.DeaconessHomepage()()
+        self.CH.Good_SamaritanHomepage()
         time.sleep(35)
         self.CH.Propensitylink()
         D = "PROPENSITY SCORE"
@@ -434,7 +436,7 @@ class Test_001_Login:
         self.driver.maximize_window()
         self.CH = Hospital(self.driver)
         time.sleep(35)
-        self.CH.DeaconessHomepage()()
+        self.CH.Good_SamaritanHomepage()
         time.sleep(35)
         self.CH.Propensitylink()
         time.sleep(5)
@@ -458,7 +460,7 @@ class Test_001_Login:
         self.driver.maximize_window()
         self.CH = Hospital(self.driver)
         time.sleep(35)
-        self.CH.DeaconessHomepage()()
+        self.CH.Good_SamaritanHomepage()
         time.sleep(35)
         self.CH.Propensitylink()
         time.sleep(40)
@@ -489,7 +491,7 @@ class Test_001_Login:
         self.driver.maximize_window()
         self.CH = Hospital(self.driver)
         time.sleep(35)
-        self.CH.DeaconessHomepage()()()
+        self.CH.Good_SamaritanHomepage()()
         time.sleep(35)
         self.CH.Propensitylink()
         time.sleep(5)

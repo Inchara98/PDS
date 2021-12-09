@@ -19,9 +19,9 @@ class ReportPage:
         file = self.driver.find_element_by_id(self.data.choosefilesDeaconess)
         return file
 
-    def choosefilesWomenshsptl(self):
+    def choosefilesWomenshospital(self):
         self.data = Locator_Path()
-        file = self.driver.find_element_by_id(self.data.choosefilesWomenshsptl)
+        file = self.driver.find_element_by_id(self.data.choosefilesWomenshospital)
         return file
 
     def choosefilesVincent(self):
@@ -46,34 +46,41 @@ class ReportPage:
 
     def SubmitCommunity(self):
         self.data = Locator_Path()
-        self.driver.find_element_by_id(self.data.SubmitCommunity)
+        a = self.driver.find_element_by_id(self.data.SubmitCommunity)
+        return a
 
     def SubmitDeaconess(self):
         self.data = Locator_Path()
-        self.driver.find_element_by_id(self.data.SubmitDeaconess)
+        a = self.driver.find_element_by_id(self.data.SubmitDeaconess)
+        return a
 
-    def SubmitWomenshsptl(self):
+    def SubmitWomensHospital(self):
         self.data = Locator_Path()
-        self.driver.find_element_by_id(self.data.SubmitWomenshsptl)
+        a = self.driver.find_element_by_id(self.data.SubmitWomensHospital)
+        return a
 
 
     def SubmitVincent(self):
         self.data = Locator_Path()
-        self.driver.find_element_by_id(self.data.SubmitVincent)
+        a = self.driver.find_element_by_id(self.data.SubmitVincent)
+        return a
 
     def SubmitVincentDunn(self):
         self.data = Locator_Path()
-        self.driver.find_element_by_id(self.data.SubmitVincentDunn)
+        a = self.driver.find_element_by_id(self.data.SubmitVincentDunn)
+        return a
 
 
     def SubmitGoodSam(self):
         self.data = Locator_Path()
-        self.driver.find_element_by_id(self.data.SubmitGoodSam)
+        a = self.driver.find_element_by_id(self.data.SubmitGoodSam)
+        return a
 
 
     def SubmitParkView(self):
         self.data = Locator_Path()
-        self.driver.find_element_by_id(self.data.SubmitParkView)
+        a = self.driver.find_element_by_id(self.data.SubmitParkView)
+        return a
 
     def ExecuteButtonCommunity(self):
         self.data = Locator_Path()
@@ -85,9 +92,9 @@ class ReportPage:
         Execute_Button = self.driver.find_element_by_id(self.data.ExecuteButtonDeaconess)
         return Execute_Button
 
-    def ExecuteButtonWomenshsptl(self):
+    def ExecuteButtonWomenshospital(self):
         self.data = Locator_Path()
-        Execute_Button = self.driver.find_element_by_id(self.data.ExecuteButtonWomenshsptl)
+        Execute_Button = self.driver.find_element_by_id(self.data.ExecuteButtonWomenshospital)
         return Execute_Button
 
     def ExecuteButtonVincent(self):
@@ -120,9 +127,9 @@ class ReportPage:
         Status = self.driver.find_element_by_id(self.data.StatusDeaconess)
         return Status
 
-    def StatusWomenshsptl(self):
+    def StatusWomenshospital(self):
         self.data = Locator_Path()
-        Status = self.driver.find_element_by_id(self.data.StatusWomenshsptl)
+        Status = self.driver.find_element_by_id(self.data.StatusWomenshospital)
         return Status
 
     def StatusVincent(self):
@@ -147,7 +154,7 @@ class ReportPage:
 
     def DownloadCommunity(self):
         self.data = Locator_Path()
-        Download = self.driver.find_element_by_name(self.data.DownloadCommunity)
+        Download = self.driver.find_element_by_id(self.data.DownloadCommunity)
         return Download
 
     def DownloadDeaconess(self):
@@ -155,9 +162,9 @@ class ReportPage:
         Download = self.driver.find_element_by_name(self.data.DownloadDeaconess)
         return Download
 
-    def DownloadWomenshsptl(self):
+    def DownloadWomenshospital(self):
         self.data = Locator_Path()
-        Download = self.driver.find_element_by_name(self.data.DownloadWomenshsptl)
+        Download = self.driver.find_element_by_name(self.data.DownloadWomenshospital)
         return Download
 
     def DownloadVincent(self):

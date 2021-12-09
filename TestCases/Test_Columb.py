@@ -1,5 +1,8 @@
+import os
 import time
 import pytest
+
+from PageObjects.HomePage_Billing import Homepage_Billing
 from PageObjects.LoginPage import LoginPage
 from PageObjects.Hospital import Hospital
 from Logs.Log import log_Details
@@ -11,8 +14,10 @@ class Test_001_Login:
     baseUrl = ReadConfig.getApplicationUrl()
     username = ReadConfig.getUserID()
     password = ReadConfig.getPassword()
+    search = ReadConfig.getSearch()
 
     logger =log_Details.logen()
+
 
     @pytest.mark.smoke
     def test_ColumbHomepage(self,setup):
@@ -432,7 +437,7 @@ class Test_001_Login:
             assert False
 
     def test_Propensity_download(self, setup):
-        self.logger.info("********************verifying test_DashboardMenu1 Test********************************")
+        self.logger.info("********************verifying test_Propensity_download Test********************************")
         self.driver = setup
         self.driver.get(self.baseUrl)
         self.lp = LoginPage(self.driver)
@@ -452,8 +457,15 @@ class Test_001_Login:
         filename = "Download.default_directory" + "COLUMBUS REGIONAL HEALTH_Propensity_Score"
         if os.path.dirname(filename) != True:
             print("Download is working")
+            assert True
         else:
             print("Download is not working")
+            self.driver.save_screenshot(
+                "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Propensity_download.png")
+            self.driver.close()
+            self.logger.info(
+                "********************test_Propensity_download Ended Due to difference in the txt********************************")
+            assert False
 
 
     def test_Propensity_Search(self,setup):

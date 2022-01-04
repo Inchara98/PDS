@@ -44,15 +44,26 @@ class Locator_Path():
     DownloadParkview = "Park_View"
     DownloadGoodSam = "Good_Samaritan_Family"
     BookToFacs = "booktofacs_tab"
-    Choosefile_BK = "Book_to_Facsfile"
+    Choosefile_BK = "/html/body/div/div/div[2]/div/main/div/div/div/div[2]/div/div[2]/div/table/tbody/tr/td[2]/input"
     Submit_BK = "Book_to_Facs"
     ExecuteButton_BK = "execute_facs"
+    status_BK = "progress_facs"
     Download_BK = "download_facs"
     WeeklyReports = "weekly_tab"
     Choosefile = "Good_Samaritanfile"
     Submit_WR = "Good_Samaritan"
     ExecuteButton_WR = "execute_weekly"
     Download_WR = "download_weekly"
+    SelectYear_WR = "selectYear"
+    SelectMonth_WR = "selectMonth"
+    SelectWeek_WR = "selectWeek"
+
+
+
+
+
+
+
 
     Logout_Billing = "logout"
     SelectYear1 = "selectYear"

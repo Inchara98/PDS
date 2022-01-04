@@ -79,6 +79,7 @@ class Test_001_Report:
             self.logger.info("********************test_Community_Submit Test passed********************************")
             assert False
 
+
     def test_Community_ExecuteButton(self, setup):
         self.logger.info("********************verifying test_Community_ExecuteButton Test********************************")
         self.driver = setup
@@ -107,6 +108,8 @@ class Test_001_Report:
             self.logger.info("********************ExecuteButton Test passed********************************")
             assert False
 
+
+
     def test_Community_DownloadButton(self, setup):
         self.logger.info("********************verifying Login Test********************************")
         self.driver = setup
@@ -126,9 +129,9 @@ class Test_001_Report:
         self.rp.ExecuteButtonCommunity().click()
         time.sleep(120)
         Status = self.rp.StatusCommunity()
-        print(Status.get_attribute("data-percentage"))
         if Status.get_attribute("data-percentage") == "100":
             self.rp.DownloadCommunity().click()
+            time.sleep(120)
             filename = "Download.default_directory" + "Community.zip"
             if os.path.dirname(filename) != True:
                 print("Download is working")
@@ -141,6 +144,8 @@ class Test_001_Report:
                 self.logger.info(
                     "********************test_Propensity_download Ended Due to difference in the txt********************************")
                 assert False
+
+
 
     def test_ReportPage_Deaconess(self, setup):
         self.logger.info("********************verifying test_ReportPage_Deaconess Test********************************")
@@ -182,6 +187,7 @@ class Test_001_Report:
         choose_files = self.rp.choosefilesDeaconess()
         choose_files.sendkeys(self.Deaconess)
         self.rp.SubmitDeaconess().click()
+        time.sleep(120)
         Execute_Button = self.rp.ExecuteButtonDeaconess()
         if Execute_Button.get_attribute("class") == "execute-color-change-after":
             assert True
@@ -213,13 +219,14 @@ class Test_001_Report:
         self.rp.ExecuteButtonDeaconess().click()
         time.sleep(15)
         Status = self.rp.StatusDeaconess()
+        time.sleep(120)
         if Status.get_attribute("data-percentage") == "100":
             assert True
-            self.logger.info("********************test_Deaconess_ExecuteButton Ended********************************")
+            self.logger.info("********************test_Community_ExecuteButton Ended********************************")
         else:
             self.driver.save_screenshot(
-                "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Deaconess_ExecuteButton.png")
-            self.logger.info("********************test_Deaconess_ExecuteButton passed********************************")
+                "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Community_ExecuteButton.png")
+            self.logger.info("********************ExecuteButton Test passed********************************")
             assert False
 
 
@@ -244,6 +251,7 @@ class Test_001_Report:
         Status = self.rp.StatusDeaconess()
         if Status.get_attribute("data-percentage") == "100":
             self.rp.DownloadDeaconess().click()
+            time.sleep(120)
             filename = "Download.default_directory" + "Community.zip"
             if os.path.dirname(filename) != True:
                 print("Download is working")
@@ -284,7 +292,7 @@ class Test_001_Report:
 
 
     def test_WomensHospital_Submit(self, setup):
-        self.logger.info("********************verifying Login Test********************************")
+        self.logger.info("********************verifying test_WomensHospital_Submit ********************************")
         self.driver = setup
         self.driver.get(self.baseUrl)
         self.lp = LoginPage(self.driver)
@@ -297,45 +305,22 @@ class Test_001_Report:
         time.sleep(3)
         choose_files = self.rp.choosefilesWomenshospital()
         choose_files.sendkeys(self.Womens_Hospital)
-        submit = self.rp.SubmitWomensHospital()
+        self.rp.SubmitWomensHospital().click()
+        time.sleep(120)
         Execute_Button = self.rp.ExecuteButtonWomenshospital()
-        if Execute_Button.is_enabled():
+        if Execute_Button.get_attribute("class") == "execute-color-change-after":
             assert True
+            self.logger.info("********************test_St_Vincent_Submit Ended********************************")
         else:
             self.driver.save_screenshot(
-                "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_WomensHospital_Submit.png")
-            self.logger.info("********************Submit Test passed********************************")
+                "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_St_Vincent_Submit.png")
+            self.logger.info(
+                "********************test_St_Vincent_Submit Test passed********************************")
             assert False
+
+
 
     def test_WomensHospital_ExecuteButton(self, setup):
-        self.logger.info("********************verifying Login Test********************************")
-        self.driver = setup
-        self.driver.get(self.baseUrl)
-        self.lp = LoginPage(self.driver)
-        self.lp.setUserName(self.username)
-        self.lp.setPassword(self.password)
-        self.lp.clickLogin()
-        time.sleep(5)
-        self.driver.maximize_window()
-        self.rp = ReportPage(self.driver)
-        time.sleep(3)
-        choose_files = self.rp.choosefilesWomenshospital()
-        choose_files.sendkeys(self.Womens_Hospital)
-        submit = self.rp.SubmitWomensHospital()
-        time.sleep(5)
-        self.rp.ExecuteButtonWomenshospital().click()
-        time.sleep(15)
-        Status = self.rp.StatusWomenshospital()
-        if Status is 100:
-            assert True
-        else:
-            self.driver.save_screenshot(
-                "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_WomensHospital_ExecuteButton.png")
-            self.logger.info("********************ExecuteButton Test passed********************************")
-            assert False
-
-
-    def test_WomensHospital_DownloadButton(self, setup):
         self.logger.info("********************verifying Login Test********************************")
         self.driver = setup
         self.driver.get(self.baseUrl)
@@ -354,14 +339,52 @@ class Test_001_Report:
         self.rp.ExecuteButtonWomenshospital().click()
         time.sleep(15)
         Status = self.rp.StatusWomenshospital()
-        if Status is 100:
-            self.rp.DownloadWomenshospital().click()
+        if Status.get_attribute("data-percentage") == "100":
             assert True
+            self.logger.info("********************test_Community_ExecuteButton Ended********************************")
         else:
             self.driver.save_screenshot(
-                "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_WomensHospital_DownloadButton.png")
+                "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Community_ExecuteButton.png")
             self.logger.info("********************ExecuteButton Test passed********************************")
             assert False
+
+
+
+    def test_WomensHospital_DownloadButton(self, setup):
+        self.logger.info("********************verifying test_WomensHospital_DownloadButton********************************")
+        self.driver = setup
+        self.driver.get(self.baseUrl)
+        self.lp = LoginPage(self.driver)
+        self.lp.setUserName(self.username)
+        self.lp.setPassword(self.password)
+        self.lp.clickLogin()
+        time.sleep(5)
+        self.driver.maximize_window()
+        self.rp = ReportPage(self.driver)
+        time.sleep(3)
+        choose_files = self.rp.choosefilesWomenshospital()
+        choose_files.sendkeys(self.Womens_Hospital)
+        self.rp.SubmitWomensHospital().click()
+        time.sleep(5)
+        self.rp.ExecuteButtonWomenshospital().click()
+        time.sleep(15)
+        Status = self.rp.StatusWomenshospital()
+        if Status.get_attribute("data-percentage") == "100":
+            self.rp.DownloadCommunity().click()
+            time.sleep(120)
+            filename = "Download.default_directory" + "Community.zip"
+            if os.path.dirname(filename) != True:
+                print("Download is working")
+                assert True
+            else:
+                print("Download is not working")
+                self.driver.save_screenshot(
+                    "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_WomensHospital_DownloadButton.png")
+                self.driver.close()
+                self.logger.info(
+                    "********************test_WomensHospital_DownloadButton Ended Due to difference in the txt********************************")
+                assert False
+
 
 
 
@@ -388,10 +411,11 @@ class Test_001_Report:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_ReportPage_WomensHospital.png")
             self.logger.info("********************test_ReportPage_WomensHospital Test passed********************************")
             assert False
-        
+
+
 
     def test_St_Vincent_Submit(self, setup):
-        self.logger.info("********************verifying Login Test********************************")
+        self.logger.info("********************verifying test_St_Vincent_Submit********************************")
         self.driver = setup
         self.driver.get(self.baseUrl)
         self.lp = LoginPage(self.driver)
@@ -405,17 +429,22 @@ class Test_001_Report:
         choose_files = self.rp.choosefilesVincent()
         choose_files.sendkeys(self.St_Vincent)
         self.rp.SubmitVincent().click()
+        time.sleep(120)
         Execute_Button = self.rp.ExecuteButtonVincent()
-        if Execute_Button.is_enabled():
+        if Execute_Button.get_attribute("class") == "execute-color-change-after":
             assert True
+            self.logger.info("********************test_St_Vincent_Submit Ended********************************")
         else:
             self.driver.save_screenshot(
                 "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_St_Vincent_Submit.png")
-            self.logger.info("********************Submit Test passed********************************")
+            self.logger.info(
+                "********************test_St_Vincent_Submit Test passed********************************")
             assert False
 
+
+
     def test_St_Vincent_ExecuteButton(self, setup):
-        self.logger.info("********************verifying Login Test********************************")
+        self.logger.info("********************verifying test_St_Vincent_ExecuteButton********************************")
         self.driver = setup
         self.driver.get(self.baseUrl)
         self.lp = LoginPage(self.driver)
@@ -433,16 +462,19 @@ class Test_001_Report:
         self.rp.ExecuteButtonVincent().click()
         time.sleep(15)
         Status = self.rp.StatusVincent()
-        if Status is 100:
+        if Status.get_attribute("data-percentage") == "100":
             assert True
+            self.logger.info("********************test_St_Vincent_ExecuteButton Ended********************************")
         else:
             self.driver.save_screenshot(
                 "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_St_Vincent_ExecuteButton.png")
-            self.logger.info("********************ExecuteButton Test passed********************************")
+            self.logger.info("********************test_St_Vincent_ExecuteButton passed********************************")
             assert False
 
+
+
     def test_St_Vincent_DownloadButton(self, setup):
-        self.logger.info("********************verifying Login Test********************************")
+        self.logger.info("********************verifying test_St_Vincent_DownloadButton********************************")
         self.driver = setup
         self.driver.get(self.baseUrl)
         self.lp = LoginPage(self.driver)
@@ -460,14 +492,23 @@ class Test_001_Report:
         self.rp.ExecuteButtonVincent().click()
         time.sleep(15)
         Status = self.rp.StatusVincent()
-        if Status is 100:
-            self.rp.DownloadVincent().click()
-            assert True
-        else:
-            self.driver.save_screenshot(
-                "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_St_Vincent_DownloadButton.png")
-            self.logger.info("********************DownloadButton Test Ended********************************")
-            assert False
+        if Status.get_attribute("data-percentage") == "100":
+            self.rp.DownloadCommunity().click()
+            time.sleep(120)
+            filename = "Download.default_directory" + "Community.zip"
+            if os.path.dirname(filename) != True:
+                print("Download is working")
+                assert True
+            else:
+                print("Download is not working")
+                self.driver.save_screenshot(
+                    "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_St_Vincent_DownloadButton.png")
+                self.driver.close()
+                self.logger.info(
+                    "********************test_St_Vincent_DownloadButton Ended Due to difference in the txt********************************")
+                assert False
+
+
 
     def test_ReportPage_St_Vincent_dunn(self, setup):
         self.logger.info("********************verifying ChooseFile Test********************************")
@@ -492,9 +533,11 @@ class Test_001_Report:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_ReportPage_WomensHospital.png")
             self.logger.info("********************test_ReportPage_WomensHospital Test passed********************************")
             assert False
+
+
         
     def test_St_Vincent_Dunn_Submit(self, setup):
-        self.logger.info("********************verifying Login Test********************************")
+        self.logger.info("********************verifying test_St_Vincent_Dunn_Submit********************************")
         self.driver = setup
         self.driver.get(self.baseUrl)
         self.lp = LoginPage(self.driver)
@@ -508,15 +551,17 @@ class Test_001_Report:
         choose_files = self.rp.choosefilesVincentDunn()
         choose_files.sendkeys(self.St_Vincent_Dunn)
         self.rp.SubmitVincentDunn().click()
+        time.sleep(120)
         Execute_Button = self.rp.ExecuteButtonVincentDunn()
-        if Execute_Button.is_enabled():
+        if Execute_Button.get_attribute("class") == "execute-color-change-after":
             assert True
-            self.logger.info("********************Submit Test passed********************************")
+            self.logger.info("********************test_St_Vincent_Dunn_Submit Ended********************************")
         else:
             self.driver.save_screenshot(
                 "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_St_Vincent_Dunn_Submit.png")
-            self.logger.info("********************Submit Test Ended********************************")
+            self.logger.info("********************test_St_Vincent_Dunn_Submit Test passed********************************")
             assert False
+
 
     def test_St_Vincent_Dunn_ExecuteButton(self, setup):
         self.logger.info("********************verifying Login Test********************************")
@@ -537,17 +582,19 @@ class Test_001_Report:
         self.rp.ExecuteButtonVincentDunn().click()
         time.sleep(15)
         Status = self.rp.StatusVincentDunn()
-        if Status is 100:
+        if Status.get_attribute("data-percentage") == "100":
             assert True
-            self.logger.info("********************ExecuteButton Test passed********************************")
+            self.logger.info("********************test_St_Vincent_ExecuteButton Ended********************************")
         else:
             self.driver.save_screenshot(
-                "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_St_Vincent_Dunn_ExecuteButton.png")
-            self.logger.info("********************ExecuteButton Test Ended********************************")
+                "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_St_Vincent_ExecuteButton.png")
+            self.logger.info("********************test_St_Vincent_ExecuteButton passed********************************")
             assert False
 
+
+
     def test_St_Vincent_Dunn_DownloadButton(self, setup):
-        self.logger.info("********************verifying Login Test********************************")
+        self.logger.info("********************verifying test_St_Vincent_Dunn_DownloadButton********************************")
         self.driver = setup
         self.driver.get(self.baseUrl)
         self.lp = LoginPage(self.driver)
@@ -565,13 +612,23 @@ class Test_001_Report:
         self.rp.ExecuteButtonVincentDunn().click()
         time.sleep(15)
         Status = self.rp.StatusVincentDunn()
-        if Status is 100:
-            self.rp.DownloadVincentDunn().click()
-        else:
-            self.driver.save_screenshot(
-                "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_St_Vincent_DownloadButton.png")
-            self.logger.info("********************ExecuteButton Test passed********************************")
-            assert False
+        if Status.get_attribute("data-percentage") == "100":
+            self.rp.DownloadCommunity().click()
+            time.sleep(120)
+            filename = "Download.default_directory" + "Community.zip"
+            if os.path.dirname(filename) != True:
+                print("Download is working")
+                assert True
+            else:
+                print("Download is not working")
+                self.driver.save_screenshot(
+                    "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_St_Vincent_Dunn_DownloadButton.png")
+                self.driver.close()
+                self.logger.info(
+                    "********************test_St_Vincent_Dunn_DownloadButton Ended Due to difference in the txt********************************")
+                assert False
+
+
 
     def test_ReportPage_Park_view(self, setup):
         self.logger.info("********************verifying ChooseFile Test********************************")
@@ -596,10 +653,12 @@ class Test_001_Report:
             self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_ReportPage_WomensHospital.png")
             self.logger.info("********************test_ReportPage_WomensHospital Test passed********************************")
             assert False
+
+
         
 
     def test_Park_view_Submit(self, setup):
-        self.logger.info("********************verifying Login Test********************************")
+        self.logger.info("********************verifying test_Park_view_Submit********************************")
         self.driver = setup
         self.driver.get(self.baseUrl)
         self.lp = LoginPage(self.driver)
@@ -613,15 +672,18 @@ class Test_001_Report:
         choose_files = self.rp.choosefilesParkview()
         choose_files.sendkeys(self.Park_view)
         self.rp.SubmitParkView().click()
+        time.sleep(120)
         Execute_Button = self.rp.ExecuteButtonParkview()
-        if Execute_Button.is_enabled():
+        if Execute_Button.get_attribute("class") == "execute-color-change-after":
             assert True
-            self.logger.info("********************Submit Test passed********************************")
+            self.logger.info("********************test_Park_view_Submit Ended********************************")
         else:
             self.driver.save_screenshot(
                 "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Park_view_Submit.png")
-            self.logger.info("********************Submit Test Ended********************************")
+            self.logger.info("********************test_Park_view_Submit Test passed********************************")
             assert False
+
+
 
     def test_Park_view_ExecuteButton(self, setup):
         self.logger.info("********************verifying ExecuteButton Test********************************")
@@ -642,17 +704,19 @@ class Test_001_Report:
         self.rp.ExecuteButtonParkview().click()
         time.sleep(15)
         Status = self.rp.StatusParkview()
-        if Status is 100:
+        if Status.get_attribute("data-percentage") == "100":
             assert True
-            self.logger.info("********************ExecuteButton Test passed********************************")
+            self.logger.info("********************test_Park_view_ExecuteButton Ended********************************")
         else:
             self.driver.save_screenshot(
                 "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Park_view_ExecuteButton.png")
-            self.logger.info("********************ExecuteButton Test Ended********************************")
+            self.logger.info("********************test_Park_view_ExecuteButton passed********************************")
             assert False
 
+
+
     def test_Park_view_DownloadButton(self, setup):
-        self.logger.info("********************verifying Login Test********************************")
+        self.logger.info("********************verifying test_Park_view_DownloadButton********************************")
         self.driver = setup
         self.driver.get(self.baseUrl)
         self.lp = LoginPage(self.driver)
@@ -670,14 +734,23 @@ class Test_001_Report:
         self.rp.ExecuteButtonParkview().click()
         time.sleep(15)
         Status = self.rp.StatusParkview()
-        if Status is 100:
-            self.rp.DownloadParkview().click()
-            assert True
-        else:
-            self.driver.save_screenshot(
-                "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Park_view_DownloadButton.png")
-            self.logger.info("********************DownloadButton Test Ended********************************")
-            assert False
+        if Status.get_attribute("data-percentage") == "100":
+            self.rp.DownloadCommunity().click()
+            time.sleep(120)
+            filename = "Download.default_directory" + "Community.zip"
+            if os.path.dirname(filename) != True:
+                print("Download is working")
+                assert True
+            else:
+                print("Download is not working")
+                self.driver.save_screenshot(
+                    "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Park_view_DownloadButton.png")
+                self.driver.close()
+                self.logger.info(
+                    "********************test_Park_view_DownloadButton Ended Due to difference in the txt********************************")
+                assert False
+
+
 
     def test_ReportPage_GoodSam(self, setup):
         self.logger.info("********************verifying ChooseFile Test********************************")
@@ -697,15 +770,16 @@ class Test_001_Report:
         time.sleep(20)
         if submit == True:
             assert True
-            self.logger.info("********************test_ReportPage_WomensHospital Ended********************************")
+            self.logger.info("********************test_ReportPage_GoodSam Ended********************************")
         else:
-            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_ReportPage_WomensHospital.png")
-            self.logger.info("********************test_ReportPage_WomensHospital Test passed********************************")
+            self.driver.save_screenshot("/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_ReportPage_GoodSam.png")
+            self.logger.info("********************test_ReportPage_GoodSam Test passed********************************")
             assert False
+
         
 
     def test_GoodSam_Submit(self, setup):
-        self.logger.info("********************verifying Login Test********************************")
+        self.logger.info("********************verifying test_GoodSam_Submit ********************************")
         self.driver = setup
         self.driver.get(self.baseUrl)
         self.lp = LoginPage(self.driver)
@@ -716,18 +790,21 @@ class Test_001_Report:
         self.driver.maximize_window()
         self.rp = ReportPage(self.driver)
         time.sleep(3)
-        choose_files = self.rp.choosefileGoodsamFam()
+        choose_files = self.rp.ExecuteButtonGoodSam()
         choose_files.sendkeys(self.GoodSam)
         self.rp.SubmitGoodSam().click()
-        Execute_Button = self.rp.ExecuteButtonGoodSam()
-        if Execute_Button.is_enabled():
+        time.sleep(120)
+        Execute_Button = self.rp.ExecuteButtonCommunity()
+        if Execute_Button.get_attribute("class") == "execute-color-change-after":
             assert True
-            self.logger.info("********************Submit Test passed********************************")
+            self.logger.info("********************test_GoodSam_Submit Ended********************************")
         else:
             self.driver.save_screenshot(
-                "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Park_view_Submit.png")
-            self.logger.info("********************Submit Test Ended********************************")
+                "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_GoodSam_Submit.png")
+            self.logger.info("********************test_GoodSam_Submit Test passed********************************")
             assert False
+
+
 
     def test_GoodSam_ExecuteButton(self, setup):
         self.logger.info("********************verifying ExecuteButton Test********************************")
@@ -748,17 +825,19 @@ class Test_001_Report:
         self.rp.ExecuteButtonGoodSam().click()
         time.sleep(15)
         Status = self.rp.StatusGoodSam()
-        if Status is 100:
+        if Status.get_attribute("data-percentage") == "100":
             assert True
-            self.logger.info("********************ExecuteButton Test passed********************************")
+            self.logger.info("********************test_GoodSam_ExecuteButton Ended********************************")
         else:
             self.driver.save_screenshot(
                 "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_Park_view_ExecuteButton.png")
-            self.logger.info("********************ExecuteButton Test Ended********************************")
+            self.logger.info("********************test_Park_view_ExecuteButton passed********************************")
             assert False
 
+
+
     def test_GoodSam_DownloadButton(self, setup):
-        self.logger.info("********************verifying Login Test********************************")
+        self.logger.info("********************verifying test_GoodSam_DownloadButton********************************")
         self.driver = setup
         self.driver.get(self.baseUrl)
         self.lp = LoginPage(self.driver)
@@ -776,11 +855,18 @@ class Test_001_Report:
         self.rp.ExecuteButtonGoodSam().click()
         time.sleep(15)
         Status = self.rp.StatusGoodSam()
-        if Status is 100:
-            self.rp.DownloadGoodSam().click()
-            assert True
-        else:
-            self.driver.save_screenshot(
-                "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_GoodSam_DownloadButton.png")
-            self.logger.info("********************DownloadButton Test Ended********************************")
-            assert False
+        if Status.get_attribute("data-percentage") == "100":
+            self.rp.DownloadCommunity().click()
+            time.sleep(120)
+            filename = "Download.default_directory" + "Community.zip"
+            if os.path.dirname(filename) != True:
+                print("Download is working")
+                assert True
+            else:
+                print("Download is not working")
+                self.driver.save_screenshot(
+                    "/home/inchara/PycharmProjects/PDS/Screenshots/" + "test_GoodSam_DownloadButton.png")
+                self.driver.close()
+                self.logger.info(
+                    "********************test_GoodSam_DownloadButton Ended Due to difference in the txt********************************")
+                assert False

@@ -129,16 +129,6 @@ class ReadConfig():
         config.read(self.p.get_config_ini_path())
         return config['common_info']['password']
 
-    def login_to_PDS_Billing_Application(self):
-        self.driver = driver
-        data = ReadConfig()
-        self.driver = data.get_driver()
-        self.driver.get(data.get_applicationUrl())
-        time.sleep(10)
-        self.driver.find_element_by_id(self.textbox_username).send_keys(data.get_username())
-        self.driver.find_element_by_id(self.textbox_password).send_keys(data.get_password())
-        self.driver.find_element_by_id(self.button_login).click()
-        time.sleep(10)
 
     @staticmethod
     def getSearch():
